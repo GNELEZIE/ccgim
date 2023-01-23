@@ -51,10 +51,10 @@
                                     <a href="#">Faq</a>
                                 </li>
                                 <li>
-                                    <a href="#">Connexion</a>
+                                    <a href="<?=$domaine?>/connexion">Connexion</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="btn-register">S'inscrire</a>
+                                    <a href="<?=$domaine?>/inscription" class="btn-register">S'inscrire</a>
                                 </li>
                             </ul>
                         </div>

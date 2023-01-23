@@ -110,9 +110,9 @@ include_once $layout.'/header.php'
                             </li>
                         </ul>
                     </div>
-                </div><!-- /.bottom-content -->
-            </div><!-- /.text-content -->
-        </div><!-- /.partments-content -->
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-3">
         <div class="apartments-content">
@@ -167,16 +167,12 @@ include_once $layout.'/header.php'
         <div class="apartments-content">
             <div class="image-content">
                 <a href="apartment-single.html"><img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-three.png" alt="apartment" /></a>
-            </div><!-- /.image-content -->
-
+            </div>
             <div class="text-content">
                 <div class="top-content">
                     <h3><a href="apartment-single.html">Family Apartment</a></h3>
-                                <span>
-                                    <i class="fa fa-map-marker"></i>
-                                    Dhanmondi, Dhaka
-                                </span>
-                </div><!-- /.top-content -->
+                    <span><i class="fa fa-map-marker"></i>Dhanmondi, Dhaka</span>
+                </div>
                 <div class="bottom-content clearfix">
                     <div class="meta-bed-room">
                         <i class="fa fa-bed"></i> 3 Bedrooms
@@ -212,9 +208,9 @@ include_once $layout.'/header.php'
                             </li>
                         </ul>
                     </div>
-                </div><!-- /.bottom-content -->
-            </div><!-- /.text-content -->
-        </div><!-- /.partments-content -->
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-3">
         <div class="apartments-content">
@@ -433,13 +429,13 @@ include_once $layout.'/header.php'
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
-                                </div><!-- /.star -->
-                            </div><!-- /.client-content -->
-                        </div><!-- /.item -->
+                                </div>
+                            </div>
+                        </div>
                         <div class="item">
                             <div class="client-image">
                                 <img src="<?=$cdn_domaine?>/assets/images/testimonial-image.png" alt="testimonial" />
-                            </div><!-- /.client-image -->
+                            </div>
                             <div class="client-content">
                                 <h3>Single Rakib</h3>
                                 <h5>softhopper Manager</h5>
@@ -527,7 +523,7 @@ include_once $layout.'/header.php'
         </div>
     </div>
     <div class="contact-area">
-        <div class="container-large-device">
+        <div class="container">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -548,13 +544,13 @@ include_once $layout.'/header.php'
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="contact">
-                                        <h4><i class="fa fa-address-book"></i>Adresse</h4>
+                                        <h4 class="font-15"><i class="fa fa-address-book"></i>Adresse</h4>
                                         <p>Abidjan, Yopougon BAE</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="contact">
-                                        <h4><i class="fa fa-envelope"></i>Mail</h4>
+                                        <h4 class="font-15"><i class="fa fa-envelope"></i>Mail</h4>
                                         <p>contact@ccgim.com support@ccgim.com</p>
                                     </div>
                                 </div>
@@ -562,13 +558,13 @@ include_once $layout.'/header.php'
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="contact">
-                                        <h4><i class="fa fa-phone-square"></i>Téléphone</h4>
+                                        <h4 class="font-15"><i class="fa fa-phone-square"></i>Téléphone</h4>
                                         <p>00225 00 00 00 00  <br/>00225 00 00 00 00 00</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="contact">
-                                        <h4><i class="fa fa-user-circle"></i>Réseaux sociaux</h4>
+                                        <h4 class="font-15"><i class="fa fa-user-circle"></i>Réseaux sociaux</h4>
                                         <div class="social-icon">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
                                             <a href="#"><i class="fa fa-twitter"></i></a>

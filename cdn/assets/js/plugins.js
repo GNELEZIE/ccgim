@@ -247,7 +247,7 @@ jQuery(document).ready(function($){
 			passwordField = togglePass.prev('input');
 		
 		( 'password' == passwordField.attr('type') ) ? passwordField.attr('type', 'text') : passwordField.attr('type', 'password');
-		( 'Hide' == togglePass.text() ) ? togglePass.text('Show') : togglePass.text('Hide');
+		( '<i class="fa fa-eye-slash"></i>' == togglePass.html() ) ? togglePass.html('<i class="fa fa-eye"></i>') : togglePass.html('<i class="fa fa-eye-slash"></i>');
 		//focus and move cursor to the end of input field
 		passwordField.putCursorAtEnd();
 	});
