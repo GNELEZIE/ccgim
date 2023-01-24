@@ -17,6 +17,7 @@ $pages = 'pages';
 
 //Include Connexion
 include_once $class.'/Db.connect.php';
+include_once $class.'/Utilisateur.class.php';
 // appelle des class
 
 include_once $function."/detectdevice/Mobile_Detect.php";

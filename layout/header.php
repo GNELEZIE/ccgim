@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/widht.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/btn.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/font-size.css">
+    <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/padding.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/sweetalert/sweetalert.css" type="text/css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/datatable/datatables.min.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/nice-select/css/nice-select.css">
@@ -127,7 +128,10 @@
             margin: 0 !important;
         }
         .cd-form input.has-padding {
-            padding: 5px 15px 5px 11px !important;
+            padding: 7px 15px 7px 11px !important;
+        }
+        .cd-form input.has-border {
+            border: 2px solid #d2d8d8;
         }
         .cd-form label {
             font-size: 10px;
@@ -141,8 +145,84 @@
             padding: 9px;
         }
 
+        .loader-btn {
+            display: inline-block;
+            width: 0.9rem;
+            height: 0.9rem;
+            vertical-align: middle;
+            border: 0.2em solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner-border .75s linear infinite;
+            animation: spinner-border .75s linear infinite;
+            align-self: center;
+        }
+        .required:before {
+            content: "*";
+            color: red;
+        }
+        .alert-pd{
+            margin-top: 10px;
+            margin-bottom: 0 !important;
+            padding: 9px !important;
+        }
+        .cd-form input.has-padding {
+            padding: 7px 15px 7px 11px !important;
+        }
+        .cd-form input.has-border {
+            border: 1px solid #d2d8d8;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+        }
+        input, select, textarea {
+            font-size: 80% !important;
+        }
+
+        .cd-form input.has-border {
+            border: 2px solid #d2d8d8 !important;
+        }
+
+        .position-relative{
+            position: relative !important;
+        }
+        .cd-form .hide-password {
+            top: 70% !important;
+        }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @media only screen and (min-width: 600px)
+            .cd-form input.has-padding {
+                padding: 16px 20px 16px 50px;
+            }
+            .cd-form input.has-padding {
+                padding: 12px 20px 12px 50px;
+            }
+            .cd-form input.full-width {
+                width: 100%;
+            }
+            .cd-form input {
+                margin: 0;
+                padding: 0;
+                border-radius: 0.25em;
+            }
 
 
 
