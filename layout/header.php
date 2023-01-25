@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="fr">
+<html  lang="fr">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <meta charset="utf-8">
@@ -264,7 +264,9 @@
         .iti{
             width: 100% !important;
         }
-
+        .cd-form input {
+            border-radius: 6px !important;
+        }
 
 
 

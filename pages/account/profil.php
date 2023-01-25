@@ -4,6 +4,7 @@ if(!isset($_SESSION['_ccgim_201'])){
     exit();
 
 }
+require_once $controller.'/profil.update';
 
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
@@ -77,8 +78,36 @@ include_once $layout.'/header.php'?>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="" for="ville">Ville <i class="required"></i></label>
-                                        <input class="full-width has-padding has-border" name="ville" id="ville" type="text" placeholder="Ville" required>
+                                        <label class="" for="postale">Boîte postale</label>
+                                        <input class="full-width has-padding has-border" name="postale" id="postale" type="text" placeholder="Boîte postale" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="banque">Banque et N° de compte</label>
+                                        <input class="full-width has-padding has-border" name="banque" id="banque" type="text" placeholder="Banque et N° de compte" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="" for="contribuable">N° compte contribuable</label>
+                                        <input class="full-width has-padding has-border" name="contribuable" id="contribuable" type="text" placeholder="N° compte contribuable" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="mecano">MECANO</label>
+                                        <input class="full-width has-padding has-border" name="mecano" id="mecano" type="text" placeholder="MECANO" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="" for="service">Service ou affectation</label>
+                                        <input class="full-width has-padding has-border" name="service" id="service" type="text" placeholder="Service ou affectation" required>
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +138,7 @@ include_once $layout.'/header.php'?>
     var inputPhone = document.querySelector("#phone");
     window.intlTelInput(inputPhone, {
         initialCountry: 'ci',
-        utilsScript: "<?=$cdn_domaine?>/libs/intltelinput/js/utils.js"
+        utilsScript: "<?=$cdn_domaine?>/assets/libs/intltelinput/js/utils.js"
     });
     var iti = window.intlTelInputGlobals.getInstance(inputPhone);
     var countryData = iti.getSelectedCountryData();

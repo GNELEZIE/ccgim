@@ -270,6 +270,55 @@ class Utilisateur
         $nb = $rs->rowCount();
         return $nb;
     }
+    public function updateData12($propriete1,$val1,$propriete2,$val2,$propriete3,$val3,$propriete4,$val4,$propriete5,$val5,$propriete6,$val6,$propriete7,$val7,$propriete8,$val8,$propriete9,$val9,$propriete10,$val10,$propriete11,$val11,$propriete12,$val12,$id){
+        $query = "UPDATE utilisateur
+            SET $propriete1 = :val1, $propriete2 = :val2, $propriete3 = :val3, $propriete4 = :val4, $propriete5 = :val5, $propriete6 = :val6, $propriete7 = :val7, $propriete8 = :val8, $propriete9 = :val9, $propriete10 = :val10, $propriete11 = :val11, $propriete12 = :val12
+            WHERE id_utilisateur = :id";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "val1" => $val1,
+            "val2" => $val2,
+            "val3" => $val3,
+            "val4" => $val4,
+            "val5" => $val5,
+            "val6" => $val6,
+            "val7" => $val7,
+            "val8" => $val8,
+            "val9" => $val9,
+            "val10" => $val10,
+            "val11" => $val11,
+            "val12" => $val12,
+            "id" => $id
+        ));
+
+        $nb = $rs->rowCount();
+        return $nb;
+    }
+    public function updateData13($propriete1,$val1,$propriete2,$val2,$propriete3,$val3,$propriete4,$val4,$propriete5,$val5,$propriete6,$val6,$propriete7,$val7,$propriete8,$val8,$propriete9,$val9,$propriete10,$val10,$propriete11,$val11,$propriete12,$val12,$propriete13,$val13,$id){
+        $query = "UPDATE utilisateur
+            SET $propriete1 = :val1, $propriete2 = :val2, $propriete3 = :val3, $propriete4 = :val4, $propriete5 = :val5, $propriete6 = :val6, $propriete7 = :val7, $propriete8 = :val8, $propriete9 = :val9, $propriete10 = :val10, $propriete11 = :val11, $propriete12 = :val12, $propriete13 = :val13
+            WHERE id_utilisateur = :id";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "val1" => $val1,
+            "val2" => $val2,
+            "val3" => $val3,
+            "val4" => $val4,
+            "val5" => $val5,
+            "val6" => $val6,
+            "val7" => $val7,
+            "val8" => $val8,
+            "val9" => $val9,
+            "val10" => $val10,
+            "val11" => $val11,
+            "val12" => $val12,
+            "val13" => $val13,
+            "id" => $id
+        ));
+
+        $nb = $rs->rowCount();
+        return $nb;
+    }
 
     // Verification valeur existant
     public function verifUtilisateur($propriete,$val){
