@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/intltelinput/css/intlTelInput.min.css"/>
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/toast/jquery.toast.min.css"/>
     <script src="<?=$cdn_domaine?>/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/intltelinput/css/intlTelInput.min.css"/>
     <style>
 
         .header-bottom-content.style-two .top-navigation .menu-list > li > a {
@@ -34,11 +35,11 @@
         }
 
         .menu-list li:hover > a, .menu-list > li > a:hover, .menu-list > li > a.active {
-            background: #0000ff12 !important;
-            color: #0000ff !important;
+            background: #18a3f412 !important;
+            color: #18a3f4 !important;
         }
         .btn-register{
-            background: blue;
+            background: #18a3f4;
             color: #fff !important;
         }
         .title1{
@@ -46,7 +47,7 @@
             left: 207px;
             top: 75px;
             font-weight: bold;
-            color: #0000ff;
+            color: #18a3f4;
             font-size: 50px;
             padding: 2px 17px;
             border-radius: 6px;
@@ -142,7 +143,7 @@
         .user-inscription{
             width: 100%;
             border: 0;
-            background: #0000ff;
+            background: #18a3f4;
             border-radius: 6px;
             font-size: 17px;
             padding: 9px;
@@ -231,10 +232,37 @@
             color: #ffffff;
         }
         .header-box {
-            background: #0000ff;
+            background: #18a3f4;
             color: #ffffff;
             border-radius: 6px 6px 0 0;
             padding: 15px 20px;
+        }
+        .img-profil{
+            border-radius: 6px 6px 0 0;
+        }
+        .btn-a{
+            padding: 23px 0;
+        }
+        .btn-a a{
+            background: #18a3f47a;
+            padding: 4px 15px;
+            border-radius: 6px;
+            color: #18a3f4;
+        }
+        .btn-a a:hover{
+            background: #18a3f4;
+            color: #fff;
+        }
+        .img-profil{
+            object-fit: cover;
+            height: 240px;
+            width: 100%;
+        }
+        .radius-6{
+            border-radius: 6px !important;
+        }
+        .iti{
+            width: 100% !important;
         }
 
 

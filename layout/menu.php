@@ -60,7 +60,7 @@
                                         <a href="#" class="btn-register"> <i class="fa fa-user"></i> Mon compte</a>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a href="#">Profil</a>
+                                                <a href="<?=$domaine?>/compte/profil">Profil</a>
                                             </li>
                                             <li>
                                                 <a href="<?=$domaine?>/logout">Déconnexion</a>
