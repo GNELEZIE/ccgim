@@ -53,9 +53,30 @@
                                 <li>
                                     <a href="<?=$domaine?>/connexion">Connexion</a>
                                 </li>
-                                <li>
-                                    <a href="<?=$domaine?>/inscription" class="btn-register">S'inscrire</a>
-                                </li>
+                                <?php
+                                if(isset($_SESSION['_ccgim_201'])){
+                                    ?>
+                                    <li>
+                                        <a href="#" class="btn-register"> <i class="fa fa-user"></i> Mon compte</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="#">Profil</a>
+                                            </li>
+                                            <li>
+                                                <a href="<?=$domaine?>/logout">Déconnexion</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                <?php
+                                }else{
+                                    ?>
+                                    <li>
+                                        <a href="<?=$domaine?>/inscription" class="btn-register">S'inscrire</a>
+                                    </li>
+                                <?php
+                                }
+                                ?>
+
                             </ul>
                         </div>
                     </div>

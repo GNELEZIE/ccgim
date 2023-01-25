@@ -32,11 +32,10 @@ include_once $function."/function.php";
 
 
 
-/*
+
 if(isset($_COOKIE['_ccgim_cookie']) AND !isset($_SESSION['_ccgim_201'])){
     $user = my_decrypt($_COOKIE['_ccgim_cookie']);
-    $userPhone = explode('-',$user);
-    $result = $utilisateur->getUtilisateurByPhone($userPhone[0],$userPhone[1]);
+    $result = $utilisateur->getUtilisateurByEmail($user);
     if($data = $result->fetch()){
         if($data['bloquer'] == 0){
             $_SESSION['_ccgim_201'] = $data;
@@ -56,4 +55,4 @@ if(isset($_SESSION['_ccgim_201'])){
         }
         unset($_SESSION['_ccgim_201']);
     }
-}*/
+}

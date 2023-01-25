@@ -121,6 +121,9 @@
         .offset-3{
             margin-left: 25%;
         }
+        .offset-4{
+            margin-left: 33.33%;
+        }
         .cd-form {
            border-radius: 6px;
         }
@@ -134,7 +137,7 @@
             border: 2px solid #d2d8d8;
         }
         .cd-form label {
-            font-size: 10px;
+            font-size: 13px;
         }
         .user-inscription{
             width: 100%;
@@ -191,10 +194,48 @@
         .cd-form .hide-password {
             top: 70% !important;
         }
-
-
-
-
+        .d-flex{
+            display: flex;
+        }
+        .w20{
+            width: 20%;
+        }
+        .w30{
+            width: 30%;
+        }
+        .w40{
+            width: 40%;
+        }
+        .w50{
+            width: 50% !important;
+        }
+        .w60{
+            width: 60%;
+        }
+        .w70{
+            width: 70%;
+        }
+        .w80{
+            width: 80%;
+        }
+        .w100{
+            width: 100%;
+        }
+        .text-right{
+            text-align: right;
+        }
+        .font-15{
+            font-size: 15px !important;
+        }
+        .header-bottom-content.style-two .top-navigation .menu-list > li > a span {
+            color: #ffffff;
+        }
+        .header-box {
+            background: #0000ff;
+            color: #ffffff;
+            border-radius: 6px 6px 0 0;
+            padding: 15px 20px;
+        }
 
 
 

@@ -1,4 +1,9 @@
 <?php
+if(isset($_SESSION['_ccgim_201'])){
+    header('location:'.$domaine.'/compte/dashboard');
+    exit();
+
+}
 require_once $controller.'/user.inscription.php';
 
 $token = openssl_random_pseudo_bytes(16);

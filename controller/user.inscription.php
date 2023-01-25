@@ -26,7 +26,7 @@ if(isset($_POST['email']) and isset($_POST['password']) and  isset($_POST['cpass
             sendMailNoReply($email, $subject, $message);*/
             $result = $utilisateur->getUtilisateurByEmail($email);
             if ($data = $result->fetch()) {
-                $_SESSION['usercastle'] = $data;
+                $_SESSION['_ccgim_201'] = $data;
                 header('location:' .$domaine.'/compte/profil');
             }
         } else {
