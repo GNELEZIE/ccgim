@@ -280,7 +280,59 @@
         .pt15{
             padding-top: 15px;
         }
+        .pd25{
+            padding: 25px;
+        }
+        .ts-box{
+            box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+            margin: 30px;
+            border-radius: 6px;
+            text-align: center;
+            padding: 10px 10px;
+        }
+        .myicon-home{
+            background: #18a3f4;
+            color: #fff;
+            padding: 13px 14px;
+            border-radius: 50px;
+            font-size: 21px;
+        }
+        .nbLgt h2{
+            margin: 0;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+        .nbLgt p{
+           margin: 0;
+        }
+        .myicon-user {
+            background: #18a3f4;
+            color: #fff;
+            padding: 11px 14px;
+            border-radius: 50px;
+            font-size: 21px;
+        }
 
+        .myicon-money {
+            background: #18a3f4;
+            color: #fff;
+            padding: 13px 12px;
+            border-radius: 50px;
+            font-size: 21px;
+        }
+        .m30{
+            margin: 30px;
+        }
+        .pb30{
+            padding-bottom: 30px;
+        }
+        .table1 {
+            border: 0 !important;
+        }
+        .table1 th, td {
+            border: 0;
+            padding: 10px;
+        }
 
 
 
