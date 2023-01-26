@@ -54,6 +54,7 @@
 <script src="<?=$cdn_domaine?>/assets/libs/nice-select/js/nice-select-search.js"></script>
 <script src="<?=$cdn_domaine?>/assets/libs/toast/jquery.toast.min.js"></script>
 <script src="<?=$cdn_domaine?>/assets/libs/intltelinput/js/intlTelInput.min.js"></script>
+<script src="<?=$cdn_domaine?>/assets/libs/owlcarousel/js/owl.carousel.js"></script>
 </body>
 </html>
 

@@ -15,9 +15,9 @@ include_once $layout.'/header.php'?>
                       <div class="header-box">
                           Menu dashboard
                       </div>
-                      <div class="link">
-                          <a href="#">Mes logemenys</a>
-                      </div>
+                      <?php
+                      include_once $layout.'/menu-dashboard.php';
+                      ?>
                   </div>
                 </div>
                 <div class="col-md-9">

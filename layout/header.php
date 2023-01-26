@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/toast/jquery.toast.min.css"/>
     <script src="<?=$cdn_domaine?>/assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/intltelinput/css/intlTelInput.min.css"/>
+    <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/owlcarousel/css/owl.carousel.min.css">
     <style>
 
         .header-bottom-content.style-two .top-navigation .menu-list > li > a {
@@ -332,6 +333,31 @@
         .table1 th, td {
             border: 0;
             padding: 10px;
+        }
+        .link{
+
+        }
+        .link a{
+            padding: 9px 10px;
+        }
+        .link a.actives{
+            width: 100%;
+            display: inherit;
+            background: rgb(24 163 244 / 11%);
+            color: #18a3f4;
+        }
+        .mes-lgts{
+            padding: 30px;
+        }
+        .apartments-content .text-content .bottom-content {
+            padding: 0 20px 8px !important;
+        }
+        .apartments-content .image-content {
+            border-radius: 0;
+        }
+
+        .owl-prev{
+            position: absolute;
         }
 
 
