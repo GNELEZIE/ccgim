@@ -244,14 +244,24 @@
             padding: 23px 0;
         }
         .btn-a a{
-            background: #18a3f47a;
+
             padding: 4px 15px;
             border-radius: 6px;
-            color: #18a3f4;
+            color: #fff;
         }
         .btn-a a:hover{
+            background: #20daf4;
+        }
+        .dash{
+            padding-top: 31px !important;
+        }
+        .dash a{
+            background: rgba(24, 163, 244, 0.21);
+            color: #18a3f4;
+        }
+        .dash a:hover{
             background: #18a3f4;
-            color: #fff;
+            color: #FFFFFF;
         }
         .img-profil{
             object-fit: cover;
@@ -266,6 +276,9 @@
         }
         .cd-form input {
             border-radius: 6px !important;
+        }
+        .pt15{
+            padding-top: 15px;
         }
 
 

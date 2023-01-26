@@ -2,9 +2,17 @@
 if(!isset($_SESSION['_ccgim_201'])){
     header('location:'.$domaine.'/connexion');
     exit();
-
 }
-require_once $controller.'/profil.update';
+if($data['nom'] != ''){
+  $isoPhone = $data['iso_phone'];
+  $dialPhone = $data['dial_phone'];
+}else{
+    $isoPhone = 'ci';
+    $dialPhone = '225';
+}
+
+
+require_once $controller.'/profil.update.php';
 
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
@@ -18,7 +26,10 @@ include_once $layout.'/header.php'?>
                     <div class="compte-box bg-white-color radius-6">
                         <img src="<?=$cdn_domaine?>/media/users/<?php if($data['photo'] != ''){echo $data['photo'];}else{echo 'avatar.png';}?>" class="img-profil" id="imguser"  alt="<?=html_entity_decode(stripslashes($data['nom']))?>">
                        <div class="btn-a text-center py-5">
-                           <a href="javascript:void(0);" id="btn-img"> <i class="fa fa-edit"></i> Modifier ma photo</a>
+                           <a href="javascript:void(0);" class="user-inscription" id="btn-img"> <i class="fa fa-edit"></i> Modifier ma photo</a>
+                         <div class="dash">
+                             <a href="<?=$domaine?>/compte/dashboard" class="user-inscription"> <i class="fa fa-arrow-circle-o-left"></i> Tableau de bord</a>
+                         </div>
                        </div>
                     </div>
                     <form method="post" enctype="multipart/form-data" id="userImgForm">
@@ -31,7 +42,14 @@ include_once $layout.'/header.php'?>
                        Mon profil
                     </div>
                     <div class="bg-white-color">
-                        <form class="cd-form  bg-white-color" method="post">
+                        <form class="cd-form  bg-white-color" id="updForm" method="post">
+                            <?php if(!empty($success)){ ?>
+                                <div class="alert alert-success" style="font-size: 14px" role="alert">
+                                    <?php foreach($success as $succ){ ?>
+                                        <?php echo $succ ?>
+                                    <?php }?>
+                                </div>
+                            <?php }?>
                             <?php if(!empty($errors)){ ?>
                                 <div class="alert alert-danger alert-pd" style="font-size: 13px" role="alert">
                                     <?php foreach($errors as $error){ ?>
@@ -43,13 +61,13 @@ include_once $layout.'/header.php'?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="nom">Nom <i class="required"></i></label>
-                                        <input class="full-width has-padding has-border" name="nom" id="nom" type="text" placeholder="Nom" required>
+                                        <input class="full-width has-padding has-border" name="nom" id="nom" type="text" value="<?=html_entity_decode(stripslashes($data['nom']))?>" placeholder="Nom" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="prenom">Prénom <i class="required"></i></label>
-                                        <input class="full-width has-padding has-border" name="prenom" id="prenom" type="text" placeholder="Prénom" required>
+                                        <input class="full-width has-padding has-border" name="prenom" id="prenom" type="text" value="<?=html_entity_decode(stripslashes($data['prenom']))?>" placeholder="Prénom" required>
                                     </div>
                                 </div>
                             </div>
@@ -57,13 +75,13 @@ include_once $layout.'/header.php'?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="email">E-mail <i class="required"></i></label>
-                                        <input class="full-width has-padding has-border" name="email" id="email" type="email" placeholder="E-mail" required>
+                                        <input class="full-width has-padding has-border" name="email" id="email" type="email" value="<?=html_entity_decode(stripslashes($data['email']))?>" placeholder="E-mail" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="ville">Ville <i class="required"></i></label>
-                                        <input class="full-width has-padding has-border" name="ville" id="ville" type="text" placeholder="Ville" required>
+                                        <input class="full-width has-padding has-border" name="ville" id="ville" type="text" value="<?=html_entity_decode(stripslashes($data['ville']))?>" placeholder="Ville" required>
                                     </div>
                                 </div>
                             </div>
@@ -71,15 +89,15 @@ include_once $layout.'/header.php'?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="phone">Téléphone <i class="required"></i></label>
-                                        <input type="tel" class="full-width has-padding has-border" name="phone" id="phone" style="padding: 7px 15px 7px 45px !important;"  required>
-                                        <input type="hidden"  name="isoPhone" id="isoPhone">
-                                        <input type="hidden"  name="dialPhone" id="dialPhone">
+                                        <input type="tel" class="full-width has-padding has-border" name="phone" id="phone" value="<?=$data['phone']?>" style="padding: 7px 15px 7px 45px !important;"  required>
+                                        <input type="hidden"  name="isoPhone" id="isoPhone" value="<?=$isoPhone?>">
+                                        <input type="hidden"  name="dialPhone" id="dialPhone" value="<?=$dialPhone?>">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="postale">Boîte postale</label>
-                                        <input class="full-width has-padding has-border" name="postale" id="postale" type="text" placeholder="Boîte postale" required>
+                                        <input class="full-width has-padding has-border" name="postale" id="postale" type="text" value="<?=html_entity_decode(stripslashes($data['postale']))?>" placeholder="Boîte postale" required>
                                     </div>
                                 </div>
                             </div>
@@ -87,13 +105,13 @@ include_once $layout.'/header.php'?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="banque">Banque et N° de compte</label>
-                                        <input class="full-width has-padding has-border" name="banque" id="banque" type="text" placeholder="Banque et N° de compte" required>
+                                        <input class="full-width has-padding has-border" name="banque" id="banque" type="text" value="<?=html_entity_decode(stripslashes($data['banque']))?>" placeholder="Banque et N° de compte" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="contribuable">N° compte contribuable</label>
-                                        <input class="full-width has-padding has-border" name="contribuable" id="contribuable" type="text" placeholder="N° compte contribuable" required>
+                                        <input class="full-width has-padding has-border" name="contribuable" id="contribuable" type="text" value="<?=html_entity_decode(stripslashes($data['contribuable']))?>" placeholder="N° compte contribuable" required>
                                     </div>
                                 </div>
                             </div>
@@ -101,20 +119,24 @@ include_once $layout.'/header.php'?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="mecano">MECANO</label>
-                                        <input class="full-width has-padding has-border" name="mecano" id="mecano" type="text" placeholder="MECANO" required>
+                                        <input class="full-width has-padding has-border" name="mecano" id="mecano" type="text" value="<?=html_entity_decode(stripslashes($data['mecano']))?>" placeholder="MECANO">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="service">Service ou affectation</label>
-                                        <input class="full-width has-padding has-border" name="service" id="service" type="text" placeholder="Service ou affectation" required>
+                                        <input class="full-width has-padding has-border" name="service" id="service" type="text" value="<?=html_entity_decode(stripslashes($data['service']))?>" placeholder="Service ou affectation">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">
-                                <button class="full-width has-padding user-inscription"> <i class="loaderBtn"></i> Modifier </button>
+                            <div class="row">
+                                <div class="col-md-4 offset-4 pt15">
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">
+                                        <button class="full-width has-padding user-inscription"> <span class="loaderBtn"> Modifier</span>  </button>
+                                    </div>
+                                </div>
                             </div>
                         </form>
 
@@ -128,6 +150,15 @@ include_once $layout.'/header.php'?>
 
 <?php include_once $layout.'/footer.php'?>
 <script>
+
+    $(document).ready(function(){
+        $("#updForm").submit(function(){
+            $('.loaderBtn').html('Envoi en cours...');
+        });
+    });
+
+
+
     $("#phone").keyup(function (event) {
         if (/\D/g.test(this.value)) {
             //Filter non-digits from input value.
@@ -137,7 +168,7 @@ include_once $layout.'/header.php'?>
 
     var inputPhone = document.querySelector("#phone");
     window.intlTelInput(inputPhone, {
-        initialCountry: 'ci',
+        initialCountry: '<?=$isoPhone?>',
         utilsScript: "<?=$cdn_domaine?>/assets/libs/intltelinput/js/utils.js"
     });
     var iti = window.intlTelInputGlobals.getInstance(inputPhone);

@@ -19,8 +19,8 @@ if(isset($_SESSION['_ccgim_201']) and isset($_POST['nom']) and isset($_POST['pre
     $propriete3 = 'email';
     $propriete4 = 'ville';
     $propriete5 = 'phone';
-    $propriete6 = 'isoPhone';
-    $propriete7 = 'dialPhone';
+    $propriete6 = 'iso_phone';
+    $propriete7 = 'dial_phone';
     $propriete8 = 'postale';
     $propriete9 = 'banque';
     $propriete10 = 'contribuable';
@@ -40,8 +40,9 @@ if(isset($_SESSION['_ccgim_201']) and isset($_POST['nom']) and isset($_POST['pre
     if($dat['email'] != '' and $dat['email'] != $email){
         $errors['upd'] = 'Votre adresse email existe déjà';
     }else{
-        $upds = $utilisateur->updateData13($propriete1,$nom,$propriete2,$prenom,$propriete3,$email,$propriete4,$ville,$propriete5,$phone,$propriete6,$isoPhone,$propriete7,$dialPhone,$propriete8,$postale,$propriete9,$banque,$propriete10,$contribuable,$propriete11,$mecano,$propriete12,$service,$propriete13,$slug,$_SESSION['usercastle']['id_utilisateur']);
+        $upds = $utilisateur->updateData13($propriete1,$nom,$propriete2,$prenom,$propriete3,$email,$propriete4,$ville,$propriete5,$phone,$propriete6,$isoPhone,$propriete7,$dialPhone,$propriete8,$postale,$propriete9,$banque,$propriete10,$contribuable,$propriete11,$mecano,$propriete12,$service,$propriete13,$slug,$_SESSION['_ccgim_201']['id_utilisateur']);
         if($upds > 0){
+            $data = $utilisateur->getUtilisateurById($_SESSION['_ccgim_201']['id_utilisateur'])->fetch();
             $success['message'] = 'Votre profil a été mis à jour !!!';
         }
     }
