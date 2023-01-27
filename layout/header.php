@@ -26,6 +26,7 @@
     <script src="<?=$cdn_domaine?>/assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/intltelinput/css/intlTelInput.min.css"/>
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/owlcarousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/datatable/datatables.min.css">
     <style>
 
         .header-bottom-content.style-two .top-navigation .menu-list > li > a {
@@ -339,10 +340,10 @@
         }
         .link a{
             padding: 9px 10px;
-        }
-        .link a.actives{
             width: 100%;
             display: inherit;
+        }
+        .link a.actives{
             background: rgb(24 163 244 / 11%);
             color: #18a3f4;
         }
@@ -356,9 +357,118 @@
             border-radius: 0;
         }
 
-        .owl-prev{
+        .owl-carousel .owl-nav button.owl-prev{
+            position: absolute;
+            top: 77px;
+            left: 5px;
+            background: #00000057;
+            padding: 5px 13px !important;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 26px;
+        }
+        .mes-lgts .owl-carousel .owl-nav .owl-next{
+            position: absolute;
+            top: 77px;
+            right: 5px;
+            background: #00000057 !important;
+            padding: 5px 13px !important;
+            border-radius: 50px !important;
+            color: #fff !important;
+            font-size: 26px !important;
+        }
+        .owl-carousel .owl-nav button.owl-prev:hover, .mes-lgts .owl-carousel .owl-nav .owl-next:hover{
+            background: #000 !important;
+            color: #fff !important;
+        }
+        .owl-dots{
             position: absolute;
         }
+        .text-box-home h3{
+            margin-bottom: 0;
+            margin-top: 9px;
+        }
+        table.dataTable.no-footer {
+            border-bottom: 0 !important;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            border-bottom: 0 !important;
+        }
+        th {
+            border: 0 !important;
+        }
+        table{
+            border: 0 !important;
+        }
+        table > tbody > tr > td, table > tbody > tr > td > a, .dataTables_info {
+            border: none;
+            background: transparent;
+            -webkit-transition: all 0.1s ease;
+            transition: all 0.1s ease;
+            color: #849ab9 !important;
+            font-size: 13px !important;
+        }
+         table > thead > tr > th {
+            text-transform: initial;
+            border: none;
+            -webkit-transition: all 0.1s ease;
+            transition: all 0.1s ease;
+            background: #e3e9f0;
+            color: #576682;
+            font-size: 15px;
+            font-family: 'Jost', sans-serif;
+            font-weight: 500;
+        }
+        table > thead > tr > th:first-child {
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+        }
+        table > thead > tr > th:last-child {
+            border-bottom-right-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        .table-seach {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: #7d93b2;
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+            box-shadow: none;
+            border-radius: 50%;
+            background: #f1f2f3;
+            color: #849ab9 !important;
+            pointer-events: none;
+            cursor: auto;
+            border-color: #f1f2f3;
+            padding: 5px 13px !important;
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+            background: #f83600 !important;
+            color: #fff !important;
+            border-color: #f83600 !important;
+            border-radius: 50%;
+            padding: 5px 13px !important;
+        }
+        li{
+            list-style: none !important;
+        }
+        .btn-action{
+            background: #f8360047;
+            color: #f83600;
+            padding: 5px 10px;
+            align-items: center;
+            /* display: inherit; */
+            border-radius: 6px;
+        }
+
+
+
+
+
+
+
 
 
 

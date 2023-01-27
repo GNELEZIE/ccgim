@@ -30,8 +30,8 @@ include_once $layout.'/header.php'?>
                             <div class="apartments-content">
                                 <div class="image-content">
                                     <div class="caroussel-item">
-                                        <div class="owl-carousel">
-                                            <div class="item">
+                                        <div class="owl-carousel position-relative">
+                                            <div class="item  position-relative">
                                                 <a href="#">
                                                     <img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-four.png" alt="apartment" />
                                                 </a>
@@ -46,19 +46,19 @@ include_once $layout.'/header.php'?>
 
                                 </div>
                                 <div class="text-content">
-                                    <div class="top-content">
-                                        <h3><a href="apartment-single.html">Family Apartment</a></h3>
-                                        <span><i class="fa fa-map-marker"></i>Dhanmondi, Dhaka</span>
+                                    <div class="top-content text-box-home">
+                                        <h3><a href="#" class="font-15">Family Apartment</a></h3>
+                                        <span><i class="fa fa-map-marker font-13"></i>Dhanmondi, Dhaka</span>
                                     </div>
                                     <div class="bottom-content clearfix">
                                         <span class="clearfix"></span>
                                         <div class="rent-price pull-left">
-                                            $200
+                                            <span class="font-11">150 000 CFA</span>
                                         </div>
                                         <div class="share-meta dropup pull-right">
                                             <ul>
                                                 <li class="dropup">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
+                                                    <a href="#" class="dropdown-toggle font-11" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
                                                     <ul class="dropdown-menu">
                                                         <li>
                                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -69,7 +69,7 @@ include_once $layout.'/header.php'?>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="#"><i class="fa fa-eye m-0"></i> 23</a>
+                                                    <a href="#" class="font-11"><i class="fa fa-eye m-0"></i> 23</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -80,60 +80,36 @@ include_once $layout.'/header.php'?>
                         <div class="col-md-4">
                             <div class="apartments-content">
                                 <div class="image-content">
-                                    <a href="apartment-single.html"><img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-four.png" alt="apartment" /></a>
-                                </div>
-                                <div class="text-content">
-                                    <div class="top-content">
-                                        <h3><a href="apartment-single.html">Family Apartment</a></h3>
-                                        <span><i class="fa fa-map-marker"></i>Dhanmondi, Dhaka</span>
-                                    </div>
-                                    <div class="bottom-content clearfix">
-                                        <span class="clearfix"></span>
-                                        <div class="rent-price pull-left">
-                                            $200
-                                        </div>
-                                        <div class="share-meta dropup pull-right">
-                                            <ul>
-                                                <li class="dropup">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-eye m-0"></i> 23</a>
-                                                </li>
-                                            </ul>
+                                    <div class="caroussel-item">
+                                        <div class="owl-carousel position-relative">
+                                            <div class="item  position-relative">
+                                                <a href="#">
+                                                    <img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-four.png" alt="apartment" />
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="#">
+                                                    <img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-four.png" alt="apartment" />
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <div class="apartments-content">
-                                <div class="image-content">
-                                    <a href="apartment-single.html"><img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-four.png" alt="apartment" /></a>
                                 </div>
                                 <div class="text-content">
-                                    <div class="top-content">
-                                        <h3><a href="apartment-single.html">Family Apartment</a></h3>
-                                        <span><i class="fa fa-map-marker"></i>Dhanmondi, Dhaka</span>
+                                    <div class="top-content text-box-home">
+                                        <h3><a href="#" class="font-15">Family Apartment</a></h3>
+                                        <span><i class="fa fa-map-marker font-13"></i>Dhanmondi, Dhaka</span>
                                     </div>
                                     <div class="bottom-content clearfix">
                                         <span class="clearfix"></span>
                                         <div class="rent-price pull-left">
-                                            $200
+                                            <span class="font-11">150 000 CFA</span>
                                         </div>
                                         <div class="share-meta dropup pull-right">
                                             <ul>
                                                 <li class="dropup">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
+                                                    <a href="#" class="dropdown-toggle font-11" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
                                                     <ul class="dropdown-menu">
                                                         <li>
                                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -144,7 +120,58 @@ include_once $layout.'/header.php'?>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="#"><i class="fa fa-eye m-0"></i> 23</a>
+                                                    <a href="#" class="font-11"><i class="fa fa-eye m-0"></i> 23</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="apartments-content">
+                                <div class="image-content">
+                                    <div class="caroussel-item">
+                                        <div class="owl-carousel position-relative">
+                                            <div class="item  position-relative">
+                                                <a href="#">
+                                                    <img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-four.png" alt="apartment" />
+                                                </a>
+                                            </div>
+                                            <div class="item">
+                                                <a href="#">
+                                                    <img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-four.png" alt="apartment" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="text-content">
+                                    <div class="top-content text-box-home">
+                                        <h3><a href="#" class="font-15">Family Apartment</a></h3>
+                                        <span><i class="fa fa-map-marker font-13"></i>Dhanmondi, Dhaka</span>
+                                    </div>
+                                    <div class="bottom-content clearfix">
+                                        <span class="clearfix"></span>
+                                        <div class="rent-price pull-left">
+                                            <span class="font-11">150 000 CFA</span>
+                                        </div>
+                                        <div class="share-meta dropup pull-right">
+                                            <ul>
+                                                <li class="dropup">
+                                                    <a href="#" class="dropdown-toggle font-11" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li>
+                                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="font-11"><i class="fa fa-eye m-0"></i> 23</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -153,6 +180,23 @@ include_once $layout.'/header.php'?>
                             </div>
                         </div>
                     </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pagination-link">
+                                    <ul class="pagination">
+                                        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                        <li class="active"><a href="#">01</a></li>
+                                        <li><a href="#">02</a></li>
+                                        <li><a href="#">03</a></li>
+                                        <li><a href="#">04</a></li>
+                                        <li><a href="#">05</a></li>
+                                        <li class="dot"><a href="#">...</a></li>
+                                        <li><a href="#">12</a></li>
+                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

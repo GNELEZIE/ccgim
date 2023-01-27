@@ -55,6 +55,7 @@
 <script src="<?=$cdn_domaine?>/assets/libs/toast/jquery.toast.min.js"></script>
 <script src="<?=$cdn_domaine?>/assets/libs/intltelinput/js/intlTelInput.min.js"></script>
 <script src="<?=$cdn_domaine?>/assets/libs/owlcarousel/js/owl.carousel.js"></script>
+<script src="<?=$cdn_domaine?>/assets/libs/datatable/datatables.min.js"></script>
 </body>
 </html>
 
