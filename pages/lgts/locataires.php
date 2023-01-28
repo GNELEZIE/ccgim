@@ -29,39 +29,28 @@ include_once $layout.'/header.php'?>
                         <table id="table_courses" class="table newtable">
                             <thead>
                             <tr>
-                                <th>N° suivi</th>
                                 <th>Date</th>
-                                <th>Client</th>
+                                <th>N° compte contribuable</th>
+                                <th>Nom</th>
+                                <th>Paiement</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>0555</td>
                                 <td>25/01/2023</td>
+                                <td>2512</td>
                                 <td>Ouattara</td>
+                                <td> <span class="badge-green">A jour</span></td>
                                 <td>
-                                    <ul>
-                                        <li class="dropup">
-                                            <a href="#" class="dropdown-toggle font-11" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                             <span  class="font-15"> ...</span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="#">Bloquer</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Débloquer</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                    <a href="#" class="btn-payer">Payer</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>0555</td>
                                 <td>25/01/2023</td>
                                 <td>Ouattara</td>
+                                <td><span class="badge-jaune">En attente</span></td>
                                 <td>
                                     <ul>
                                         <li class="dropup">
@@ -84,6 +73,7 @@ include_once $layout.'/header.php'?>
                                 <td>0555</td>
                                 <td>25/01/2023</td>
                                 <td>Ouattara</td>
+                                <td><span class="badge-green">A jour</span></td>
                                 <td>
                                     <ul>
                                         <li class="dropup">
@@ -106,6 +96,7 @@ include_once $layout.'/header.php'?>
                                 <td>0555</td>
                                 <td>25/01/2023</td>
                                 <td>Ouattara</td>
+                                <td><span class="badge-red">Bloqué</span></td>
                                 <td>
                                     <ul>
                                         <li class="dropup">

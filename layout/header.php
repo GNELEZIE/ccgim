@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/intltelinput/css/intlTelInput.min.css"/>
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/owlcarousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/datatable/datatables.min.css">
+    <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/remixicon.css">
     <style>
 
         .header-bottom-content.style-two .top-navigation .menu-list > li > a {
@@ -451,6 +452,9 @@
             border-radius: 50%;
             padding: 5px 13px !important;
         }
+        .dataTable tbody th, table.dataTable tbody td {
+            vertical-align: middle !important;
+        }
         li{
             list-style: none !important;
         }
@@ -462,8 +466,85 @@
             /* display: inherit; */
             border-radius: 6px;
         }
+        .badge-blue{
+            color: #4ba6ef;
+            background-color: rgba(75, 166, 239, 0.13);
+            border-radius: 6px;
+            transition: all 0.2s ease-in-out;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 5px;
+            vertical-align: middle;
+            border: none;
+        }
 
+        .badge-disable{
+            background-color: rgba(192, 198, 205, 0.13);
+            border-radius: 6px;
+            transition: all 0.2s ease-in-out;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 5px;
+            vertical-align: middle;
+            border: none;
+        }
 
+        .badge-green{
+            color: #2ab57d;
+            background-color: rgba(42, 181, 125, 0.13);
+            border-radius: 6px;
+            transition: all 0.2s ease-in-out;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 5px;
+            vertical-align: middle;
+            border: none;
+        }
+
+        .badge-red{
+            color: #fd625e;
+            background-color: rgba(253, 98, 94, 0.13);
+            border-radius: 6px;
+            transition: all 0.2s ease-in-out;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 5px;
+            vertical-align: middle;
+            border: none;
+        }
+
+        .badge-grey{
+            color: #888ea8;
+            background-color: rgba(192, 198, 205, 0.13);
+            border-radius: 6px;
+            transition: all 0.2s ease-in-out;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 5px;
+            vertical-align: middle;
+            border: none;
+        }
+
+        .badge-jaune{
+            color: #F29F05;
+            background-color: #f29f052b;
+            border-radius: 6px;
+            transition: all 0.2s ease-in-out;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 5px;
+            vertical-align: middle;
+            border: none;
+        }
+        .btn-payer{
+            color: #fff !important;
+            background-color: #2ab57d !important;
+            border-radius: 6px;
+            padding: 3px 7px;
+        }
+        .btn-payer:hover{
+            background-color: #34e09b;
+        }
 
 
 
