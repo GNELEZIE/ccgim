@@ -1,5 +1,5 @@
 <?php
-$date = gmdate('Y-m-d H:i');
+$dateGmt = gmdate('Y-m-d H:i');
 // page active
 
 
@@ -43,6 +43,23 @@ if(!function_exists('page_active')){
         }
         if($page == $i){
             return 'active';
+        }else{
+            return '';
+        }
+
+    }
+}
+if(!function_exists('dash_active')){
+    function dash_active($page){
+        $urlSlug = trim(utf8_decode(trim(substr($_SERVER["REQUEST_URI"], strlen(dirname($_SERVER["SCRIPT_NAME"]))))), "/");
+        $d = explode('/',$urlSlug);
+        $i = $d[1];
+        if(isset($_GET)){
+            $g = explode('?',$i);
+            $i = $g[0];
+        }
+        if($page == $i){
+            return 'actives';
         }else{
             return '';
         }

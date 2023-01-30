@@ -14,7 +14,15 @@ if(isset($file[1]) and !isset($file[2])){
     }else{
         require_once $pages.'/lgts/'.$filesName.'.php';
     }
-}else{
+}elseif(isset($file[2]) and !isset($file[3])){
+    $filesName = strtolower($file[1]);
+    if(!file_exists($pages.'/lgts/'.$filesName.'.php')){
+        header('location:'.$domaine.'/error');
+    }else{
+        require_once $pages.'/lgts/'.$filesName.'.php';
+    }
+}
+else{
     header('location:'.$domaine.'/error');
 }
 

@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/intltelinput/css/intlTelInput.min.css"/>
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/owlcarousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/datatable/datatables.min.css">
-    <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/remixicon.css">
+    <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/font-awesome/css/all.css">
+    <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/font-awesome/css/v4-shims.css">
+<!--    <link rel="stylesheet" href="--><?//=$cdn_domaine?><!--/assets/css/wizard-style.css">-->
     <style>
 
         .header-bottom-content.style-two .top-navigation .menu-list > li > a {
@@ -284,7 +286,7 @@
             padding-top: 15px;
         }
         .pd25{
-            padding: 25px;
+            padding: 25px !important;
         }
         .ts-box{
             box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
@@ -455,6 +457,15 @@
         .dataTable tbody th, table.dataTable tbody td {
             vertical-align: middle !important;
         }
+        table.dataTable tbody th, table.dataTable tbody td {
+            padding: 15px 10px;
+        }
+        table tr{
+           border-radius: 6px !important;
+        }
+        table tr:hover{
+            background-color: rgba(227, 233, 240, 0.54) !important;
+        }
         li{
             list-style: none !important;
         }
@@ -542,17 +553,371 @@
             border-radius: 6px;
             padding: 3px 7px;
         }
+        .btn-payer-maintenant{
+            color: #fff !important;
+            background-color: #2ab57d !important;
+            border-radius: 6px;
+            padding: 9px 7px;
+        }
+        .btn-payer-maintenant:hover{
+            background-color: #39f6aa !important;
+        }
         .btn-payer:hover{
-            background-color: #34e09b;
+            background-color: #3afbae;
+        }
+        .btn-voir {
+            color: #fff !important;
+            background-color: #4ba6ef !important;
+            border-radius: 6px;
+            padding: 3px 7px;
+        }
+        .btn-voir:hover{
+            color: #fff !important;
+            background-color: #4db4ff !important;
+        }
+
+        .modal {
+            top: 20%;
+        }
+        .modal-header .close {
+            margin-top: -80px;
+            margin-right: -51px;
+            background: #000;
+            padding: 8px 11px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .input-height {
+            height: 45px !important;
+        }
+        .input-style{
+            border: 2px solid #d2d8d8 !important;
+            padding: 7px 15px 7px 11px !important;
+            border-radius: 6px !important;
+        }
+        .btn-closed{
+            border-radius: 6px;
+            padding: 9px 10px;
+        }
+        .btn-white{
+            background: #fff;
+            border-radius: 6px;
+            padding: 8px 15px;
+            color: #18a3f4;
+        }
+        .align-items-center{
+            align-items: center !important;
+        }
+        .nav-tabs {
+            border-bottom: 0 !important;
+        }
+        .myTabsUl .active a{
+            background-color: #18a3f430 !important;
+            border: 0 !important;
+            border-radius: 6px !important;
+            color: #18a3f4 !important;
+        }
+        .myTabsUl li a:hover{
+            background-color: #18a3f430 !important;
+            border: 0 !important;
+            border-radius: 6px !important;
+            color: #18a3f4 !important;
+        }
+        .pInfo p {
+            padding: 7px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+/*Wizard*/
+        #msform {
+            padding-top: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        #msform fieldset .form-card {
+            background: white;
+            border: 0 none;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+            padding: 20px 40px 30px 40px;
+            box-sizing: border-box;
+            width: 94%;
+            margin: 0 3% 20px 3%;
+            position: relative
+        }
+
+        #msform fieldset {
+            background: #ffffff;
+            border: 0 none;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding-bottom: 20px;
+            position: relative
+        }
+
+        #msform fieldset:not(:first-of-type) {
+            display: none
+        }
+
+        #msform fieldset .form-card {
+            text-align: left;
+            color: #9E9E9E
+        }
+
+        #msform input,
+        #msform textarea,
+        #msform select, select2{
+            border: 2px solid #ccc;
+            border-radius: 7px;
+            margin-bottom: 25px;
+            margin-top: 2px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #2C3E50;
+            font-size: 16px;
+            letter-spacing: 1px
+        }
+
+        #msform input:focus,
+        #msform textarea:focus {
+            border: 2px solid #999191;
+
+        }
+
+        #msform .action-button {
+            width: 100px;
+            background: #18a3f4;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px
+        }
+
+
+        #msform .action-button-previous {
+            width: 100px;
+            background: #000000;
+            color: white;
+            border: 0 none;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px
+        }
+
+        select.list-dt {
+            border: none;
+            outline: 0;
+            border-bottom: 1px solid #ccc;
+            padding: 2px 5px 3px 5px;
+            margin: 2px
         }
 
 
 
+        .card {
+            z-index: 0;
+            border: none;
+            border-radius: 0.5rem;
+            position: relative
+        }
 
+        .fs-title {
+            font-size: 25px;
+            color: #2C3E50;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left
+        }
 
+        #progressbar {
+            margin-bottom: 30px;
+            overflow: hidden;
+            color: lightgrey
+        }
 
+        #progressbar .active {
+            color: #000000
+        }
 
+        #progressbar li {
+            list-style-type: none;
+            font-size: 12px;
+            width: 25%;
+            float: left;
+            position: relative;
+            z-index: 9;
 
+        }
+
+        #progressbar #description:before {
+            font-family: FontAwesome;
+            content: "1"
+        }
+
+        #progressbar #localissation:before {
+            font-family: FontAwesome;
+            content: "2"
+        }
+
+        #progressbar #galerie:before {
+            font-family: FontAwesome;
+            content: "3"
+        }
+
+        #progressbar #tarifs:before {
+            font-family: FontAwesome;
+            content: "4"
+        }
+
+        #progressbar li:before {
+            width: 50px;
+            height: 50px;
+            line-height: 45px;
+            display: block;
+            font-size: 18px;
+            color: #ffffff;
+            background: #d3d3d3;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            padding: 2px
+        }
+
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #d3d3d3;
+            position: absolute;
+            left: 0;
+            top: 25px;
+            z-index: -1
+        }
+
+        #progressbar li.active:before,
+        #progressbar li.active:after {
+            background: #18a3f4
+        }
+
+        .radio-group {
+            position: relative;
+            margin-bottom: 25px
+        }
+
+        .radio {
+            display: inline-block;
+            width: 204px;
+            height: 104px;
+            border-radius: 0;
+            background: #18a3f4;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            cursor: pointer;
+            margin: 8px 2px
+        }
+
+        .radio:hover {
+            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+        }
+
+        .radio.selected {
+            box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+        }
+
+        .fit-image {
+            width: 100%;
+            object-fit: cover
+        }
+        .icon-m2 {
+            position: absolute;
+            right: 26px;
+            top: 41px;
+            background: #fff;
+        }
+        .icon-m {
+            position: absolute;
+            right: 18px;
+            top: 41px;
+            background: #fff;
+        }
+        .mybtn-next {
+            width: 12%;
+            border: 0;
+            background: #18a3f4;
+            border-radius: 6px;
+            font-size: 17px;
+            padding: 9px;
+        }
+        .mybtn-prev {
+            width: 21%;
+            border: 0;
+            background: #18a3f41c;
+            border-radius: 6px;
+            font-size: 17px;
+            padding: 9px;
+            margin-right: 23px;
+            color: #18a3f4 !important;
+        }
+
+        /*End wizard*/
+
+        .upload-form{
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            border: 2px dashed #888ea8;
+            border-radius: 6px;
+            transition: 0.2s;
+            min-height: 172px;
+            background: no-repeat center;
+            background-size: contain;
+            cursor: pointer;
+        }
+        .upload-form:hover{
+            background-color: #fafafa;
+        }
+
+        .file-msg {
+            text-align: center;
+            font-size: small;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .input-galerie{
+            display: none !important;
+        }
+        .btn-del{
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: red;
+            background: #fff;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        .btn-del:hover{
+            box-shadow: 0 0 6px rgb(35 173 255);
+        }
+        .gal-cover{
+            object-fit: cover;
+            height: 130px;
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #CAD6F2;
+        }
+        .photo-blur {
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        }
+        .gal-load{
+            display: none;
+        }
 
 
 

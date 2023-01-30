@@ -22,7 +22,13 @@ include_once $layout.'/header.php'?>
                 </div>
                 <div class="col-md-9">
                     <div class="header-box">
-                         Mes logements
+                        <div class="d-flex align-items-center">
+                            <p class="m-0 w50">  Mes logements</p>
+                            <div class="w50 text-right ">
+                                <a href="<?=$domaine?>/annonce" class="btn-white"> <i class="fa fa-plus"></i> Ajouter un logement</a>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="bg-white-color pb30 mes-lgts">
                     <div class="row ">

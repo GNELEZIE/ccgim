@@ -63,7 +63,7 @@ include_once $layout.'/header.php'
 <script>
     $(document).ready(function(){
         $('#loginForm').submit(function(){
-            $(".loaderBtn").html('<i class="loader-btn"></i>')
+            $(".loaderBtn").html('<i class="fa fa-circle-o-notch fa-spin"></i>')
         });
     });
 </script>

@@ -3,7 +3,7 @@ if(!isset($_SESSION['_ccgim_201'])){
     header('location:'.$domaine.'/connexion');
     exit();
 }
-if($data['nom'] != ''){
+if($data['phone'] != ''){
   $isoPhone = $data['iso_phone'];
   $dialPhone = $data['dial_phone'];
 }else{
