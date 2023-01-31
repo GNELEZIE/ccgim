@@ -31,7 +31,9 @@
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/font-awesome/css/v4-shims.css">
 <!--    <link rel="stylesheet" href="--><?//=$cdn_domaine?><!--/assets/css/wizard-style.css">-->
     <style>
-
+        a , p ,h1,h2,h3,h4,h5{
+            font-family: sans-serif, Verdana !important;
+        }
         .header-bottom-content.style-two .top-navigation .menu-list > li > a {
             letter-spacing: normal;
             text-transform: inherit;
@@ -47,12 +49,15 @@
             background: #18a3f4;
             color: #fff !important;
         }
+        .btn-register:hover{
+            background: #158cd1;
+        }
         .title1{
             position: absolute;
             left: 207px;
             top: 75px;
             font-weight: bold;
-            color: #18a3f4;
+            color: #181af4;
             font-size: 50px;
             padding: 2px 17px;
             border-radius: 6px;
@@ -370,7 +375,7 @@
             color: #fff;
             font-size: 26px;
         }
-        .mes-lgts .owl-carousel .owl-nav .owl-next{
+       .owl-carousel .owl-nav button.owl-next{
             position: absolute;
             top: 77px;
             right: 5px;
@@ -380,7 +385,7 @@
             color: #fff !important;
             font-size: 26px !important;
         }
-        .owl-carousel .owl-nav button.owl-prev:hover, .mes-lgts .owl-carousel .owl-nav .owl-next:hover{
+        .owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav .owl-next:hover{
             background: #000 !important;
             color: #fff !important;
         }
@@ -873,7 +878,7 @@
             border: 2px dashed #888ea8;
             border-radius: 6px;
             transition: 0.2s;
-            min-height: 172px;
+            min-height: 200px;
             background: no-repeat center;
             background-size: contain;
             cursor: pointer;
@@ -906,7 +911,7 @@
         }
         .gal-cover{
             object-fit: cover;
-            height: 130px;
+            height: 200px;
             width: 100%;
             border-radius: 10px;
             border: 1px solid #CAD6F2;
@@ -918,6 +923,122 @@
         .gal-load{
             display: none;
         }
+        .pb-4{
+            padding-bottom: 15px;
+        }
+        .text-white{
+            color:  #fff !important;
+        }
+        .icon-check{
+            width: 100px;
+        }
+      .pagination>li>span {
+            padding: 9px 12px !important;
+        }
+        .pagination-link ul li.active a {
+            background-color: #18a3f4 !important;
+        }
+        .pagination-link ul li a {
+            border-radius: 26px !important;
+        }
+        .pagination>li>a{
+            padding: 9px 18px !important;
+        }
+        .apartments-content .text-content .top-content h3 a:hover {
+            color: #18a3f4 !important;
+        }
+        ::selection {
+            background-color: #18a3f4 !important;
+        }
+        .heading-content-one.border h2.title:before{
+            z-index: 0 !important;
+        }
+        .bg-search{
+            background-color: #18a3f4 !important;
+            padding: 52px 0 90px 0;
+        }
+        .bg-lgts{
+            background-color: #18a3f4 !important;
+            padding: 52px 0;
+        }
+        .title-search{
+            margin: 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .heading-content-one h5.sub-title {
+            text-transform: inherit !important;
+        }
+        .apartments-content a{
+            font-weight: normal !important;
+        }
+        .apartments-content .text-content .bottom-content .rent-price {
+            font-size: 13px !important;
+        }
+        .p79-0{
+            padding: 79px 0 !important;
+        }
+        .family-apartment-content .apartment-description {
+            font-size: 16px !important;
+            font-weight: normal !important;
+        }
+        .apartment-sidebar2{
+            box-shadow: rgb(0 0 0 / 16%) 0 1px 4px !important;
+        }
+
+        .widget_rental_search .advance_search_query .form-title{
+            text-transform: inherit !important;
+        }
+        .form-content label {
+            text-transform: inherit;
+            margin-bottom: 3px !important;
+        }
+
+        .form-bg.seven .form-group {
+            margin-bottom: 15px !important;
+        }
+        .contact .input-style{
+            border: 2px solid #d2d8d8 !important;
+            border-radius: 6px !important;
+        }
+        .form-bg.seven {
+            box-shadow: none;
+            padding: 15px;
+        }
+        .default-gradient-before:before {
+            background: #18a3f4;
+            background: -moz-linear-gradient(left, #18a3f4 0%, #1487ca 100%);
+            background: -webkit-linear-gradient(left, #18a3f4 0%, #18a3f4 100%);
+            background: linear-gradient(to right, #18a3f4 0%, #18a3f4 100%);
+            filter:
+        }
+        .button{
+            text-transform: inherit !important;
+        }
+
+        .highlight {
+            font-weight: normal;
+            font-size: 37px;
+        }
+        .milestone-details {
+            font-weight: normal;
+            font-size: 32px;
+            color: #fff;
+            padding-top: 10px;
+        }
+        .heading-content-two {
+            max-width: inherit !important;
+        }
+        .testimonial-area .testimonial-heading-content h2.sub-title {
+            text-transform: inherit;
+        }
+        .item .cover77{
+            object-fit: cover !important;
+            height: 77px !important;
+        }
+
+
 
 
 

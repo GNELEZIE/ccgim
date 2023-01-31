@@ -5,7 +5,7 @@ if(!isset($_SESSION['_ccgim_201'])){
 
 }
 if(isset($doc[2]) and !isset($doc[3])){
-    $lgts = $logement->getLgtsSlug($_SESSION['_ccgim_201']['id_utilisateur'],$doc[2]);
+    $lgts = $logement->getLgtsSlugAndUser($_SESSION['_ccgim_201']['id_utilisateur'],$doc[2]);
     if($lgtData = $lgts->fetch()){
         $categorie = html_entity_decode(stripslashes($lgtData['categorie']));
     }else{
@@ -111,6 +111,7 @@ include_once $layout.'/header.php'?>
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center pt-5">
+                                <input type="hidden" name="id" id="id" value="<?=my_encrypt($lgtData['id_logement'])?>">
                                 <input type="hidden" class="form-control" name="formkeyDesc" value="<?=$token?>">
                                 <button  class="next mybtn-next btn-next mt-3 border-none" id="description-btn"> <i class="loadAdd"></i> Suivant <i class="fa fa-angle-double-right"></i></button>
                             </div>

@@ -22,9 +22,5 @@ if(isset($_SESSION['_ccgim_201']) and isset($_POST['nom_lgt']) and isset($_POST[
     $save = $logement->addDescription($dateGmt,$nom_lgt,$slug,$categorie,$superficie,$chambre,$lit,$salles_bain ,$descriptions,$supplementaire,$_SESSION['_ccgim_201']['id_utilisateur']);
     if($save > 0){
         header('location:' . $domaine . '/annonce/localisation/'.$slug);
-        $tab = array(
-            "lgtId" => $save
-        );
-        $_SESSION['lgtsId'] = $tab;
     }
 }

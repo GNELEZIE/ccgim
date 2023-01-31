@@ -21,6 +21,7 @@ include_once $class.'/Db.connect.php';
 // appelle des class
 include_once $class.'/Utilisateur.class.php';
 include_once $class.'/Logement.class.php';
+include_once $class.'/Galerie.class.php';
 
 // include function
 include_once $function."/detectdevice/Mobile_Detect.php";

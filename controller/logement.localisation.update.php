@@ -1,7 +1,7 @@
 <?php
-if(isset($_SESSION['_ccgim_201']) and isset($_POST['ville']) and isset($_POST['qrt']) and isset($_POST['nom']) and isset($_POST['phone']) and isset($_SESSION['myformkey']) and isset($_POST['formkeyLocalisation']) and $_SESSION['myformkey'] == $_POST['formkeyLocalisation']){
+if(isset($_SESSION['_ccgim_201']) and isset($_POST['ville']) and isset($_POST['id']) and isset($_POST['qrt']) and isset($_POST['nom']) and isset($_POST['phone']) and isset($_SESSION['myformkey']) and isset($_POST['formkeyLocalisation']) and $_SESSION['myformkey'] == $_POST['formkeyLocalisation']){
     extract($_POST);
-
+    $id = my_decrypt($id);
     $ville = htmlentities(trim(addslashes(strip_tags($ville))));
     $qrt = htmlentities(trim(addslashes(strip_tags($qrt))));
     $nom = htmlentities(trim(addslashes(strip_tags($nom))));
@@ -9,7 +9,7 @@ if(isset($_SESSION['_ccgim_201']) and isset($_POST['ville']) and isset($_POST['q
     $isoPhone = htmlentities(trim(addslashes(strip_tags($isoPhone))));
     $dialPhone = htmlentities(trim(addslashes(strip_tags($dialPhone))));
     $propriety ='id_logement';
-    $dataSlug = $logement->verifLogement($propriety,$_SESSION['lgtsId']['lgtId'])->fetch();
+    $dataSlug = $logement->verifLogement($propriety,$id)->fetch();
 
     $nbUpd = $dataSlug['nb_upd'] + 1;
     $propriete1 = "ville_lgt";

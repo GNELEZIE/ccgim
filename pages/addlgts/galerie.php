@@ -4,7 +4,20 @@ if(!isset($_SESSION['_ccgim_201'])){
     exit();
 
 }
+if(isset($doc[2]) and !isset($doc[3])){
+    $lgts = $logement->getLgtsSlugAndUser($_SESSION['_ccgim_201']['id_utilisateur'],$doc[2]);
+    if($lgtData = $lgts->fetch()){
 
+    }else{
+        header('location:'.$domaine.'/error');
+    }
+
+}else{
+    header('location:'.$domaine.'/error');
+}
+$token = openssl_random_pseudo_bytes(16);
+$token = bin2hex($token);
+$_SESSION['myformkey'] = $token;
 include_once $layout.'/header.php'?>
 
 <div class="container-fluid py-5 bg-gray-color pd-section">
@@ -21,34 +34,24 @@ include_once $layout.'/header.php'?>
             <li id="tarifs"><strong>Tarifs</strong></li>
         </ul>
         <div class="form-card box-form  box-shadow-none" style="background: none">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="fs-title">La galerie</h2>
-            </div>
-            <div class="col-md-3 position-relative mobile-w-50 pb-4 gal-load updgal-load">
-                <img src="<?=$cdn_domaine?>'/media/lgts/defaut.png" class="gal-cover photo-blur updloadImg"/>
-                <i class="fa fa-circle-o-notch fa-spin" style="font-size: 30px;color: #F29F05;position: absolute; top:38%; left: 43%"></i>
-            </div>
-            <div class="col-md-3 pb-4">
-                <div class="upload-form updImgBox" onclick="uploadImg()()">
-                                                    <span class="file-msg file-upd">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera mb-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><br/>
-                                                        Cliquez pour ajouter une photo
-                                                    </span>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="fs-title">La galerie</h2>
                 </div>
                 <div class="row data-galerie pb-4"></div>
-                <form method="post" enctype="multipart/form-data" id="formGalerie">
-                    <input type="file" class="input-galerie" name="photos" id="photos" accept=".jpg, .jpeg, .png">
-                    <input type="hidden" name="id" id="id">
-                    <input type="hidden" name="formkey" value="<?=$token?>">
-                </form>
+                <div class="col-md-3 pb-4">
+                    <form method="post" enctype="multipart/form-data" id="formGalerie">
+                        <input type="file" class="input-galerie" name="photos" id="photos" accept=".jpg, .jpeg, .png">
+                        <input type="hidden" name="id" id="id" value="<?=my_encrypt($lgtData['id_logement'])?>">
+                        <input type="hidden" name="formkey" value="<?=$token?>">
+                    </form>
+                </div>
             </div>
-        </div>
             <div class="row">
                 <div class="col-md-12 text-center pt-5">
                     <input type="hidden" class="form-control" name="formkeyLocalisation" value="<?=$token?>">
-                    <a href="<?=$domaine?>/annonce/localisation/slug" class="previous  mybtn-prev btn-next mt-3 mr-3 btn-next"><i class="fa fa-angle-double-left"></i> Précedent </a>
-                    <button  class="next mybtn-next btn-next mt-3 border-none" id="description-btn"> <i class="load"></i> Suivant <i class="fa fa-angle-double-right"></i></button>
+                    <a href="<?=$domaine?>/annonce/localisation/<?=$lgtData['slug_lgt']?>" class="previous  mybtn-prev btn-next mt-3 mr-3 btn-next"><i class="fa fa-angle-double-left"></i> Précedent </a>
+                    <a href="<?=$domaine?>/annonce/tarifs/<?=$lgtData['slug_lgt']?>"  class="next mybtn-next btn-next mt-3 border-none text-white" id="description-btn"> <i class="load"></i> Suivant <i class="fa fa-angle-double-right"></i></a>
                 </div>
             </div>
         </div>
@@ -64,12 +67,13 @@ include_once $layout.'/header.php'?>
 
 <?php include_once $layout.'/footer.php'?>
 <script>
-/*    function chargeGalerie(){
+    chargeGalerie();
+    function chargeGalerie(){
         $.ajax({
             type: 'post',
             url: '<?=$domaine?>/controle/galerie.liste',
             data: {
-                id : $('#id').val(),
+                id : "<?=my_encrypt($lgtData['id_logement'])?>",
                 token: "<?=$token?>"
             },
             dataType: 'json',
@@ -79,20 +83,8 @@ include_once $layout.'/header.php'?>
         });
     }
 
-    function updChargeGalerie(){
-        $.ajax({
-            type: 'post',
-            url: '<?=$domaine?>/controle/galerie.upd.liste',
-            data: {
-                id : $('#updProductId').val(),
-                token: "<?=$token?>"
-            },
-            dataType: 'json',
-            success: function(data){
-                $('.upddata-galerie').html(data.galerieList);
-            }
-        });
-    }*/
+
+
 
     function uploadImg(){
         $('#photos').trigger('click');
@@ -140,6 +132,11 @@ include_once $layout.'/header.php'?>
             });
         }
     });
+
+
+    //Delete
+
+
 
 
 </script>

@@ -47,30 +47,6 @@ class Logement{
         ));
         return $rs;
     }
-    public function getLogementByIdAndId($id_logement){
-        $query = "SELECT * FROM logement
-        WHERE id_logement = :id_logement";
-        $rs = $this->bdd->prepare($query);
-        $rs->execute(array(
-            "id_logement" => $id_logement
-        ));
-        return $rs;
-    }
-
-
-    public function getLgtByConv($convId){
-        $query = "SELECT * FROM logement
-        INNER JOIN conversation ON  lgt_id = id_logement
-        WHERE id_conversation  = :convId";
-        $rs = $this->bdd->prepare($query);
-        $rs->execute(array(
-            "convId" => $convId
-        ));
-
-        return $rs;
-    }
-
-
 
 
 
@@ -86,15 +62,7 @@ class Logement{
         return $rs;
     }
 
-    public function getLogementByIdCity($city){
-        $query = "SELECT * FROM logement
-        WHERE ville_lgt = :city";
-        $rs = $this->bdd->prepare($query);
-        $rs->execute(array(
-            "city" => $city
-        ));
-        return $rs;
-    }
+
 
 
     public function getLogementByUser($utilisateur_id,$debut, $fin){
@@ -106,34 +74,53 @@ class Logement{
         ));
         return $rs;
     }
+    public function getAllLogements($debut, $fin){
+        $query = "SELECT * FROM logement
+        WHERE statut != 1 ORDER BY id_logement DESC LIMIT $debut, $fin";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
 
     public function getAllLgts(){
         $query = "SELECT * FROM logement
-          ORDER BY id_logement DESC ";
+          WHERE statut = 0 ORDER BY id_logement DESC ";
         $rs = $this->bdd->query($query);
+        return $rs;
+    }
+
+    public function getLgtsSlug($slg){
+        $query = "SELECT * FROM logement
+           WHERE slug_lgt =:slg";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "slg" => $slg
+        ));
+        return $rs;
+    }
+    public function getLgtsSlugAndUser($userId,$slg){
+        $query = "SELECT * FROM logement
+           WHERE utilisateur_id =:userId and slug_lgt =:slg";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "userId" => $userId,
+            "slg" => $slg
+        ));
         return $rs;
     }
 
     // Search
 
-//    public function getLgtsByLatAndLong($lieu,$catg,$typLgt){
-//
-//        $query = "SELECT * FROM logement
-//        WHERE adresse_lgt LIKE '%$lieu%' and categorie  LIKE '%$catg%' OR type_lgt LIKE '%$typLgt%'";
-//        $rs = $this->bdd->query($query);
-//        return $rs;
-//    }
+    public function getLgtsBySearch($villeLgt,$communeLgt){
+        $query = "SELECT * FROM logement
+        WHERE ville_lgt LIKE '%$villeLgt%' OR quartier_lgt  LIKE '%$communeLgt%' ORDER BY id_logement DESC ";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
 
 
     //Count
 
 
-    public function getNblogementsLouer(){
-        $query = "SELECT COUNT(*) as nb FROM logement
-          WHERE type_lgt   = 1 and status = 1";
-        $rs = $this->bdd->query($query);
-        return $rs;
-    }
     public function getNblogementsByUser($userId){
         $query = "SELECT COUNT(*) as nb FROM logement
           WHERE utilisateur_id =:userId";
@@ -143,34 +130,13 @@ class Logement{
         ));
         return $rs;
     }
-    public function getlogementsByTypeLimit10($typeLgt){
-        $query = "SELECT * FROM logement
-           WHERE type_lgt =:typeLgt";
-        $rs = $this->bdd->prepare($query);
-        $rs->execute(array(
-            "typeLgt" => $typeLgt
-        ));
+    public function getNblogements(){
+        $query = "SELECT COUNT(*) as nb FROM logement
+          WHERE statut != 1";
+        $rs = $this->bdd->query($query);
         return $rs;
     }
-    public function getlogementsByType($typeLgt){
-        $query = "SELECT * FROM logement
-           WHERE type_lgt =:typeLgt AND status = 1";
-        $rs = $this->bdd->prepare($query);
-        $rs->execute(array(
-            "typeLgt" => $typeLgt
-        ));
-        return $rs;
-    }
-    public function getLgtsSlug($userId ,$slug){
-        $query = "SELECT * FROM logement
-           WHERE slug_lgt =:slug and utilisateur_id =:userId";
-        $rs = $this->bdd->prepare($query);
-        $rs->execute(array(
-            "userId" => $userId,
-            "slug" => $slug
-        ));
-        return $rs;
-    }
+
 
 
     //Update

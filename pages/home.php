@@ -1,4 +1,5 @@
 <?php
+$list =  $logement->getAllLgts();
 include_once $layout.'/header.php'
 ?>
 
@@ -19,32 +20,36 @@ include_once $layout.'/header.php'
             </div>
         </div>
     </div>
-
     <div class="form-area eight">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 form-bg form-top border-radius">
-                    <form  method="post" class="advance_search_query" id="searchForm">
+                    <form  method="get" action="<?=$domaine?>/recherche-logement" class="advance_search_query" id="searchForm">
                         <div class="form-content">
                             <div class="form-group w40">
-                                <label for="quartier" >Communes</label>
-                                <select class="wide" name="quartier" id="quartier">
-                                    <option value="1">Abobo</option>
-                                    <option value="2">Adjame</option>
-                                    <option value="3">Cococdy</option>
-                                    <option value="4">Koumassi</option>
-                                    <option value="5">Marcory</option>
-                                    <option value="6">Yopougon</option>
-                                    <option value="7">Bingerville</option>
+                                <label for="ville" >Ville</label>
+                                <select class="wide" name="ville" id="ville">
+                                    <option  selected>Choisir une ville</option>
+                                    <option value="Abidjan">Abidjan</option>
+                                    <option value="Bouake">Bouake</option>
+                                    <option value="Yamoussokro">Yamoussokro</option>
+                                    <option value="Korhogo">Korhogo</option>
+                                    <option value="Boundiali">Boundiali</option>
+                                    <option value="Daloa">Daloa</option>
+                                    <option value="Man">Man</option>
                                 </select>
                             </div>
                             <div class="form-group w40">
-                                <label for="cat" >Quartier</label>
-                                <select class="wide" name="cat" id="cat">
-                                    <option value="volvo">Apartments</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="mercedes">Mercedes</option>
-                                    <option value="audi">Audi</option>
+                                <label for="commune" >Commune</label>
+                                <select class="wide" name="commune" id="commune">
+                                    <option selected>Choisir une commune</option>
+                                    <option value="Abobo">Abobo</option>
+                                    <option value="Adjame">Adjame</option>
+                                    <option value="Cocody">Cocody</option>
+                                    <option value="Koumassi">Koumassi</option>
+                                    <option value="Marcory">Marcory</option>
+                                    <option value="Yopougon">Yopougon</option>
+                                    <option value="Bingerville">Bingerville</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -64,205 +69,81 @@ include_once $layout.'/header.php'
             <h5 class="sub-title">Trouvez un appartements, pour votre capacité</h5>
         </div>
     </div>
-    <div class="row">
-    <div class="col-md-3">
-        <div class="apartments-content">
-            <div class="image-content">
-                <a href="apartment-single.html"><img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-one.png" alt="apartment" /></a>
-            </div>
-            <div class="text-content">
-                <div class="top-content">
-                    <h3><a href="apartment-single.html">Family Apartment</a></h3>
-                    <span><i class="fa fa-map-marker"></i>Dhanmondi, Dhaka</span>
+        <div class="row">
+            <?php
+            while($listData = $list->fetch()){
+                $gals = $galerie->getGalerieByLgtId($listData['id_logement']);
+                ?>
+                <div class="col-md-3">
+                    <div class="apartments-content">
+                        <div class="image-content">
+                            <div class="caroussel-item">
+                                <div class="owl-carousel position-relative">
+                                    <?php
+                                    while($galDatas = $gals->fetch()){
+                                        ?>
+                                        <div class="item  position-relative">
+                                            <a href="<?=$domaine?>/logements/<?=$listData['slug_lgt']?>">
+                                                <img src="<?=$cdn_domaine?>/media/lgts/<?=$galDatas['photo']?>" alt="<?=$galDatas['photo']?>" />
+                                            </a>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <div class="top-content">
+                                <h3><a href="<?=$domaine?>/logements/<?=$listData['slug_lgt']?>"><?=reduit_text(html_entity_decode(stripslashes($listData['nom_lgt'])),'20') ?></a></h3>
+                                <span><i class="fa fa-map-marker"></i><?=html_entity_decode(stripslashes($listData['ville_lgt'])) .', '.reduit_text(html_entity_decode(stripslashes($listData['quartier_lgt'])),'10')?></span>
+                            </div>
+                            <div class="bottom-content clearfix">
+                                <div class="meta-bed-room">
+                                    <i class="fa fa-home"></i> <?=$listData['chambres']?> Chambres
+                                </div>
+                                <div class="meta-bath-room">
+                                    <i class="fa fa-bath"></i><?=$listData['bain']?> Salles De Bain
+                                </div>
+                                <span class="clearfix"></span>
+                                <div class="rent-price pull-left">
+                                    <?=number_format($listData['tarif'],0,',',' ') ?> CFA
+                                </div>
+                                <div class="share-meta dropup pull-right">
+                                    <ul>
+                                        <li class="dropup">
+                                            <a href="#" class="dropdown-toggle font-13" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="font-13"><i class="fa fa-eye m-0"></i> 25</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bottom-content clearfix">
-                    <div class="meta-bed-room">
-                        <i class="fa fa-bed"></i> 3 Bedrooms
-                    </div>
-                    <div class="meta-bath-room">
-                        <i class="fa fa-bath"></i>2 Bathroom
-                    </div>
-                    <span class="clearfix"></span>
-                    <div class="rent-price pull-left">
-                        $200
-                    </div>
-                    <div class="share-meta dropup pull-right">
-                        <ul>
-                            <li class="dropup">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
+
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="apartments-content">
-            <div class="image-content">
-                <a href="apartment-single.html"><img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-two.png" alt="apartment" /></a>
-            </div>
-            <div class="text-content">
-                <div class="top-content">
-                    <h3><a href="apartment-single.html">Family Apartment</a></h3>
-                    <span><i class="fa fa-map-marker"></i>Dhanmondi, Dhaka</span>
-                </div>
-                <div class="bottom-content clearfix">
-                    <div class="meta-bed-room">
-                        <i class="fa fa-bed"></i> 3 Bedrooms
-                    </div>
-                    <div class="meta-bath-room">
-                        <i class="fa fa-bath"></i>2 Bathroom
-                    </div>
-                    <span class="clearfix"></span>
-                    <div class="rent-price pull-left">
-                        $200
-                    </div>
-                    <div class="share-meta dropup pull-right">
-                        <ul>
-                            <li class="dropup">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="apartments-content">
-            <div class="image-content">
-                <a href="apartment-single.html"><img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-three.png" alt="apartment" /></a>
-            </div>
-            <div class="text-content">
-                <div class="top-content">
-                    <h3><a href="apartment-single.html">Family Apartment</a></h3>
-                    <span><i class="fa fa-map-marker"></i>Dhanmondi, Dhaka</span>
-                </div>
-                <div class="bottom-content clearfix">
-                    <div class="meta-bed-room">
-                        <i class="fa fa-bed"></i> 3 Bedrooms
-                    </div>
-                    <div class="meta-bath-room">
-                        <i class="fa fa-bath"></i>2 Bathroom
-                    </div>
-                    <span class="clearfix"></span>
-                    <div class="rent-price pull-left">
-                        $200
-                    </div>
-                    <div class="share-meta dropup pull-right">
-                        <ul>
-                            <li class="dropup">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="apartments-content">
-            <div class="image-content">
-                <a href="apartment-single.html"><img src="<?=$cdn_domaine?>/assets/images/apartment/apartment-four.png" alt="apartment" /></a>
-            </div>
-            <div class="text-content">
-                <div class="top-content">
-                    <h3><a href="apartment-single.html">Family Apartment</a></h3>
-                    <span><i class="fa fa-map-marker"></i>Dhanmondi, Dhaka</span>
-                </div>
-                <div class="bottom-content clearfix">
-                    <div class="meta-bed-room">
-                        <i class="fa fa-bed"></i> 3 Bedrooms
-                    </div>
-                    <div class="meta-bath-room">
-                        <i class="fa fa-bath"></i>2 Bathroom
-                    </div>
-                    <span class="clearfix"></span>
-                    <div class="rent-price pull-left">
-                        $200
-                    </div>
-                    <div class="share-meta dropup pull-right">
-                        <ul>
-                            <li class="dropup">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <a href="#" class="button nevy-button">Tous Les Appartements</a>
+    <a href="<?=$domaine?>/logements" class="button nevy-button">Tous les appartements</a>
     </div>
     </div>
     <div class="fun-fects-area" style="background-image:url(<?=$cdn_domaine?>/assets/images/count-down-image.png)">
@@ -612,7 +493,30 @@ include_once $layout.'/header.php'
 <?php include_once $layout.'/footer.php'?>
 <script>
     $(document).ready(function(){
-        $('#quartier').niceSelect();
-        $('#cat').niceSelect();
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                loop: true,
+                nav:true,
+                autoplay: true,
+                autoplayTimeout: 4000,
+                smartSpeed:3000,
+                autoplayHoverPause: true,
+                responsiveClass:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                }
+
+            });
+
+        $('#ville').niceSelect();
+        $('#commune').niceSelect();
     });
 </script>

@@ -5,7 +5,7 @@ if(!isset($_SESSION['_ccgim_201'])){
 
 }
 if(isset($doc[2]) and !isset($doc[3])){
-    $lgts = $logement->getLgtsSlug($_SESSION['_ccgim_201']['id_utilisateur'],$doc[2]);
+    $lgts = $logement->getLgtsSlugAndUser($_SESSION['_ccgim_201']['id_utilisateur'],$doc[2]);
     if($lgtDataLocal = $lgts->fetch()){
         if($lgtDataLocal['phone_lgt'] != ''){
             $isoPhone = $lgtDataLocal['iso_phone_lgt'];
@@ -105,6 +105,7 @@ include_once $layout.'/header.php'?>
 
         <div class="row">
             <div class="col-md-12 text-center pt-5">
+                <input type="hidden" name="id" id="id" value="<?=my_encrypt($lgtDataLocal['id_logement'])?>">
                 <input type="hidden" class="form-control" name="formkeyLocalisation" value="<?=$token?>">
                 <a href="<?=$domaine?>/annonce/description/<?=$lgtDataLocal['slug_lgt']?>" class="previous  mybtn-prev btn-next mt-3 mr-3 btn-next"><i class="fa fa-angle-double-left"></i> Précedent </a>
                 <button  class="next mybtn-next btn-next mt-3 border-none" id="description-btn"> <i class="load"></i> Suivant <i class="fa fa-angle-double-right"></i></button>
