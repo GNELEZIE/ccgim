@@ -7,3 +7,6 @@
 <div class="link">
     <a href="<?=$domaine?>/logement/locataires" class="<?= dash_active('locataires');?>">Mes locataires</a>
 </div>
+<div class="link">
+    <a href="<?=$domaine?>/logement/tresorerie" class="<?= dash_active('tresorerie');?>">Trésorerie</a>
+</div>

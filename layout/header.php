@@ -576,6 +576,17 @@
             border-radius: 6px;
             padding: 3px 7px;
         }
+        .btn-add-payer {
+            color: #4ba6ef !important;
+            background-color: #4ba6ef36 !important;
+            border-radius: 6px;
+            padding: 12px 10px;
+        }
+        .btn-add-payer:hover{
+            color: #fff !important;
+            background-color: #4ba6ef !important;
+        }
+
         .btn-voir:hover{
             color: #fff !important;
             background-color: #4db4ff !important;
@@ -1037,7 +1048,12 @@
             object-fit: cover !important;
             height: 77px !important;
         }
-
+        .nice-select {
+            line-height: 28px !important;
+        }
+        .pd15{
+            padding-top: 15px !important;
+        }
 
 
 
