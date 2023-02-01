@@ -66,6 +66,60 @@
         .form-content select {
             width: 100%;
         }
+
+        .nice-select{
+            line-height: 23px;
+            border: solid 1px #ced4da;
+            background-color: #F1F5FF;
+            font-size: 14px;
+            border-radius: 10px;
+            transition: all ease 0.5s;
+        }
+        .nice-select:active, .nice-select.open, .nice-select:focus {
+            border-color: #F29F05;
+        }
+        .nice-select .list {
+            margin-top: 5px;
+            top: 100%;
+            border-top: 0;
+            border-radius: 0 0 5px 5px;
+            max-height: 300px;
+            overflow-y: scroll;
+            padding: 50px 0 0
+        }
+        .nice-select .nice-select-search-box {
+            box-sizing: border-box;
+            position: absolute;
+            width: 100%;
+            margin-top: 5px;
+            top: 100%;
+            left: 0;
+            z-index: 8;
+            padding: 5px;
+            background: #FFF;
+            opacity: 0;
+            pointer-events: none;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 0 0 1px rgba(68, 88, 112, .11);
+            -webkit-transform-origin: 50% 0;
+            -ms-transform-origin: 50% 0;
+            transform-origin: 50% 0;
+            -webkit-transform: scale(.75) translateY(-21px);
+            -ms-transform: scale(.75) translateY(-21px);
+            transform: scale(.75) translateY(-21px);
+            -webkit-transition: all .2s cubic-bezier(.5, 0, 0, 1.25), opacity .15s ease-out;
+            transition: all .2s cubic-bezier(.5, 0, 0, 1.25), opacity .15s ease-out
+        }
+
+        .no-nice-select-search-box .nice-select-search-box {
+            display: none;
+        }
+        .no-nice-select-search-box .list{
+            padding: 0 !important;
+        }
+        .nice-select .list li:first-child {
+            display: none !important;
+        }
         .nice-select .nice-select-search {
             box-sizing: border-box;
             background-color: #fff;
@@ -81,47 +135,25 @@
             min-height: 36px;
             line-height: 22px;
             height: auto;
-            outline: 0!important;
+            outline: 0!important
         }
-        .nice-select .nice-select-search-box {
-            box-sizing: border-box;
-            position: absolute;
-            width: 100%;
-            margin-top: 5px;
-            top: 100%;
-            left: 0;
-            z-index: 8;
-            padding: 5px;
-            background: #FFF;
-            opacity: 0;
-            pointer-events: none;
-            border-radius: 5px 5px 0 0;
-            box-shadow: 0 0 0 1px rgb(68 88 112 / 11%);
-            -webkit-transform-origin: 50% 0;
-            -ms-transform-origin: 50% 0;
-            transform-origin: 50% 0;
-            -webkit-transform: scale(.75) translateY(-21px);
-            -ms-transform: scale(.75) translateY(-21px);
-            transform: scale(.75) translateY(-21px);
-            -webkit-transition: all .2s cubic-bezier(.5, 0, 0, 1.25), opacity .15s ease-out;
-            transition: all .2s cubic-bezier(.5, 0, 0, 1.25), opacity .15s ease-out;
-        }
-        .nice-select {
-            line-height: 39px;
-            border: solid 1px #ced4da;
-            background-color: #F1F5FF;
-            font-size: 14px;
-            border-radius: 10px;
-            transition: all ease 0.5s;
+
+        .nice-select.open .nice-select-search-box {
+            opacity: 1;
+            z-index: 10;
+            pointer-events: auto;
+            -webkit-transform: scale(1) translateY(0);
+            -ms-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0)
         }
         .nice-select.wide {
             width: 100%;
         }
-        #quartier {
+        #locataire{
             display: block !important;
             opacity: 0;
             position: absolute;
-            width: 50px;
+            width: 50px
         }
         footer li{
             list-style: none;
@@ -1119,6 +1151,9 @@
         .pb12{
            padding-bottom: 12px;
         }
+        .pt13{
+           padding-top: 13px !important;
+        }
         .w90{
             width: 90%;
         }
@@ -1159,6 +1194,9 @@
         }
         .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
             outline: 0 !important;
+        }
+        .locataire-input{
+            display: none;
         }
 
 

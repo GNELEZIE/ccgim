@@ -34,7 +34,7 @@ include_once $layout.'/header.php'?>
                             <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>N°CC</th>
+                                <th>Téléphone</th>
                                 <th>Nom</th>
                                 <th>Libellé</th>
                                 <th>Montant</th>
@@ -104,10 +104,18 @@ include_once $layout.'/header.php'?>
             <form method="post" id="formPayer">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="type_transac">Type d'opération <i class="required"></i></label>
-                        <select class="wide form-control no-nice-select-search-box input-style input-height" name="type_transac" id="type_transac" required>
+                        <label for="type_transac ">Type d'opération <i class="required"></i></label>
+                        <select class="wide form-control no-nice-select-search-box input-style input-height select-transac" name="type_transac" id="type_transac" required>
                             <option value="">Type d'opération</option>
-                            <option value="1">Entrée de caisse</option>
+                            <option value="1">Paiement de loyer</option>
+                            <option value="2">Sortie de caisse</option>
+                        </select>
+                    </div>
+                    <div class="form-group locataire-input remove-none">
+                        <label for="locataire" class="pt13">Locataire <i class="required"></i></label>
+                        <select class="wide form-control input-style input-height select-locataire" name="locataire" id="locataire" required>
+                            <option value="">Choisir d'opération</option>
+                            <option value="1">Paiement de loyer</option>
                             <option value="2">Sortie de caisse</option>
                         </select>
                     </div>
@@ -135,16 +143,34 @@ include_once $layout.'/header.php'?>
 <script>
     var table_locataire;
     var table_historique;
+
+    $("select.select-transac").change(function() {
+        var locataire = $(this).children("option:selected").val();
+
+        if (locataire == '1') {
+            alert('ok');
+            $('.remove-none').addClass('locataire-input','locataire-input');
+            $('#locataire').attr('required','required');
+        }else if(locataire == '2' ){
+            $('.remove-none').addClass('locataire-input','locataire-input');
+            $('#locataire').removeAttr('required','required');
+        }else{
+            $('.remove-none').addClass('locataire-input','locataire-input');
+            $('#locataire').removeAttr('required','required');
+        }
+    });
+
+
+
     $(document).ready(function() {
         $('#type_transac').niceSelect();
+        $('#locataire').niceSelect();
         $('#payerModalCenter').on('show.bs.modal', function (e) {
             var userId = $(e.relatedTarget).data('id');
             var userName = $(e.relatedTarget).data('name');
             $('#userId').val(userId);
             $('#nom').html(userName);
         });
-
-
 
 
 
