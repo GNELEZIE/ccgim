@@ -295,40 +295,71 @@
         }
         .ts-box{
             box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
-            margin: 30px;
             border-radius: 6px;
             text-align: center;
             padding: 10px 10px;
+            margin-bottom: 20px;
+        }
+        .ts-box-green{
+            background: rgb(0 128 0 / 12%);
+            color: #008000;
+            box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+            border-radius: 6px;
+            text-align: center;
+            padding: 10px 10px;
+            margin-bottom: 20px;
+        }
+        .ts-box-red{
+            background: rgb(255 0 0 / 6%);
+            color: #FF0000;
+            box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+            border-radius: 6px;
+            text-align: center;
+            padding: 10px 10px;
+            margin-bottom: 20px;
         }
         .myicon-home{
-            background: #18a3f4;
-            color: #fff;
-            padding: 13px 14px;
+            padding: 14px 13px;
             border-radius: 50px;
-            font-size: 21px;
+            font-size: 18px;
         }
         .nbLgt h2{
             margin: 0;
-            font-weight: bold;
+            font-weight: 600;
+            padding-top: 9px;
+            font-size: 20px;
             font-family: sans-serif;
         }
         .nbLgt p{
            margin: 0;
         }
+        .my-icon-dashboard-blue{
+            background: #18a3f47a;
+            color: #18a3f4;
+        }
+        .my-icon-dashboard-green{
+            background: rgba(0, 128, 0, 0.24);
+            color: #008000;
+        }
+        .my-icon-dashboard-red{
+            background: rgba(255, 0, 0, 0.21);
+            color: #FF0000;
+        }
         .myicon-user {
-            background: #18a3f4;
-            color: #fff;
-            padding: 11px 14px;
+            padding: 13px 14px;
             border-radius: 50px;
-            font-size: 21px;
+            font-size: 18px;
         }
 
-        .myicon-money {
-            background: #18a3f4;
-            color: #fff;
-            padding: 13px 12px;
+        .myicon-dollar {
+            padding: 13px 17px;
             border-radius: 50px;
-            font-size: 21px;
+            font-size: 18px;
+        }
+        .myicon-trend {
+            padding: 16px 15px;
+            border-radius: 50px;
+            font-size: 15px;
         }
         .m30{
             margin: 30px;
@@ -349,9 +380,13 @@
         .link a{
             padding: 9px 10px;
             width: 100%;
-            display: inherit;
+            display: flex;
         }
         .link a.actives{
+            background: rgb(24 163 244 / 11%);
+            color: #18a3f4;
+        }
+        .link a:hover {
             background: rgb(24 163 244 / 11%);
             color: #18a3f4;
         }
@@ -586,6 +621,24 @@
             color: #fff !important;
             background-color: #4ba6ef !important;
         }
+        .btn-add-locataire {
+            color: #4ba6ef !important;
+            background-color: #4ba6ef36 !important;
+            border-radius: 6px;
+            padding: 8px 10px;
+        }
+        .btn-add-locataire:hover{
+            color: #fff !important;
+            background-color: #4ba6ef !important;
+        }
+        .btn-red-transparent{
+            color: #ac2925;
+            background: #ac292529;
+        }
+        .btn-red-transparent:hover{
+            color: #fff;
+            background: #ac2925;
+        }
 
         .btn-voir:hover{
             color: #fff !important;
@@ -606,6 +659,9 @@
         }
         .input-height {
             height: 45px !important;
+        }
+        .input-height40 {
+            height: 40px !important;
         }
         .input-style{
             border: 2px solid #d2d8d8 !important;
@@ -1054,6 +1110,59 @@
         .pd15{
             padding-top: 15px !important;
         }
+        .myLogo{
+            width: 50px;
+        }
+        .p30{
+            padding: 30px;
+        }
+        .pb12{
+           padding-bottom: 12px;
+        }
+        .w90{
+            width: 90%;
+        }
+        .w80{
+            width: 80%;
+        }
+        .w70{
+            width: 70%;
+        }
+        .w60{
+            width: 60%;
+        }
+        .w50{
+            width: 50%;
+        }
+        .w40{
+            width: 40%;
+        }
+        .w30{
+            width: 30%;
+        }
+        .w20{
+            width: 20%;
+        }
+        .w10{
+            width: 10%;
+        }
+        .nb-box{
+            background: #18a3f4;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 11px;
+        }
+        label {
+            font-size: 13px !important;
+        }
+        .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+            outline: 0 !important;
+        }
+
+
+
 
 
 
@@ -1124,7 +1233,7 @@
                     <div class="logo-area tb-cell">
                         <div class="site-logo">
                             <a href="<?=$domaine?>">
-                                <img src="<?=$cdn_domaine?>/media/logo.png" alt="Logo" />
+                                <img src="<?=$cdn_domaine?>/media/log01.png" alt="Logo" />
                             </a>
                         </div>
                     </div>

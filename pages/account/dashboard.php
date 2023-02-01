@@ -13,7 +13,7 @@ include_once $layout.'/header.php'?>
                 <div class="col-md-3">
                   <div class="compte-box bg-white-color">
                       <div class="header-box">
-                          Menu dashboard
+                          Menu
                       </div>
                       <?php
                       include_once $layout.'/menu-dashboard.php';
@@ -22,44 +22,57 @@ include_once $layout.'/header.php'?>
                 </div>
                 <div class="col-md-9">
                     <div class="header-box">
-                         Dashboard
+                        Tableau de bord
                     </div>
                     <div class="bg-white-color pb30">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="ts-box">
+                        <div class="row p30">
+                            <div class="col-md-3">
+                                <div class="ts-box-red">
                                     <div class="icon">
-                                        <i class="fa fa-home myicon-home"></i>
-                                    </div>
-                                    <div class="nbLgt">
-                                        <h2>25</h2>
-                                        <p>Logements</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="ts-box">
-                                    <div class="icon">
-                                        <i class="fa fa-user myicon-user"></i>
-                                    </div>
-                                    <div class="nbLgt">
-                                        <h2>13</h2>
-                                        <p>Locataires</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="ts-box">
-                                    <div class="icon">
-                                        <i class="fa fa-money myicon-money"></i>
+                                        <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
                                     </div>
                                     <div class="nbLgt">
                                         <h2>1 000 000</h2>
-                                        <p>Solde</p>
+                                        <p>Depense du mois</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="ts-box-green">
+                                    <div class="icon">
+                                        <i class="fa fa-arrow-trend-up myicon-trend my-icon-dashboard-green"></i>
+                                    </div>
+                                    <div class="nbLgt">
+                                        <h2>10 003</h2>
+                                        <p>Solde du mois</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="ts-box-red">
+                                    <div class="icon">
+                                        <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
+                                    </div>
+                                    <div class="nbLgt">
+                                        <h2>1 000 000</h2>
+                                        <p>Depense total</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="ts-box-green">
+                                    <div class="icon">
+                                        <i class="fa fa-arrow-trend-up myicon-trend my-icon-dashboard-green"></i>
+                                    </div>
+                                    <div class="nbLgt">
+                                        <h2>1 000 000</h2>
+                                        <p>Solde total</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="hist m30">
                             <h3>Les derniers versements</h3>
                             <table class="table-striped table1">

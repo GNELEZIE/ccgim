@@ -4,7 +4,7 @@
             <div class="col-md-3">
                 <div class="site-logo">
                     <a href="<?=$domaine?>">
-                        <img src="<?=$cdn_domaine?>/media/logo.png" alt="Logo" />
+                        <img src="<?=$cdn_domaine?>/media/log01.png" class="myLogo" alt="Logo" />
                     </a>
                 </div>
             </div>
