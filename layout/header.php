@@ -632,7 +632,7 @@
             padding: 9px 7px;
         }
         .btn-payer-maintenant:hover{
-            background-color: #39f6aa !important;
+            background-color: #2eb174 !important;
         }
         .btn-payer:hover{
             background-color: #3afbae;

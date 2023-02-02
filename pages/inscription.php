@@ -34,13 +34,13 @@ include_once $layout.'/header.php'
 
                         <div class="form-group position-relative">
                             <label  for="password">Mot de passe <i class="required"></i></label>
-                            <input class="full-width has-padding has-border" name="password" id="password" type="text"  placeholder="Mot de passe" required>
+                            <input class="full-width has-padding has-border" name="password" id="password" type="password"  placeholder="Mot de passe" required>
                             <a href="javascript:void(0);" class="hide-password"> <i class="fa fa-eye-slash"></i></a>
                         </div>
 
                         <div class="form-group position-relative">
                             <label for="cpassword">Confirmer mot de passe <i class="required"></i></label>
-                            <input class="full-width has-padding has-border" name="cpassword" id="cpassword" type="text"  placeholder="Confirmer mot de passe" required>
+                            <input class="full-width has-padding has-border" name="cpassword" id="cpassword" type="password"  placeholder="Confirmer mot de passe" required>
                             <a href="javascript:void(0);" class="hide-password"> <i class="fa fa-eye-slash"></i></a>
                         </div>
 

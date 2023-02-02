@@ -4,6 +4,9 @@ if(!isset($_SESSION['_ccgim_201'])){
     exit();
 
 }
+$token = openssl_random_pseudo_bytes(16);
+$token = bin2hex($token);
+$_SESSION['myformkey'] = $token;
 
 include_once $layout.'/header.php'?>
 
@@ -96,7 +99,7 @@ include_once $layout.'/header.php'?>
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLongTitle">Paiement du loyer de <span class="nom" id="nom"></span></h2>
+                <h2 class="modal-title" id="exampleModalLongTitle">Espace de paiment <span class="nom" id="nom"></span></h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -104,9 +107,9 @@ include_once $layout.'/header.php'?>
             <form method="post" id="formPayer">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="type_transac ">Type d'opération <i class="required"></i></label>
+                        <label for="type_transac">Type d'opération <i class="required"></i></label>
                         <select class="wide form-control no-nice-select-search-box input-style input-height select-transac" name="type_transac" id="type_transac" required>
-                            <option value="">Type d'opération</option>
+                            <option value="" selected>Type d'opération</option>
                             <option value="1">Paiement de loyer</option>
                             <option value="2">Sortie de caisse</option>
                         </select>
@@ -114,24 +117,30 @@ include_once $layout.'/header.php'?>
                     <div class="form-group locataire-input remove-none">
                         <label for="locataire" class="pt13">Locataire <i class="required"></i></label>
                         <select class="wide form-control input-style input-height select-locataire" name="locataire" id="locataire" required>
-                            <option value="">Choisir d'opération</option>
-                            <option value="1">Paiement de loyer</option>
-                            <option value="2">Sortie de caisse</option>
+                            <option value="" selected>Choisir locataire</option>
+                            <?php
+                            $listLoc = $locataire->getAllLocataire();
+                            while($dataLocataire = $listLoc->fetch()){
+                            ?>
+                            <option value="<?=$dataLocataire['id_locataire']?>"><?=html_entity_decode(stripslashes($dataLocataire['nom'])).' '.html_entity_decode(stripslashes($dataLocataire['prenom'])).'('.$dataLocataire['phone'].')'?></option>
+                            <?php
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="libelle" class="pd15">Libellé</label>
-                        <textarea class="form-control input-style" name="libelle" id="libelle" placeholder="Libellé"></textarea>
+                        <input type="text" class="form-control input-style input-height" name="libelle" id="libelle" placeholder="Libellé" required>
                     </div>
                     <div class="form-group">
                         <label for="montant" >Montant <i class="required"></i></label>
                         <input type="text" class="form-control input-style input-height" name="montant" id="montant" placeholder="Montant" required/>
-                        <input type="hidden" name="userId" id="userId"/>
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">
                     <a href="javascript:void(0);" class="btn btn-danger btn-closed" data-dismiss="modal">Annuler</a>
-                    <button  class="btn btn-payer-maintenant"> Enregistrer </button>
+                    <button  class="btn btn-payer-maintenant"> <i class="loaderBtnPay"></i> Enregistrer </button>
                 </div>
             </form>
         </div>
@@ -146,10 +155,8 @@ include_once $layout.'/header.php'?>
 
     $("select.select-transac").change(function() {
         var locataire = $(this).children("option:selected").val();
-
         if (locataire == '1') {
-            alert('ok');
-            $('.remove-none').addClass('locataire-input','locataire-input');
+            $('.remove-none').removeClass('locataire-input','locataire-input');
             $('#locataire').attr('required','required');
         }else if(locataire == '2' ){
             $('.remove-none').addClass('locataire-input','locataire-input');
@@ -160,8 +167,6 @@ include_once $layout.'/header.php'?>
         }
     });
 
-
-
     $(document).ready(function() {
         $('#type_transac').niceSelect();
         $('#locataire').niceSelect();
@@ -171,10 +176,6 @@ include_once $layout.'/header.php'?>
             $('#userId').val(userId);
             $('#nom').html(userName);
         });
-
-
-
-
 
         table_locataire = $('#table_locataire').DataTable({
             "ordering": false,
@@ -232,6 +233,24 @@ include_once $layout.'/header.php'?>
                 this.value = this.value.replace(/\D/g, '');
             }
         });
+
+        $('#formPayer').submit(function(e){
+            e.preventDefault();
+            $value = $(this);
+            $(".loaderBtnPay").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+            $.post('<?=$domaine?>/controle/tresorerie.save', $value.serialize(), function (data) {
+                alert(data);
+                if(data == 'ok'){
+                    $(".loaderBtnPay").html('');
+                    swal("Le paiement a été ajouté avec succès!","", "success");
+                }else{
+                    swal("Action Impossible !", "Une erreur s\'est produite.", "error");
+                }
+            });
+        });
+
+
+
 
 
     })
