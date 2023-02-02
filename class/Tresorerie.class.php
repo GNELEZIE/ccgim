@@ -32,26 +32,22 @@ class Tresorerie
 
 
 //Read
-    public function getAllLocataire(){
-        $query = "SELECT * FROM locataire
-          WHERE statut = 0 ORDER BY id_locataire DESC ";
+
+    public function getAllPaiement(){
+        $query = "SELECT * FROM tresorerie
+        INNER JOIN  locataire ON id_locataire  = user_id
+        ORDER BY id_tresorerie DESC";
         $rs = $this->bdd->query($query);
         return $rs;
     }
 
 
-    // Verification valeur existant
-    public function verifLocataire($propriete,$val){
-        $query = "SELECT * FROM locataire WHERE $propriete = :val";
-        $rs = $this->bdd->prepare($query);
-        $rs->execute(array(
-            "val" => $val
-        ));
+//Count
+    public function getSoldeTotal(){
+        $query = "SELECT SUM(debit_transac) - SUM(credit_transac) as solde FROM tresorerie";
+        $rs = $this->bdd->query($query);
         return $rs;
     }
-
-
-
 
 
 

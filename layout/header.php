@@ -647,7 +647,7 @@
             color: #4ba6ef !important;
             background-color: #4ba6ef36 !important;
             border-radius: 6px;
-            padding: 12px 10px;
+            padding: 9px 10px;
         }
         .btn-add-payer:hover{
             color: #fff !important;
@@ -1197,6 +1197,9 @@
         }
         .locataire-input{
             display: none;
+        }
+        .pt50{
+            padding-top: 50px;
         }
 
 

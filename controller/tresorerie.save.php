@@ -7,32 +7,32 @@ if(isset($_SESSION['_ccgim_201']) and isset($_POST['type_transac']) and isset($_
     $libelle = htmlentities(trim(addslashes(strip_tags($libelle))));
     $locataire = htmlentities(trim(addslashes(strip_tags($locataire))));
     $montant = htmlentities(trim(addslashes(strip_tags($montant))));
+    $dts = htmlentities(trim(addslashes(strip_tags($dts))));
 
     if(is_numeric($montant)){
 
         if($type_transac == 1){
             $debit = $montant;
             $credit = 0;
-
-            $save = $tresorerie->addOperation($dateGmt,$locataire,$type_transac,$libelle,$debit,$credit);
-            echo 'ok';
-            exit;
+            $save = $tresorerie->addOperation($dts,$locataire,$type_transac,$libelle,$debit,$credit);
             if($save > 0){
                 echo 'ok';
             }
         }
-/*        elseif($type_transac == 2){
+        elseif($type_transac == 2){
+            $locataire = 4;
             $debit = 0;
             $credit = $montant;
-            $solde = $tresorerie->getOperationBySolde($caisseId)->fetch();
+            $solde = $tresorerie->getSoldeTotal()->fetch();
+
             if($montant <= $solde['solde']){
-                $save = $operation->addOperation($date,$_SESSION['_ccgim_201']['id_admin'],$typeOp,$caisseId,$libelle,$debit,$credit,$coursesId);
+                $save = $tresorerie->addOperation($dts,$locataire,$type_transac,$libelle,$debit,$credit);
                 if($save > 0){
                     echo 'ok';
                 }
             }else{
                 echo 'solde';
             }
-        }*/
+        }
     }
 }

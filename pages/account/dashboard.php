@@ -63,7 +63,7 @@ include_once $layout.'/header.php'?>
                             <div class="col-md-3">
                                 <div class="ts-box-green">
                                     <div class="icon">
-                                        <i class="fa fa-arrow-trend-up myicon-trend my-icon-dashboard-green"></i>
+                                        <i class="fa fa-wallet myicon-trend my-icon-dashboard-green"></i>
                                     </div>
                                     <div class="nbLgt">
                                         <h2>1 000 000</h2>
