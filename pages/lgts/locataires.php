@@ -4,6 +4,15 @@ if(!isset($_SESSION['_ccgim_201'])){
     exit();
 
 }
+if(isset($doc[2]) and !isset($doc[3])){
+$datLo = $locataire->getLocataireBySlug($doc[2]);
+    if($dataLocat = $datLo->fetch()){
+
+    }else{
+        header('location:'.$domaine.'/connexion');
+        exit();
+    }
+}
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
@@ -52,6 +61,7 @@ include_once $layout.'/header.php'?>
             </div>
         <?php
         }else{
+
         ?>
             <div class="row">
                 <div class="col-md-12">
@@ -66,14 +76,44 @@ include_once $layout.'/header.php'?>
                     <div class="bg-white-color pd25">
                         <ul class="nav nav-tabs hidden-sm hidden-xs myTabsUl" role="tablist">
                             <li role="presentation" class="active">
-                                <a href="#infos" aria-controls="infos" role="tab" data-toggle="tab">Informations</a>
+                                <a href="#historiques" aria-controls="historiques" role="tab" data-toggle="tab">Historiques</a>
                             </li>
                             <li role="presentation">
-                                <a href="#historiques" aria-controls="historiques" role="tab" data-toggle="tab">Historiques</a>
+                                <a href="#infos" aria-controls="infos" role="tab" data-toggle="tab">Informations</a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="infos">
+                            <div role="tabpanel" class="tab-pane active" id="historiques">
+                                <table id="table_historique" class="table newtable">
+                                    <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Référence</th>
+                                        <th>Montant</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    $listePay = $tresorerie->getPaiementByUser($dataLocat['id_locataire']);
+                                    while($listePayData = $listePay->fetch()){
+                                        ?>
+
+                                    <tr>
+                                        <td><?=date_time_fr($listePayData['date_tresorerie'])?></td>
+                                        <td><?=$listePayData['ref_paiement']?></td>
+                                        <td><?=number_format($listePayData['debit_transac'],0,',',' ')?></td>
+                                        <td>
+                                            <a href="<?=$domaine?>/facture/<?=$listePayData['ref_paiement']?>" class="btn-voir" target="_blank"> <i class="fa fa-print"></i> Imprimer</a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="infos">
                                 <div class="row pd25 pInfo">
                                     <div class="col-md-6">
                                         <p class="m-0">Nom & Prénom : <b>Ouattara Gnelezie</b></p>
@@ -89,38 +129,6 @@ include_once $layout.'/header.php'?>
                                         <p class="m-0">Service ou affectation   : <b>Etudiants</b></p>
                                     </div>
                                 </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="historiques">
-                                <table id="table_historique" class="table newtable">
-                                    <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Référence</th>
-                                        <th>Montant</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>25/01/2023</td>
-                                        <td>p002222512</td>
-                                        <td>150 000</td>
-
-                                        <td>
-                                            <a href="<?=$domaine?>/facture/f04545" class="btn-voir" target="_blank"> <i class="fa fa-print"></i> Imprimer</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>25/01/2023</td>
-                                        <td>p002222512</td>
-                                        <td>150 000</td>
-                                        <td>
-                                            <a href="<?=$domaine?>/facture/f04545" class="btn-voir" target="_blank"> <i class="fa fa-print"></i> Imprimer</a>
-                                        </td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
@@ -362,6 +370,7 @@ include_once $layout.'/header.php'?>
 
             }
         });
+
         table_historique = $('#table_historique').DataTable({
             "ordering": false,
             "pageLength": 25,

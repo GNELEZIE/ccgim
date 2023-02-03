@@ -38,6 +38,15 @@ class Locataire
         $rs = $this->bdd->query($query);
         return $rs;
     }
+    public function getLocataireBySlug($slg){
+        $query = "SELECT * FROM locataire
+          WHERE statut = 0 AND slug =:slg";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "slg" => $slg
+        ));
+        return $rs;
+    }
 
 
     // Verification valeur existant

@@ -8,7 +8,7 @@ while($dats = $liste->fetch()){
 
     $stat = '<span class="badge-jaune">En attente</span>';
     $action = '<a href="#" class="btn-payer" data-toggle="modal"  data-id="'.$dats["id_locataire"].'" data-name="'.html_entity_decode(stripslashes($dats["nom"])).'" data-target="#payerModalCenter"> <i class="fa fa-money"></i> Payer</a>
-                <a href="'.$domaine.'/logement/locataires/show" class="btn-voir"> <i class="fa fa-eye"></i> Voir</a>';
+                <a href="'.$domaine.'/logement/locataires/'.$dats['slug'].'" class="btn-voir"> <i class="fa fa-eye"></i> Voir</a>';
     $numbers = $dats['dial_phone'].' '.$dats['phone'];
     $arr_list['data'][] = array(
         date_time_fr($dats['date_locataire']),

@@ -4,7 +4,16 @@ if(!isset($_SESSION['_ccgim_201'])){
     exit();
 
 }
-
+$annee = date('Y');
+$mois = date('m');
+$debitMois = $tresorerie->getPaiementMontByMonth($annee,$mois)->fetch();
+$creditMois = $tresorerie->getRetraitMontByMonth($annee,$mois)->fetch();
+$Allcredit = $tresorerie->getAllCredit()->fetch();
+$montant = $tresorerie->getSoldeTotal()->fetch();
+$my_solde = number_format($montant['solde'],0 ,' ',' ').' <small>FCFA</small>';
+$token = openssl_random_pseudo_bytes(16);
+$token = bin2hex($token);
+$_SESSION['myformkey'] = $token;
 include_once $layout.'/header.php'?>
 
     <div class="container-fluid py-5 bg-gray-color pd-section">
@@ -24,15 +33,15 @@ include_once $layout.'/header.php'?>
                     <div class="header-box">
                         Tableau de bord
                     </div>
-                    <div class="bg-white-color pb30">
-                        <div class="row p30">
+                    <div class="bg-white-color p30">
+                        <div class="row">
                             <div class="col-md-3">
                                 <div class="ts-box-red">
                                     <div class="icon">
                                         <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
                                     </div>
                                     <div class="nbLgt">
-                                        <h2>1 000 000</h2>
+                                        <h2><?=number_format($creditMois['solde'],0,',',' ')?> <small>FCFA</small></h2>
                                         <p>Depense du mois</p>
                                     </div>
                                 </div>
@@ -43,7 +52,7 @@ include_once $layout.'/header.php'?>
                                         <i class="fa fa-arrow-trend-up myicon-trend my-icon-dashboard-green"></i>
                                     </div>
                                     <div class="nbLgt">
-                                        <h2>10 003</h2>
+                                        <h2><?=number_format($debitMois['solde'],0,',',' ')?> <small>FCFA</small></h2>
                                         <p>Solde du mois</p>
                                     </div>
                                 </div>
@@ -55,7 +64,7 @@ include_once $layout.'/header.php'?>
                                         <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
                                     </div>
                                     <div class="nbLgt">
-                                        <h2>1 000 000</h2>
+                                        <h2><?=number_format($Allcredit['solde'],0,',',' ')?> <small>FCFA</small></h2>
                                         <p>Depense total</p>
                                     </div>
                                 </div>
@@ -66,42 +75,40 @@ include_once $layout.'/header.php'?>
                                         <i class="fa fa-wallet myicon-trend my-icon-dashboard-green"></i>
                                     </div>
                                     <div class="nbLgt">
-                                        <h2>1 000 000</h2>
+                                        <h2><?=$my_solde?></h2>
                                         <p>Solde total</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="hist m30">
+                        <div class="hist">
                             <h3>Les derniers versements</h3>
                             <table class="table-striped table1">
                                 <thead>
                                 <tr>
                                     <th>Date</th>
+                                    <th>Téléphone</th>
                                     <th>Locataire</th>
-                                    <th class="text-right">Montant</th>
+                                    <th class="text-right">Montant(CFA)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <?php
+                                $localist = $tresorerie->getCinqPaiement();
+                                while($localDat = $localist->fetch()){
+                                    ?>
                                 <tr>
-                                    <td>26/01/2023</td>
+                                    <td><?=date_time_fr($localDat['date_tresorerie'])?></td>
+                                    <td><?=$localDat['phone']?></td>
                                     <td>
-                                        <p class="m-0">Ouattara Gnelezie Arouna</p>
+                                        <p class="m-0"><?=html_entity_decode(stripslashes($localDat["nom"])).' '.html_entity_decode(stripslashes($localDat["prenom"]))?></p>
                                     </td>
-                                    <td class="text-right">150 000</td>
+                                    <td class="text-right"><?=number_format($localDat['debit_transac'],0,',',' ')?></td>
                                 </tr>
-                                <tr>
-                                    <td>26/01/2023</td>
-                                    <td>Ouattara Gnelezie Arouna
-                                    </td>
-                                    <td class="text-right">150 000</td>
-                                </tr>
-                                <tr>
-                                    <td>26/01/2023</td>
-                                    <td>Ouattara Gnelezie Arouna</td>
-                                    <td class="text-right">150 000</td>
-                                </tr>
+                                <?php
+                                }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -114,3 +121,19 @@ include_once $layout.'/header.php'?>
 
 
 <?php include_once $layout.'/footer.php'?>
+<script>
+    chargeSolde();
+    function chargeSolde(){
+        $.ajax({
+            type: 'post',
+            data: {
+                token: "<?=$token?>"
+            },
+            url: '<?=$domaine?>/controle/solde',
+            dataType: 'json',
+            success: function(data){
+                $('.my_solde').html(data.my_solde);
+            }
+        });
+    }
+</script>

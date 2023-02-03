@@ -359,8 +359,8 @@
             margin: 0;
             font-weight: 600;
             padding-top: 9px;
-            font-size: 20px;
-            font-family: sans-serif;
+            font-size: 15px;
+            font-family: sans-serif !important;
         }
         .nbLgt p{
            margin: 0;

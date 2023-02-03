@@ -3,7 +3,7 @@
 $arr_list = array('data' => array());
 if(isset($_SESSION['_ccgim_201'])  and isset($_SESSION['myformkey']) and isset($_POST['token']) and $_SESSION['myformkey'] == $_POST['token']){
 
-$liste = $tresorerie->getAllPaiement();
+$liste = $tresorerie->getPaiementByUser($tes);
 while($dats = $liste->fetch()){
     $test = 1;
 
