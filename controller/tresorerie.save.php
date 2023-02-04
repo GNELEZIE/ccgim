@@ -20,7 +20,7 @@ if(isset($_SESSION['_ccgim_201']) and isset($_POST['type_transac']) and isset($_
             }
         }
         elseif($type_transac == 2){
-            $locataire = 4;
+            $locataire = 1;
             $debit = 0;
             $credit = $montant;
             $solde = $tresorerie->getSoldeTotal()->fetch();

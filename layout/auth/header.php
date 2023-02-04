@@ -1220,7 +1220,10 @@
             background-color: #fff;
             border-radius: 6px;
         }
-
+        .footer-area .bottom-content {
+            border-top: 0 !important;
+            margin-top: 51px !important;
+        }
 
 
 

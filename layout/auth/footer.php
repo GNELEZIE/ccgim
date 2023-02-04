@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="bottom-content">
-                    <p>Copyright  &copy;2023 <a href="#">CCGIM</a></p>
+                    <p>Copyright  &copy; 2023 <a href="#">App CCGIM</a></p>
                 </div>
             </div>
         </div>
@@ -16,7 +16,6 @@
 <script src="<?=$cdn_domaine?>/assets/libs/sweetalert/sweetalert2.min.js" type="text/javascript"></script>
 <script src="<?=$cdn_domaine?>/assets/libs/datatable/datatables.min.js"></script>
 <script src="<?=$cdn_domaine?>/assets/libs/intltelinput/js/intlTelInput.min.js"></script>
-
 <script src="<?=$cdn_domaine?>/assets/libs/nice-select/js/nice-select-search.js"></script>
 <script src="<?=$cdn_domaine?>/assets/libs/toast/jquery.toast.min.js"></script>
 <script src="<?=$cdn_domaine?>/assets/libs/intltelinput/js/intlTelInput.min.js"></script>

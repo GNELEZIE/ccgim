@@ -3,7 +3,7 @@
 if(isset($_SESSION['_ccgim_201']) and isset($_POST['lgt']) and isset($_POST['noms']) and isset($_POST['prenom']) and isset($_POST['phone']) and isset($_POST['bail']) and isset($_SESSION['myformkey']) and isset($_POST['formkey']) and $_SESSION['myformkey'] == $_POST['formkey']){
     extract($_POST);
 
-    $slug = create_slug($_POST['prenom']);
+    $slug = create_slug($_POST['noms']);
     $lgt = htmlentities(trim(addslashes(strip_tags($lgt))));
     $noms = htmlentities(trim(addslashes(strip_tags($noms))));
     $prenom = htmlentities(trim(addslashes(strip_tags($prenom))));
@@ -12,8 +12,8 @@ if(isset($_SESSION['_ccgim_201']) and isset($_POST['lgt']) and isset($_POST['nom
     $isoPhone = htmlentities(trim(addslashes(strip_tags($isoPhone))));
     $dialPhone = htmlentities(trim(addslashes(strip_tags($dialPhone))));
 
-    $propriety = 'prenom';
-    $verifSlug = $locataire->verifLocataire($propriety,$prenom);
+    $propriety = 'nom';
+    $verifSlug = $locataire->verifLocataire($propriety,$noms);
     $rsSlug = $verifSlug->fetch();
     $nbSlug =$verifSlug->rowCount();
     if($nbSlug > 0 ){

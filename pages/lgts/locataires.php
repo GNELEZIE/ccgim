@@ -215,7 +215,7 @@ include_once $layout.'/auth/header.php'?>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="prenom">Prénom <i class="required"></i></label>
-                                <input class="form-control input-style input-height40" name="prenom" id="prenom" type="text"  placeholder="Prénom" required>
+                                <input class="form-control input-style input-height40" name="prenom" id="prenom" type="text"  placeholder="Prénom">
                             </div>
                         </div>
                     </div>
@@ -282,7 +282,6 @@ include_once $layout.'/auth/header.php'?>
                         $(".loaderAddBtn").html('');
                         $('#bail').val('');
                         $('#phone').val('');
-                        $('#lgt').val('');
                         $('#noms').val('');
                         $('#prenom').val('');
                         table_locataire.ajax.reload(null,false);
