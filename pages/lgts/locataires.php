@@ -16,7 +16,7 @@ $datLo = $locataire->getLocataireBySlug($doc[2]);
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
-include_once $layout.'/header.php'?>
+include_once $layout.'/auth/header.php'?>
 
 <div class="container-fluid py-5 bg-gray-color pd-section">
     <div class="container py-5">
@@ -116,18 +116,18 @@ include_once $layout.'/header.php'?>
                             <div role="tabpanel" class="tab-pane fade" id="infos">
                                 <div class="row pd25 pInfo">
                                     <div class="col-md-6">
-                                        <p class="m-0">Nom & Prénom : <b>Ouattara Gnelezie</b></p>
-                                        <p class="m-0">Prénom  : <b>email@gmail.com</b></p>
-                                        <p class="m-0">Ville  : <b>Kasséré</b></p>
-                                        <p class="m-0">Téléphone  : <b>225 00 00 00 00 00</b></p>
+                                        <p class="m-0">Nom & Prénom : <b><?=html_entity_decode(stripslashes($dataLocat["nom"]))?></b></p>
+                                        <p class="m-0">Prénom  : <b><?=html_entity_decode(stripslashes($dataLocat["prenom"]))?></b></p>
+                                        <p class="m-0">Ville  : <b><?=html_entity_decode(stripslashes($dataLocat["ville"]))?></b></p>
+                                        <p class="m-0">Téléphone  : <b><?=$dataLocat["phone"]?></b></p>
                                     </div>
-                                    <div class="col-md-6">
+                                    <!--<div class="col-md-6">
                                         <p class="m-0">Boîte postale : <b>225</b></p>
                                         <p class="m-0">Banque et N° de compte : <b>050255</b></p>
                                         <p class="m-0">N° compte contribuable  : <b>00555</b></p>
                                         <p class="m-0">MECANO  : <b>225 00 00 00 00 00</b></p>
                                         <p class="m-0">Service ou affectation   : <b>Etudiants</b></p>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -155,20 +155,20 @@ include_once $layout.'/header.php'?>
             </div>
             <form method="post" id="formPayer">
                 <div class="modal-body">
-
+                    <div class="form-group">
+                        <label for="libelle">Libellé</label>
+                        <input type="text" class="form-control input-style input-height" name="libelle" id="libelle" placeholder="Libellé">
+                    </div>
                     <div class="form-group">
                         <label for="montant">Montant <i class="required"></i></label>
                         <input type="text" class="form-control input-style input-height" name="montant" id="montant" placeholder="Montant" required/>
                         <input type="hidden" name="userId" id="userId"/>
                     </div>
-                    <div class="form-group">
-                        <label for="note">Note</label>
-                        <textarea class="form-control input-style" name="note" id="note" placeholder="Note"></textarea>
-                    </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">
                     <a href="javascript:void(0);" class="btn btn-danger btn-closed" data-dismiss="modal">Annuler</a>
-                    <button  class="btn btn-payer-maintenant">Payer maintenant</button>
+                    <button  class="btn btn-payer-maintenant"> <i class="loadPay"></i> Payer maintenant</button>
                 </div>
             </form>
         </div>
@@ -258,7 +258,7 @@ include_once $layout.'/header.php'?>
 </div>
 
 
-<?php include_once $layout.'/footer.php'?>
+<?php include_once $layout.'/auth/footer.php'?>
 <script>
     var table_locataire;
     var table_historique;
@@ -287,6 +287,35 @@ include_once $layout.'/header.php'?>
                         $('#prenom').val('');
                         table_locataire.ajax.reload(null,false);
                         swal("Le locataire a été ajouté avec succès!","", "success");
+                    }else{
+                        swal("Action Impossible !", "Une erreur s\'est produite.", "error");
+                    }
+                },
+                error: function (error, ajaxOptions, thrownError) {
+                    alert(error.responseText);
+                }
+            });
+        });
+        $('#formPayer').submit(function(e){
+            e.preventDefault();
+            $(".loadPay").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+            var value = document.getElementById('formPayer');
+            var form = new FormData(value);
+
+            $.ajax({
+                method: 'post',
+                url: '<?=$domaine?>/controle/payer.save',
+                data: form,
+                contentType:false,
+                cache:false,
+                processData:false,
+                success: function(data){
+                    if(data == 'ok'){
+                        $(".loadPay").html('');
+                        $('#libelle').val('');
+                        $('#montant').val('');
+                        table_locataire.ajax.reload(null,false);
+                        swal("Le paiement a été ajouté avec succès !","", "success");
                     }else{
                         swal("Action Impossible !", "Une erreur s\'est produite.", "error");
                     }
@@ -335,6 +364,7 @@ include_once $layout.'/header.php'?>
             var userName = $(e.relatedTarget).data('name');
             $('#userId').val(userId);
             $('#nom').html(userName);
+
         });
 
 
@@ -355,7 +385,7 @@ include_once $layout.'/header.php'?>
                 "sEmptyTable": "Aucune donnée disponible",
                 "sInfo": "Lignes _START_ à _END_ sur _TOTAL_",
                 "sInfoEmpty": "Aucune ligne affichée",
-                "sInfoFiltered": "(Filtrer un maximum de_MAX_)",
+                "sInfoFiltered": "(Filtrer un maximum de_MAX_) ",
                 "sSearch": '<i class="fa fa-search table-seach"></i>',
                 "sSearchPlaceholder": "Recherche",
                 "sLoadingRecords": '<i class="fa fa-circle-o-notch fa-spin"></i> Chargement...',

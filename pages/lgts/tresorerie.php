@@ -8,7 +8,7 @@ $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
 
-include_once $layout.'/header.php'?>
+include_once $layout.'/auth/header.php'?>
 
 <div class="container-fluid py-5 bg-gray-color pd-section">
     <div class="container py-5">
@@ -123,7 +123,7 @@ include_once $layout.'/header.php'?>
 </div>
 
 
-<?php include_once $layout.'/footer.php'?>
+<?php include_once $layout.'/auth/footer.php'?>
 <script>
 
     var table_tresorerie;
@@ -220,7 +220,7 @@ include_once $layout.'/header.php'?>
                     chargeSolde();
                     table_tresorerie.ajax.reload(null,false);
                     $(".loaderBtnPay").html('');
-                    swal("Le paiement a été ajouté avec succès!","", "success");
+                    swal("Le paiement a été ajouté avec succès !","", "success");
                 }else if(data == 'solde'){
                     $(".loaderBtnPay").html('');
                     swal("Action Impossible !", "Votre solde est insuffisant !", "error");

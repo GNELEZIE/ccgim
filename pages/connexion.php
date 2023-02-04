@@ -9,7 +9,7 @@ require_once $controller.'/user.connexion.php';
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
-include_once $layout.'/header.php'
+include_once $layout.'/auth/header.php'
 ?>
 
 
@@ -50,7 +50,7 @@ include_once $layout.'/header.php'
                         <div class="form-group">
                             <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">
                             <button class="full-width has-padding user-inscription"> <i class="loaderBtn"></i> Connexion </button>
-                            <p class="text-center font-13 pt20">Vous n'avez pas de compte?<a href="#">  Inscrivez-vous </a></p>
+                            <p class="text-center font-13 pt20">Vous n'avez pas de compte? <a href="<?=$domaine?>/inscription" class="color-blue">  Inscrivez-vous </a></p>
                         </div>
                     </form>
                 </div>
@@ -59,7 +59,7 @@ include_once $layout.'/header.php'
     </div>
 
 
-<?php include_once $layout.'/footer.php'?>
+<?php include_once $layout.'/auth/footer.php'?>
 <script>
     $(document).ready(function(){
         $('#loginForm').submit(function(){

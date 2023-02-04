@@ -18,9 +18,9 @@ while($dats = $liste->fetch()){
         $mont = $debit + $credit;
         $montant = '<span class="badge-red"><b> - '. number_format($mont,0,',',' ').'</b> </span>';
     }
-    $action = '<a href="'.$domaine.'/facture/'.$dats['ref_paiement'].'" class="btn-voir"> <i class="fa fa-print"></i> Imprimer</a>';
+    $action = '<a href="'.$domaine.'/facture/'.$dats['ref_paiement'].'" class="btn-voir"> <i class="fa fa-print"></i></a>';
     $arr_list['data'][] = array(
-        date_time_fr($dats['date_tresorerie']),
+        date_fr($dats['date_tresorerie']),
         $dats['phone'],
         html_entity_decode(stripslashes($dats["nom"])).' '.html_entity_decode(stripslashes($dats["prenom"])),
         html_entity_decode(stripslashes($dats["libelle_transac"])),

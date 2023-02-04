@@ -17,7 +17,7 @@ require_once $controller.'/profil.update.php';
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
-include_once $layout.'/header.php'?>
+include_once $layout.'/auth/header.php'?>
 
     <div class="container-fluid py-5 bg-gray-color pd-section">
         <div class="container py-5">
@@ -148,7 +148,7 @@ include_once $layout.'/header.php'?>
 
 
 
-<?php include_once $layout.'/footer.php'?>
+<?php include_once $layout.'/auth/footer.php'?>
 <script>
 
     $(document).ready(function(){

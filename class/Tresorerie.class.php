@@ -60,6 +60,18 @@ class Tresorerie
 
       return $rs;
     }
+    public function getLastPaiementByUser($userId){
+        $query = "SELECT * FROM tresorerie
+        INNER JOIN  locataire ON id_locataire  = user_id
+        WHERE user_id =:userId
+        ORDER BY id_tresorerie DESC LIMIT 1";
+      $rs = $this->bdd->prepare($query);
+      $rs->execute(array(
+          "userId" => $userId
+      ));
+
+      return $rs;
+    }
 
 
 //Count

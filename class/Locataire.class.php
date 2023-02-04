@@ -48,7 +48,13 @@ class Locataire
         return $rs;
     }
 
-
+//Count
+    public function getNbLocataire(){
+        $query = "SELECT COUNT(*) as nb FROM locataire
+          WHERE statut != 1";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
     // Verification valeur existant
     public function verifLocataire($propriete,$val){
         $query = "SELECT * FROM locataire WHERE $propriete = :val";

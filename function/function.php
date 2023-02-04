@@ -102,6 +102,13 @@ if(!function_exists('p_v')){
 
 // remplace date en fr
 
+if(!function_exists('date_fr2')){
+    function date_fr2($date){
+        $dc = new DateTime($date);
+        $dc = $dc->format('Y-m');
+        return $dc;
+    }
+}
 if(!function_exists('date_fr')){
     function date_fr($date){
         $dc = new DateTime($date);
