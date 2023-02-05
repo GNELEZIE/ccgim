@@ -2,13 +2,13 @@
 if(isset($_SESSION['_ccgim_201'])){
     header('location:'.$domaine.'/compte/dashboard');
     exit();
-
 }
-require_once $controller.'/user.connexion.php';
 
+require_once $controller.'/forgot.pwd.php';
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
+
 include_once $layout.'/auth/header.php'
 ?>
 
@@ -31,7 +31,7 @@ include_once $layout.'/auth/header.php'
                         <?php }?>
                         <div class="form-group">
                             <label class="" for="email">E-mail <i class="required"></i></label>
-                            <input class="full-width has-padding has-border" name="email" id="email" type="email" placeholder="E-mail" required>
+                            <input class="full-width has-padding has-border" name="email" id="email" type="text" placeholder="E-mail" required>
                         </div>
                         <div class="form-group">
                             <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">

@@ -13,7 +13,7 @@ include_once $layout.'/auth/header.php'?>
 <div class="container-fluid py-5 bg-gray-color pd-section">
     <div class="container py-5">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 mobile-none">
                     <div class="compte-box bg-white-color">
                         <div class="header-box">
                             Menu
@@ -29,12 +29,12 @@ include_once $layout.'/auth/header.php'?>
                     </div>
                     <div class="bg-white-color pb30 mes-lgts">
                         <div class="row">
-                            <div class="col-md-4 pt50">
+                            <div class="col-md-4 pt50 ">
                                 <a class="btn-add-payer" href="#" data-toggle="modal"  data-target="#payerModalCenter"> <i class="fa fa-plus"></i> Ajouter un paiment</a>
                             </div>
                             <div class="col-md-4"></div>
                             <div class="col-md-4">
-                                <div class="ts-box-green">
+                                <div class="ts-box-green mt30">
                                     <div class="icon">
                                         <i class="fa fa-wallet myicon-trend my-icon-dashboard-green"></i>
                                     </div>
@@ -45,19 +45,38 @@ include_once $layout.'/auth/header.php'?>
                                 </div>
                             </div>
                         </div>
-                        <table id="table_tresorerie" class="table newtable">
-                            <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Téléphone</th>
-                                <th>Nom</th>
-                                <th>Libellé</th>
-                                <th>Montant</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                        <div class="pc-none position-relative">
+                            <h3 class="titre-mobile">Liste des paiements</h3>
+                            <a href="javascript:void(0)" class="searchBtn"><i class="fa fa-search mySearch"></i></a>
+                            <a href="javascript:void(0)" class="searchBtnTimes"> <i class="fa fa-times myTimes"></i></a>
+
+                            <table id="table_tresorerie_mobile" class="table newtable">
+                                <thead class="d-none">
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mobile-none">
+                            <table id="table_tresorerie" class="table newtable">
+                                <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Téléphone</th>
+                                    <th>Nom</th>
+                                    <th>Libellé</th>
+                                    <th>Montant</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,7 +145,30 @@ include_once $layout.'/auth/header.php'?>
 <?php include_once $layout.'/auth/footer.php'?>
 <script>
 
+    var searchBtn = $('.searchBtn');
+    var myTimes = $('.myTimes');
+    var searchBtnTimes = $('.searchBtnTimes');
+    var titreMobile = $('.titre-mobile');
+    searchBtn.click(function(){
+        $('#table_tresorerie_mobile_filter').css('display','block');
+        $('.table-seach').trigger('click');
+        searchBtn.css('display','none');
+        titreMobile.css('opacity','0');
+        searchBtnTimes.css('display','block');
+
+    });
+    searchBtnTimes.click(function(){
+        $('#table_tresorerie_mobile_filter').css('display','none');
+        titreMobile.css('opacity','1');
+        searchBtn.css('display','block');
+        searchBtnTimes.css('display','none');
+
+    });
+
+</script>
+<script>
     var table_tresorerie;
+    var table_tresorerie_mobile;
 
     $("select.select-transac").change(function() {
         var locataire = $(this).children("option:selected").val();
@@ -150,6 +192,39 @@ include_once $layout.'/auth/header.php'?>
             var userName = $(e.relatedTarget).data('name');
             $('#userId').val(userId);
             $('#nom').html(userName);
+        });
+
+        table_tresorerie_mobile = $('#table_tresorerie_mobile').DataTable({
+            "ajax": {
+                "type": "post",
+                "url": "<?=$domaine?>/controle/paiement-mobile.liste",
+                "data": {
+                    token: "<?=$token?>"
+                }
+            },
+            "ordering": false,
+            "pageLength": 25,
+            "oLanguage": {
+                "sProcessing": "Traitement en cours ...",
+                "sLengthMenu": '',
+                "sZeroRecords": "Aucun résultat trouvé",
+                "sEmptyTable": "Aucune donnée disponible",
+                "sInfo": "Lignes _START_ à _END_ sur _TOTAL_",
+                "sInfoEmpty": "Aucune ligne affichée",
+                "sInfoFiltered": "(Filtrer un maximum de_MAX_)",
+                "sSearch": '<i class="fa fa-search table-seach"></i>',
+                "sSearchPlaceholder": "Recherche",
+                "sLoadingRecords": '<i class="fa fa-circle-o-notch fa-spin"></i> Chargement...',
+                "oPaginate":{
+                    "sPrevious": '<i class="fa fa-angle-double-left"></i>',
+                    "sNext": '<i class="fa fa-angle-double-right"></i>'
+                },
+                "oAria": {
+                    "sSortAscending": ": Trier par ordre croissant",
+                    "sSortDescending": ": Trier par ordre décroissant"
+                }
+
+            }
         });
 
         table_tresorerie = $('#table_tresorerie').DataTable({

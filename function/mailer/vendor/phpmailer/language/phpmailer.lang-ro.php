@@ -6,7 +6,7 @@
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Eroare SMTP: Autentificarea a eșuat.';
-$PHPMAILER_LANG['buggy_php']            = 'Versiunea instalată de PHP este afectată de o problemă care poate duce la coruperea mesajelor Pentru a preveni această problemă, folosiți SMTP, dezactivați opțiunea mail.add_x_header din php.ini, folosiți MacOS/Linux sau actualizați versiunea de PHP la 7.0.17+ sau 7.1.3+.';
+$PHPMAILER_LANG['buggy_php']            = 'Versiunea instalată de PHP este afectată de o problemă care poate duce la coruperea mesajelor Pentru a preveni această problemă, folosiți SMTP, dezactivați opțiunea email.add_x_header din php.ini, folosiți MacOS/Linux sau actualizați versiunea de PHP la 7.0.17+ sau 7.1.3+.';
 $PHPMAILER_LANG['connect_host']         = 'Eroare SMTP: Conectarea la serverul SMTP a eșuat.';
 $PHPMAILER_LANG['data_not_accepted']    = 'Eroare SMTP: Datele nu au fost acceptate.';
 $PHPMAILER_LANG['empty_message']        = 'Mesajul este gol.';
@@ -16,7 +16,7 @@ $PHPMAILER_LANG['extension_missing']    = 'Lipsește extensia: ';
 $PHPMAILER_LANG['file_access']          = 'Nu se poate accesa următorul fișier: ';
 $PHPMAILER_LANG['file_open']            = 'Eroare fișier: Nu se poate deschide următorul fișier: ';
 $PHPMAILER_LANG['from_failed']          = 'Următoarele adrese From au dat eroare: ';
-$PHPMAILER_LANG['instantiate']          = 'Funcția mail nu a putut fi inițializată.';
+$PHPMAILER_LANG['instantiate']          = 'Funcția email nu a putut fi inițializată.';
 $PHPMAILER_LANG['invalid_address']      = 'Adresa de email nu este validă: ';
 $PHPMAILER_LANG['invalid_header']       = 'Numele sau valoarea header-ului nu este validă: ';
 $PHPMAILER_LANG['invalid_hostentry']    = 'Hostentry invalid: ';

@@ -10,7 +10,7 @@
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Erreur SMTP : échec de l’authentification.';
-$PHPMAILER_LANG['buggy_php']            = 'Votre version de PHP est affectée par un bogue qui peut entraîner des messages corrompus. Pour résoudre ce problème, passez à l’envoi par SMTP, désactivez l’option mail.add_x_header dans le fichier php.ini, passez à MacOS ou Linux, ou passez PHP à la version 7.0.17+ ou 7.1.3+.';
+$PHPMAILER_LANG['buggy_php']            = 'Votre version de PHP est affectée par un bogue qui peut entraîner des messages corrompus. Pour résoudre ce problème, passez à l’envoi par SMTP, désactivez l’option email.add_x_header dans le fichier php.ini, passez à MacOS ou Linux, ou passez PHP à la version 7.0.17+ ou 7.1.3+.';
 $PHPMAILER_LANG['connect_host']         = 'Erreur SMTP : impossible de se connecter au serveur SMTP.';
 $PHPMAILER_LANG['data_not_accepted']    = 'Erreur SMTP : données incorrectes.';
 $PHPMAILER_LANG['empty_message']        = 'Corps du message vide.';
@@ -20,7 +20,7 @@ $PHPMAILER_LANG['extension_missing']    = 'Extension manquante : ';
 $PHPMAILER_LANG['file_access']          = 'Impossible d’accéder au fichier : ';
 $PHPMAILER_LANG['file_open']            = 'Ouverture du fichier impossible : ';
 $PHPMAILER_LANG['from_failed']          = 'L’adresse d’expéditeur suivante a échoué : ';
-$PHPMAILER_LANG['instantiate']          = 'Impossible d’instancier la fonction mail.';
+$PHPMAILER_LANG['instantiate']          = 'Impossible d’instancier la fonction email.';
 $PHPMAILER_LANG['invalid_address']      = 'Adresse courriel non valide : ';
 $PHPMAILER_LANG['invalid_header']       = 'Nom ou valeur de l’en-tête non valide';
 $PHPMAILER_LANG['invalid_hostentry']    = 'Entrée d’hôte non valide : ';

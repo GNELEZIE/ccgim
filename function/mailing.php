@@ -14,27 +14,23 @@ if(!function_exists('sendMailNoReply')){
     function sendMailNoReply($to,$subject,$message){
         $mail = new PHPMailer(true);
         try {
-            //Server settings
             $mail->CharSet = 'UTF-8';
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
-            $mail->Host       = 'mail.logetex.com';
+            $mail->Host       = 'mail56.lwspanel.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'no-reply@logetex.com';
-            $mail->Password   = 'nj60wUcko0xL';
+            $mail->Username   = 'test@aeek-kassere.com';
+            $mail->Password   = 'xF1-2_nXJABV4$a';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port       = 465;
-
-            $mail->setFrom('no-reply@logetex.com', 'Logetex');
+            $mail->setFrom('test@aeek-kassere.com', 'Aeek Kassere');
             $mail->addAddress($to);
-            $mail->addReplyTo('support@logetex.com', 'Logetex');
-
+            $mail->addReplyTo('test@aeek-kassere.com', 'Aeek Kassere');
             $mail->isHTML(true);
             $mail->Subject = $subject;
             $mail->Body    = $message;
-
             $mail->send();
-           return 'send';
+            return 'send';
         } catch (Exception $e) {
             return $mail->ErrorInfo;
         }
@@ -49,7 +45,7 @@ if(!function_exists('sendMailTo')){
             $mail->CharSet = 'UTF-8';
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
-            $mail->Host       = 'mail.logetex.com';
+            $mail->Host       = 'email.logetex.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'support@logetex.com';
             $mail->Password   = 'm9OWVqlVI2cu';

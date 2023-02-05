@@ -22,7 +22,7 @@ if( isset($_SESSION['myformkey'])  and isset($_POST['email']) AND isset($_POST['
                     /* if ($data['email_valid'] == 0) {
                          $mailToken = str_replace('+', '-', my_encrypt($email));
                          $subject = trim('Vérification de votre email.');
-                         include_once $mail . '/valid-email.php';
+                         include_once $email . '/valid-email.php';
                          sendMailNoReply($email, $subject, $message);
                      }*/
 

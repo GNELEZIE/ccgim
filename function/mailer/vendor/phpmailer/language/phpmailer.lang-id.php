@@ -5,7 +5,7 @@
  * @package PHPMailer
  * @author Cecep Prawiro <cecep.prawiro@gmail.com>
  * @author @januridp
- * @author Ian Mustafa <mail@ianmustafa.com>
+ * @author Ian Mustafa <email@ianmustafa.com>
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Kesalahan SMTP: Tidak dapat mengotentikasi.';

@@ -140,8 +140,8 @@ $pdf->Cell(35, 5, 'List:');
 $pdf->ListBox('listbox', 60, 15, array('', 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7'), array('multipleSelection'=>'true'));
 $pdf->Ln(20);
 
-// E-mail
-$pdf->Cell(35, 5, 'E-mail:');
+// E-email
+$pdf->Cell(35, 5, 'E-email:');
 $pdf->TextField('email', 50, 5);
 $pdf->Ln(6);
 

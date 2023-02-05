@@ -22,7 +22,7 @@ if(isset($_POST['email']) and isset($_POST['password']) and  isset($_POST['cpass
         if ($idUser > 0) {
            /* $mailToken = str_replace('+', '-', my_encrypt($email));
             $subject = trim('Vérification de votre email.');
-            include_once $mail.'/valid-email.php';
+            include_once $email.'/valid-email.php';
             sendMailNoReply($email, $subject, $message);*/
             $result = $utilisateur->getUtilisateurByEmail($email);
             if ($data = $result->fetch()) {

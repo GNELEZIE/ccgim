@@ -24,7 +24,7 @@ include_once $layout.'/auth/header.php'?>
         if(isset($doc[1]) and !isset($doc[2])){
          ?>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 mobile-none">
                     <div class="compte-box bg-white-color">
                         <div class="header-box">
                             Menu
@@ -37,25 +37,43 @@ include_once $layout.'/auth/header.php'?>
                 <div class="col-md-9">
                     <div class="header-box">
                         <div class="d-flex align-items-center">
-                            <p class="m-0 w50">   Mes locataires</p>
-                            <div class="w50 text-right ">
+                            <p class="m-0 w50-m">   Mes locataires</p>
+                            <div class="w50-ms text-right ">
                                 <a class="btn-white" href="#" data-toggle="modal"  data-target="#addLocataireModalCenter"> <i class="fa fa-plus"></i> Ajouter un locataire</a>
                             </div>
                         </div>
                     </div>
                     <div class="bg-white-color pb30 mes-lgts">
-                        <table id="table_locataire" class="table newtable">
-                            <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Nom</th>
-                                <th>Téléphone</th>
-                                <th>Paiement</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+
+                        <div class="pc-none position-relative">
+                            <h3 class="titre-mobile">Liste des locataires</h3>
+                            <a href="javascript:void(0)" class="searchBtn"><i class="fa fa-search mySearch"></i></a>
+                            <a href="javascript:void(0)" class="searchBtnTimes"> <i class="fa fa-times myTimes"></i></a>
+                            <table id="table_locataire_mobile" class="table newtable">
+                                <thead class="d-none">
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="mobile-none">
+                            <table id="table_locataire" class="table newtable mobile-none">
+                                <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Nom</th>
+                                    <th>Téléphone</th>
+                                    <th>Paiement</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -74,7 +92,7 @@ include_once $layout.'/auth/header.php'?>
                       </div>
                     </div>
                     <div class="bg-white-color pd25">
-                        <ul class="nav nav-tabs hidden-sm hidden-xs myTabsUl" role="tablist">
+                        <ul class="nav nav-tabs  myTabsUl" role="tablist">
                             <li role="presentation" class="active">
                                 <a href="#historiques" aria-controls="historiques" role="tab" data-toggle="tab">Historiques</a>
                             </li>
@@ -83,36 +101,78 @@ include_once $layout.'/auth/header.php'?>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="historiques">
-                                <table id="table_historique" class="table newtable">
-                                    <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Référence</th>
-                                        <th>Montant</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    $listePay = $tresorerie->getPaiementByUser($dataLocat['id_locataire']);
-                                    while($listePayData = $listePay->fetch()){
-                                        ?>
 
-                                    <tr>
-                                        <td><?=date_time_fr($listePayData['date_tresorerie'])?></td>
-                                        <td><?=$listePayData['ref_paiement']?></td>
-                                        <td><?=number_format($listePayData['debit_transac'],0,',',' ')?></td>
-                                        <td>
-                                            <a href="<?=$domaine?>/facture/<?=$listePayData['ref_paiement']?>" class="btn-voir" target="_blank"> <i class="fa fa-print"></i> Imprimer</a>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                    </tbody>
-                                </table>
+                                <div role="tabpanel" class="tab-pane active" id="historiques">
+
+                                    <div class="pc-none position-relative">
+                                    <h3 class="titre-mobile tabHistory">Historique des paiement</h3>
+                                    <table id="table_historique_mobile" class="table newtable">
+                                        <thead class="d-none">
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                        $listePay = $tresorerie->getPaiementByUser($dataLocat['id_locataire']);
+                                        while($listePayData = $listePay->fetch()){
+                                            ?>
+                                            <tr>
+                                                <td class="w100">
+                                                    <div class="d-flex">
+                                                        <div class="w70">
+                                                            <p class="m-0"> <i class="fa fa-dashboard"></i> <?=date_time_fr($listePayData['date_tresorerie'])?></p>
+                                                            <p class="m-0"> <i class="fa fa-barcode"></i> <?=$listePayData['ref_paiement']?></p>
+                                                            <p class="m-0"> <i class="fa fa-wallet"></i> <?=number_format($listePayData['debit_transac'],0,',',' ')?></p>
+                                                        </div>
+                                                        <div class="w30 text-right">
+                                                            <a href="<?=$domaine?>/facture/<?=$listePayData['ref_paiement']?>" class="btn-voir" target="_blank"> <i class="fa fa-print"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        <?php
+                                        }
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
+                            <div class="mobile-none">
+                                <div role="tabpanel" class="tab-pane active" id="historiques">
+                                    <table id="table_historique" class="table newtable">
+                                        <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Référence</th>
+                                            <th>Montant</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                        $listePay = $tresorerie->getPaiementByUser($dataLocat['id_locataire']);
+                                        while($listePayData = $listePay->fetch()){
+                                            ?>
+
+                                            <tr>
+                                                <td><?=date_time_fr($listePayData['date_tresorerie'])?></td>
+                                                <td><?=$listePayData['ref_paiement']?></td>
+                                                <td><?=number_format($listePayData['debit_transac'],0,',',' ')?></td>
+                                                <td>
+                                                    <a href="<?=$domaine?>/facture/<?=$listePayData['ref_paiement']?>" class="btn-voir" target="_blank"> <i class="fa fa-print"></i> Imprimer</a>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                        }
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
                             <div role="tabpanel" class="tab-pane fade" id="infos">
                                 <div class="row pd25 pInfo">
                                     <div class="col-md-6">
@@ -260,8 +320,37 @@ include_once $layout.'/auth/header.php'?>
 
 <?php include_once $layout.'/auth/footer.php'?>
 <script>
+       var mySearch = $('.mySearch');
+       var searchBtn = $('.searchBtn');
+       var myTimes = $('.myTimes');
+       var searchBtnTimes = $('.searchBtnTimes');
+       var titreMobile = $('.titre-mobile');
+       searchBtn.click(function(){
+           $('#table_locataire_mobile_filter').css('display','block');
+           $('#table_historique_mobile_filter').css('display','block');
+           $('.table-seach').trigger('click');
+           searchBtn.css('display','none');
+           titreMobile.css('opacity','0');
+           searchBtnTimes.css('display','block');
+
+       });
+       searchBtnTimes.click(function(){
+           $('#table_locataire_mobile_filter').css('display','none');
+           $('#table_historique_mobile_filter').css('display','none');
+           mySearch.css('display','block');
+           titreMobile.css('opacity','1');
+           searchBtn.css('display','block');
+           searchBtnTimes.css('display','none');
+
+       });
+
+
+</script>
+<script>
     var table_locataire;
     var table_historique;
+    var table_locataire_mobile;
+    var table_historique_mobile;
     $(document).ready(function() {
 
         $('#formAddLocataire').submit(function(e){
@@ -367,6 +456,43 @@ include_once $layout.'/auth/header.php'?>
         });
 
 
+
+
+        table_locataire_mobile = $('#table_locataire_mobile').DataTable({
+            "ajax": {
+                "type": "post",
+                "url": "<?=$domaine?>/controle/locataire-mobile.liste",
+                "data": {
+                    token: "<?=$token?>"
+                }
+            },
+            "ordering": false,
+            "pageLength": 25,
+            "oLanguage": {
+                "sProcessing": "Traitement en cours ...",
+                "sLengthMenu": '',
+                "sZeroRecords": "Aucun résultat trouvé",
+                "sEmptyTable": "Aucune donnée disponible",
+                "sInfo": "Lignes _START_ à _END_ sur _TOTAL_",
+                "sInfoEmpty": "Aucune ligne affichée",
+                "sInfoFiltered": "(Filtrer un maximum de_MAX_) ",
+                "sSearch": '<i class="fa fa-search table-seach"></i>',
+                "sSearchPlaceholder": "Recherche",
+                "sLoadingRecords": '<i class="fa fa-circle-o-notch fa-spin"></i> Chargement...',
+                "oPaginate":{
+                    "sPrevious": '<i class="fa fa-angle-double-left"></i>',
+                    "sNext": '<i class="fa fa-angle-double-right"></i>'
+                },
+                "oAria": {
+                    "sSortAscending": ": Trier par ordre croissant",
+                    "sSortDescending": ": Trier par ordre décroissant"
+                }
+
+            }
+        });
+
+
+
         table_locataire = $('#table_locataire').DataTable({
             "ajax": {
                 "type": "post",
@@ -400,6 +526,31 @@ include_once $layout.'/auth/header.php'?>
             }
         });
 
+        table_historique_mobile = $('#table_historique_mobile').DataTable({
+            "ordering": false,
+            "pageLength": 25,
+            "oLanguage": {
+                "sProcessing": "Traitement en cours ...",
+                "sLengthMenu": '',
+                "sZeroRecords": "Aucun résultat trouvé",
+                "sEmptyTable": "Aucune donnée disponible",
+                "sInfo": "Lignes _START_ à _END_ sur _TOTAL_",
+                "sInfoEmpty": "Aucune ligne affichée",
+                "sInfoFiltered": "(Filtrer un maximum de_MAX_)",
+                "sSearch": '<i class="fa fa-search table-seach"></i>',
+                "sSearchPlaceholder": "Recherche",
+                "sLoadingRecords": '<i class="fa fa-circle-o-notch fa-spin"></i> Chargement...',
+                "oPaginate":{
+                    "sPrevious": '<i class="fa fa-angle-double-left"></i>',
+                    "sNext": '<i class="fa fa-angle-double-right"></i>'
+                },
+                "oAria": {
+                    "sSortAscending": ": Trier par ordre croissant",
+                    "sSortDescending": ": Trier par ordre décroissant"
+                }
+            }
+        });
+
         table_historique = $('#table_historique').DataTable({
             "ordering": false,
             "pageLength": 25,
@@ -422,9 +573,11 @@ include_once $layout.'/auth/header.php'?>
                     "sSortAscending": ": Trier par ordre croissant",
                     "sSortDescending": ": Trier par ordre décroissant"
                 }
-
             }
         });
+
+
+
         $("#montant").keyup(function (event) {
             if (/\D/g.test(this.value)) {
                 //Filter non-digits from input value.

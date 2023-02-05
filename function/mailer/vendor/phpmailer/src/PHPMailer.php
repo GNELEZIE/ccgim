@@ -139,7 +139,7 @@ class PHPMailer
 
     /**
      * The plain-text message body.
-     * This body can be read by mail clients that do not have HTML email
+     * This body can be read by email clients that do not have HTML email
      * capability such as mutt & Eudora.
      * Clients that can read HTML will view the normal Body.
      *
@@ -207,12 +207,12 @@ class PHPMailer
     public $WordWrap = 0;
 
     /**
-     * Which method to use to send mail.
-     * Options: "mail", "sendmail", or "smtp".
+     * Which method to use to send email.
+     * Options: "email", "sendmail", or "smtp".
      *
      * @var string
      */
-    public $Mailer = 'mail';
+    public $Mailer = 'email';
 
     /**
      * The path to the sendmail program.
@@ -222,7 +222,7 @@ class PHPMailer
     public $Sendmail = '/usr/sbin/sendmail';
 
     /**
-     * Whether mail() uses a fully sendmail-compatible MTA.
+     * Whether email() uses a fully sendmail-compatible MTA.
      * One which supports sendmail's "-oi -f" options.
      *
      * @var bool
@@ -376,7 +376,7 @@ class PHPMailer
      * Comma separated list of DSN notifications
      * 'NEVER' under no circumstances a DSN must be returned to the sender.
      *         If you use NEVER all other notifications will be ignored.
-     * 'SUCCESS' will notify you when your mail has arrived at its destination.
+     * 'SUCCESS' will notify you when your email has arrived at its destination.
      * 'FAILURE' will arrive if an error occurred during delivery.
      * 'DELAY'   will notify you if there is an unusual delay in delivery, but the actual
      *           delivery's outcome (success or failure) is not yet decided.
@@ -411,14 +411,14 @@ class PHPMailer
      * Alternatively, you can provide a callable expecting two params: a message string and the debug level:
      *
      * ```php
-     * $mail->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";};
+     * $email->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";};
      * ```
      *
      * Alternatively, you can pass in an instance of a PSR-3 compatible logger, though only `debug`
      * level output is used:
      *
      * ```php
-     * $mail->Debugoutput = new myPsr3Logger;
+     * $email->Debugoutput = new myPsr3Logger;
      * ```
      *
      * @see SMTP::$Debugoutput
@@ -441,7 +441,7 @@ class PHPMailer
     /**
      * Whether to split multiple to addresses into multiple messages
      * or send them all in one message.
-     * Only supported in `mail` and `sendmail` transports, not in SMTP.
+     * Only supported in `email` and `sendmail` transports, not in SMTP.
      *
      * @var bool
      *
@@ -792,9 +792,9 @@ class PHPMailer
     protected static $LE = self::CRLF;
 
     /**
-     * The maximum line length supported by mail().
+     * The maximum line length supported by email().
      *
-     * Background: mail() will sometimes corrupt messages
+     * Background: email() will sometimes corrupt messages
      * with headers headers longer than 65 chars, see #818.
      *
      * @var int
@@ -842,7 +842,7 @@ class PHPMailer
     }
 
     /**
-     * Call mail() in a safe_mode-aware fashion.
+     * Call email() in a safe_mode-aware fashion.
      * Also, unless sendmail_path points to sendmail (or something that
      * claims to be sendmail), don't pass params (not a perfect fix,
      * but it will do).
@@ -857,14 +857,14 @@ class PHPMailer
      */
     private function mailPassthru($to, $subject, $body, $header, $params)
     {
-        //Check overloading of mail function to avoid double-encoding
+        //Check overloading of email function to avoid double-encoding
         if (ini_get('mbstring.func_overload') & 1) {
             $subject = $this->secureHeader($subject);
         } else {
             $subject = $this->encodeHeader($this->secureHeader($subject));
         }
-        //Calling mail() with null params breaks
-        $this->edebug('Sending with mail()');
+        //Calling email() with null params breaks
+        $this->edebug('Sending with email()');
         $this->edebug('Sendmail path: ' . ini_get('sendmail_path'));
         $this->edebug("Envelope sender: {$this->Sender}");
         $this->edebug("To: {$to}");
@@ -962,11 +962,11 @@ class PHPMailer
     }
 
     /**
-     * Send messages using PHP's mail() function.
+     * Send messages using PHP's email() function.
      */
     public function isMail()
     {
-        $this->Mailer = 'mail';
+        $this->Mailer = 'email';
     }
 
     /**
@@ -1395,7 +1395,7 @@ class PHPMailer
                 /*
                  * This is the pattern used in the HTML5 spec for validation of 'email' type form input elements.
                  *
-                 * @see https://html.spec.whatwg.org/#e-mail-state-(type=email)
+                 * @see https://html.spec.whatwg.org/#e-email-state-(type=email)
                  */
                 return (bool) preg_match(
                     '/^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}' .
@@ -1511,10 +1511,10 @@ class PHPMailer
     {
         if (
             'smtp' === $this->Mailer
-            || ('mail' === $this->Mailer && (\PHP_VERSION_ID >= 80000 || stripos(PHP_OS, 'WIN') === 0))
+            || ('email' === $this->Mailer && (\PHP_VERSION_ID >= 80000 || stripos(PHP_OS, 'WIN') === 0))
         ) {
             //SMTP mandates RFC-compliant line endings
-            //and it's also used with mail() on Windows
+            //and it's also used with email() on Windows
             static::setLE(self::CRLF);
         } else {
             //Maintain backward compatibility with legacy Linux command line mailers
@@ -1522,10 +1522,10 @@ class PHPMailer
         }
         //Check for buggy PHP versions that add a header with an incorrect line break
         if (
-            'mail' === $this->Mailer
+            'email' === $this->Mailer
             && ((\PHP_VERSION_ID >= 70000 && \PHP_VERSION_ID < 70017)
                 || (\PHP_VERSION_ID >= 70100 && \PHP_VERSION_ID < 70103))
-            && ini_get('mail.add_x_header') === '1'
+            && ini_get('email.add_x_header') === '1'
             && stripos(PHP_OS, 'WIN') === 0
         ) {
             trigger_error($this->lang('buggy_php'), E_USER_WARNING);
@@ -1589,9 +1589,9 @@ class PHPMailer
             $this->MIMEHeader = $this->createHeader();
             $this->MIMEHeader .= $tempheaders;
 
-            //To capture the complete message when using mail(), create
+            //To capture the complete message when using email(), create
             //an extra header list which createHeader() doesn't fold in
-            if ('mail' === $this->Mailer) {
+            if ('email' === $this->Mailer) {
                 if (count($this->to) > 0) {
                     $this->mailHeader .= $this->addrAppend('To', $this->to);
                 } else {
@@ -1651,7 +1651,7 @@ class PHPMailer
                     return $this->sendmailSend($this->MIMEHeader, $this->MIMEBody);
                 case 'smtp':
                     return $this->smtpSend($this->MIMEHeader, $this->MIMEBody);
-                case 'mail':
+                case 'email':
                     return $this->mailSend($this->MIMEHeader, $this->MIMEBody);
                 default:
                     $sendMethod = $this->Mailer . 'Send';
@@ -1676,7 +1676,7 @@ class PHPMailer
     }
 
     /**
-     * Send mail using the $Sendmail program.
+     * Send email using the $Sendmail program.
      *
      * @see PHPMailer::$Sendmail
      *
@@ -1857,9 +1857,9 @@ class PHPMailer
     }
 
     /**
-     * Send mail using the PHP mail() function.
+     * Send email using the PHP email() function.
      *
-     * @see http://www.php.net/manual/en/book.mail.php
+     * @see http://www.php.net/manual/en/book.email.php
      *
      * @param string $header The message headers
      * @param string $body   The message body
@@ -1960,7 +1960,7 @@ class PHPMailer
     }
 
     /**
-     * Send mail via SMTP.
+     * Send email via SMTP.
      * Returns false if there is a bad MAIL FROM, RCPT, or DATA input.
      *
      * @see PHPMailer::setSMTPInstance() to use a different class.
@@ -2234,7 +2234,7 @@ class PHPMailer
         $PHPMAILER_LANG = [
             'authenticate' => 'SMTP Error: Could not authenticate.',
             'buggy_php' => 'Your version of PHP is affected by a bug that may result in corrupted messages.' .
-                ' To fix it, switch to sending using SMTP, disable the mail.add_x_header option in' .
+                ' To fix it, switch to sending using SMTP, disable the email.add_x_header option in' .
                 ' your php.ini, switch to MacOS or Linux, or upgrade your PHP to version 7.0.17+ or 7.1.3+.',
             'connect_host' => 'SMTP Error: Could not connect to SMTP host.',
             'data_not_accepted' => 'SMTP Error: data not accepted.',
@@ -2245,7 +2245,7 @@ class PHPMailer
             'file_access' => 'Could not access file: ',
             'file_open' => 'File Error: Could not open file: ',
             'from_failed' => 'The following From address failed: ',
-            'instantiate' => 'Could not instantiate mail function.',
+            'instantiate' => 'Could not instantiate email function.',
             'invalid_address' => 'Invalid address: ',
             'invalid_header' => 'Invalid header name or value',
             'invalid_hostentry' => 'Invalid hostentry: ',
@@ -2570,8 +2570,8 @@ class PHPMailer
 
         $result .= $this->headerLine('Date', '' === $this->MessageDate ? self::rfcDate() : $this->MessageDate);
 
-        //The To header is created automatically by mail(), so needs to be omitted here
-        if ('mail' !== $this->Mailer) {
+        //The To header is created automatically by email(), so needs to be omitted here
+        if ('email' !== $this->Mailer) {
             if ($this->SingleTo) {
                 foreach ($this->to as $toaddr) {
                     $this->SingleToArray[] = $this->addrFormat($toaddr);
@@ -2584,15 +2584,15 @@ class PHPMailer
         }
         $result .= $this->addrAppend('From', [[trim($this->From), $this->FromName]]);
 
-        //sendmail and mail() extract Cc from the header before sending
+        //sendmail and email() extract Cc from the header before sending
         if (count($this->cc) > 0) {
             $result .= $this->addrAppend('Cc', $this->cc);
         }
 
-        //sendmail and mail() extract Bcc from the header before sending
+        //sendmail and email() extract Bcc from the header before sending
         if (
             (
-                'sendmail' === $this->Mailer || 'qmail' === $this->Mailer || 'mail' === $this->Mailer
+                'sendmail' === $this->Mailer || 'qmail' === $this->Mailer || 'email' === $this->Mailer
             )
             && count($this->bcc) > 0
         ) {
@@ -2603,8 +2603,8 @@ class PHPMailer
             $result .= $this->addrAppend('Reply-To', $this->ReplyTo);
         }
 
-        //mail() sets the subject itself
-        if ('mail' !== $this->Mailer) {
+        //email() sets the subject itself
+        if ('email' !== $this->Mailer) {
             $result .= $this->headerLine('Subject', $this->encodeHeader($this->secureHeader($this->Subject)));
         }
 
@@ -3122,7 +3122,7 @@ class PHPMailer
     }
 
     /**
-     * Return a formatted mail line.
+     * Return a formatted email line.
      *
      * @param string $value
      *
@@ -3445,7 +3445,7 @@ class PHPMailer
         //Q/B encoding adds 8 chars and the charset ("` =?<charset>?[QB]?<content>?=`").
         $overhead = 8 + strlen($charset);
 
-        if ('mail' === $this->Mailer) {
+        if ('email' === $this->Mailer) {
             $maxlen = static::MAIL_MAX_LINE_LENGTH - $overhead;
         } else {
             $maxlen = static::MAX_LINE_LENGTH - $overhead;
@@ -3522,7 +3522,7 @@ class PHPMailer
     }
 
     /**
-     * Encode and wrap long multibyte strings for mail headers
+     * Encode and wrap long multibyte strings for email headers
      * without breaking lines within a character.
      * Adapted from a function by paravoid.
      *
@@ -4296,9 +4296,9 @@ class PHPMailer
      *
      * ```php
      * //Use default conversion
-     * $plain = $mail->html2text($html);
+     * $plain = $email->html2text($html);
      * //Use your own custom converter
-     * $plain = $mail->html2text($html, function($html) {
+     * $plain = $email->html2text($html, function($html) {
      *     $converter = new MyHtml2text($html);
      *     return $converter->get_text();
      * });
@@ -4528,9 +4528,9 @@ class PHPMailer
      * You should avoid this function - it's more verbose, less efficient, more error-prone and
      * harder to debug than setting properties directly.
      * Usage Example:
-     * `$mail->set('SMTPSecure', static::ENCRYPTION_STARTTLS);`
+     * `$email->set('SMTPSecure', static::ENCRYPTION_STARTTLS);`
      *   is the same as:
-     * `$mail->SMTPSecure = static::ENCRYPTION_STARTTLS;`.
+     * `$email->SMTPSecure = static::ENCRYPTION_STARTTLS;`.
      *
      * @param string $name  The property name to set
      * @param mixed  $value The value to set the property to

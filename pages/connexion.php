@@ -9,7 +9,7 @@ require_once $controller.'/user.connexion.php';
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
-include_once $layout.'/auth/header.php'
+include_once $layout.'/auth/header2.php'
 ?>
 
 
@@ -18,6 +18,9 @@ include_once $layout.'/auth/header.php'
             <div class="row">
                 <div class="col-md-6 offset-3">
                     <form class="cd-form  bg-white-color" method="post" id="loginForm">
+                      <div class="text-center">
+                          <img src="<?=$cdn_domaine?>/media/log01.png" class="w25" alt=""/>
+                      </div>
                         <h2 class="text-center m-0"> <i class="fa fa-user"></i> Connexion </h2>
                         <?php if(!empty($errors)){ ?>
                             <div class="alert alert-danger alert-pd" style="font-size: 13px" role="alert">
@@ -27,7 +30,7 @@ include_once $layout.'/auth/header.php'
                             </div>
                         <?php }?>
                         <div class="form-group">
-                            <label class="" for="email">E-mail <i class="required"></i></label>
+                            <label for="email">E-mail <i class="required"></i></label>
                             <input class="full-width has-padding has-border" name="email" id="email" type="email" placeholder="E-mail" required>
                         </div>
 

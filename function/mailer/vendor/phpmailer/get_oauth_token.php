@@ -98,7 +98,7 @@ switch ($providerName) {
         $provider = new Google($params);
         $options = [
             'scope' => [
-                'https://mail.google.com/'
+                'https://email.google.com/'
             ]
         ];
         break;

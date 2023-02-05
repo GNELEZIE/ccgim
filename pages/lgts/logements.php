@@ -35,7 +35,7 @@ include_once $layout.'/auth/header.php'?>
     <div class="container-fluid py-5 bg-gray-color pd-section">
         <div class="container py-5">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 mobile-none">
                   <div class="compte-box bg-white-color">
                       <div class="header-box">
                           Menu
@@ -48,8 +48,8 @@ include_once $layout.'/auth/header.php'?>
                 <div class="col-md-9">
                     <div class="header-box">
                         <div class="d-flex align-items-center">
-                            <p class="m-0 w50">  Mes logements</p>
-                            <div class="w50 text-right ">
+                            <p class="m-0 w50-m">  Mes logements</p>
+                            <div class="w50-ms text-right ">
                                 <a href="<?=$domaine?>/annonce" class="btn-white"> <i class="fa fa-plus"></i> Ajouter un logement</a>
                             </div>
                         </div>

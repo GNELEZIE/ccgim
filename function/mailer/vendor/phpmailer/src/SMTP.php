@@ -23,7 +23,7 @@ namespace PHPMailer\PHPMailer;
 
 /**
  * PHPMailer RFC821 SMTP email transport class.
- * Implements RFC 821 SMTP commands and provides some utility methods for sending mail to an SMTP server.
+ * Implements RFC 821 SMTP commands and provides some utility methods for sending email to an SMTP server.
  *
  * @author Chris Ryan
  * @author Marcus Bointon <phpmailer@synchromedia.co.uk>
@@ -135,7 +135,7 @@ class SMTP
      * level output is used:
      *
      * ```php
-     * $mail->Debugoutput = new myPsr3Logger;
+     * $email->Debugoutput = new myPsr3Logger;
      * ```
      *
      * @var string|callable|\Psr\Log\LoggerInterface
@@ -182,7 +182,7 @@ class SMTP
         'exim' => '/[\d]{3} OK id=(.*)/',
         'sendmail' => '/[\d]{3} 2.0.0 (.*) Message/',
         'postfix' => '/[\d]{3} 2.0.0 Ok: queued as (.*)/',
-        'Microsoft_ESMTP' => '/[0-9]{3} 2.[\d].0 (.*)@(?:.*) Queued mail for delivery/',
+        'Microsoft_ESMTP' => '/[0-9]{3} 2.[\d].0 (.*)@(?:.*) Queued email for delivery/',
         'Amazon_SES' => '/[\d]{3} Ok (.*)/',
         'SendGrid' => '/[\d]{3} Ok: queued as (.*)/',
         'CampaignMonitor' => '/[\d]{3} 2.0.0 OK:([a-zA-Z\d]{48})/',
@@ -695,7 +695,7 @@ class SMTP
     /**
      * Send an SMTP DATA command.
      * Issues a data command and sends the msg_data to the server,
-     * finalizing the mail transaction. $msg_data is the message
+     * finalizing the email transaction. $msg_data is the message
      * that is to be send with the headers. Each header needs to be
      * on a single line followed by a <CRLF> with the message headers
      * and the message body being separated by an additional <CRLF>.
@@ -881,9 +881,9 @@ class SMTP
 
     /**
      * Send an SMTP MAIL command.
-     * Starts a mail transaction from the email address specified in
+     * Starts a email transaction from the email address specified in
      * $from. Returns true if successful or false otherwise. If True
-     * the mail transaction is started and then one or more recipient
+     * the email transaction is started and then one or more recipient
      * commands may be called followed by a data command.
      * Implements RFC 821: MAIL <SP> FROM:<reverse-path> <CRLF>.
      *
@@ -1043,9 +1043,9 @@ class SMTP
 
     /**
      * Send an SMTP SAML command.
-     * Starts a mail transaction from the email address specified in $from.
+     * Starts a email transaction from the email address specified in $from.
      * Returns true if successful or false otherwise. If True
-     * the mail transaction is started and then one or more recipient
+     * the email transaction is started and then one or more recipient
      * commands may be called followed by a data command. This command
      * will send the message to the users terminal if they are logged
      * in and send them an email.

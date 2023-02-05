@@ -1,3 +1,15 @@
-<?php
-$test = $tresorerie->getPaiementByUser(3)->fetch();
-echo date('Y-m').' '.date_fr2($test['date_tresorerie']);
+<div class="row pc-none">
+    <div class="col-md-3 mycol50">
+
+    </div>
+    <div class="col-md-3 mycol50">
+
+    </div>
+
+    <div class="col-md-3 mycol50">
+
+    </div>
+    <div class="col-md-3 mycol50">
+
+    </div>
+</div>
