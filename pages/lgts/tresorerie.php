@@ -127,7 +127,7 @@ include_once $layout.'/auth/header.php'?>
                         <input type="text" class="form-control input-style input-height" name="montant" id="montant" placeholder="Montant" required/>
                     </div>
                     <div class="form-group">
-                        <label for="dts" >Montant <i class="required"></i></label>
+                        <label for="dts" >Date de paiement <i class="required"></i></label>
                         <input type="date" class="form-control input-style input-height" name="dts" id="dts" placeholder="Date" required/>
                     </div>
                 </div>
