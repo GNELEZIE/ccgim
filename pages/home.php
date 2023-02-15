@@ -11,7 +11,7 @@ include_once $layout.'/header.php'
                         <div class="col-md-12">
                             <div class="slider-content-eight">
                                 <h2 class="pogoSlider-slide-element title1" data-in="slideDown" data-out="slideUp" data-duration="500" data-delay="200">
-                                    CCGIM Immobilier 100% gratuit
+                                    CCGIM est une agence immobilière
                                 </h2>
                             </div>
                         </div>
@@ -20,7 +20,7 @@ include_once $layout.'/header.php'
             </div>
         </div>
     </div>
-    <div class="form-area eight">
+    <div class="form-area eight searchDiv">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 form-bg form-top border-radius">
@@ -61,6 +61,13 @@ include_once $layout.'/header.php'
             </div>
         </div>
     </div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
     <div class="apartments-area bg-gray-color">
     <div class="container">
     <div class="col-md-12">
