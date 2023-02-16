@@ -1270,7 +1270,9 @@
         line-height: 41px !important;
     }
 
+.ts-service{
 
+}
 
 
 
