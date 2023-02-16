@@ -20,19 +20,7 @@ include_once $layout.'/header.php'
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-            <div class="ts-service">
-                <h3>vente de maisons </h3>
-            </div>
-            </div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
-        </div>
-    </div>
-</div>
+
 
 <div class="form-area eight searchDiv">
     <div class="container">
@@ -77,7 +65,58 @@ include_once $layout.'/header.php'
 </div>
 <div class="container-fluid">
     <div class="container">
-        <div class="row">
+        <div class="row row-service">
+            <div class="col-md-12">
+                <div class="heading-content-one border">
+                    <h2 class="title font-30">Nos services</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="apartments-content">
+                    <div class="image-content">
+                        <img src="<?=$cdn_domaine?>/media/vm.jpg" alt="63d8fd2600d30.jpg">
+                    </div>
+                    <div class="text-content">
+                        <div class="top-content text-center">
+                            <h3>Vente de maison</h3>
+                           <div class="text-center py-3">
+                               <a href="#" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="apartments-content">
+                    <div class="image-content">
+                        <img src="<?=$cdn_domaine?>/media/am.jpg" alt="63d8fd2600d30.jpg">
+                    </div>
+                    <div class="text-content">
+                        <div class="top-content text-center">
+                            <h3>Louer une maison</h3>
+                           <div class="text-center py-3">
+                               <a href="#" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="apartments-content">
+                    <div class="image-content">
+                        <img src="<?=$cdn_domaine?>/media/tch.jpg" alt="63d8fd2600d30.jpg">
+                    </div>
+                    <div class="text-content">
+                        <div class="top-content text-center">
+                            <h3>Louer un techniciens </h3>
+                           <div class="text-center py-3">
+                               <a href="#" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
             <div class="col-md-4"></div>
         </div>
     </div>
