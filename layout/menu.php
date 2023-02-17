@@ -17,13 +17,27 @@
                                     <a href="<?=$domaine?>" class="<?php if($lien == 'home' || $lien == ''){echo 'active';} ;?>">Accueil</a>
                                 </li>
                                 <li>
+                                    <a href="<?=$domaine?>/services" class="<?= page_active('services') ;?>">Services</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="#">Vente de maison</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Louer une maison</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Louer un techniciens</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
                                     <a href="<?=$domaine?>/a-propos" class="<?= page_active('a-propos') ;?>">A propos</a>
                                 </li>
                                 <li>
                                     <a href="<?=$domaine?>/logements" class="<?= page_active('logements') ;?>">Logements</a>
                                 </li>
                                 <li>
-                                    <a href="#">Contacts</a>
+                                    <a href="<?=$domaine?>/contacts">Contacts</a>
                                 </li>
                                 <li>
                                     <a href="#">Faq</a>

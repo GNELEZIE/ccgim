@@ -68,10 +68,10 @@ include_once $layout.'/header.php'
         <div class="row row-service">
             <div class="col-md-12">
                 <div class="heading-content-one border">
-                    <h2 class="title font-30">Nos services</h2>
+                    <h2 class="title font-30" data-in="slideDown" data-out="slideUp" data-duration="500" data-delay="200">Nos services</h2>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" data-in="slideDown" data-out="slideUp" data-duration="500" data-delay="200">
                 <div class="apartments-content">
                     <div class="image-content">
                         <img src="<?=$cdn_domaine?>/media/vm.jpg" alt="63d8fd2600d30.jpg">

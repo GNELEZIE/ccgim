@@ -46,6 +46,18 @@ a , p ,h1,h2,h3,h4,h5{
     background: #18a3f412 !important;
     color: #18a3f4 !important;
 }
+.btn-contact{
+    background: #18a3f4;
+    color: #fff !important;
+    margin-top: 20px;
+    border: 0;
+    padding: 13px 50px;
+    border-radius: 6px;
+}
+.btn-contact:hover{
+    background: #18a3f4;
+    color: #fff !important;
+}
 .btn-register{
     background: #18a3f4;
     color: #fff !important;

@@ -10,7 +10,7 @@ $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
 
-include_once $layout.'/auth/header2.php'
+include_once $layout.'/header.php'
 ?>
 
 
@@ -49,7 +49,7 @@ include_once $layout.'/auth/header2.php'
 
                         <div class="form-group">
                             <input type="checkbox" id="accept-terms" required>
-                            <label for="accept-terms font-7" style="font-size: 11px !important;">En cochant, vous acceptez les conditions d'utilisation  <a href="#">conditions d'utilisation</a></label>
+                            <label for="accept-terms font-7" style="font-size: 11px !important;">Acceptez les conditions d'utilisation  <a href="#">conditions d'utilisation</a></label>
                         </div>
 
                         <div class="form-group">
@@ -64,7 +64,7 @@ include_once $layout.'/auth/header2.php'
     </div>
 
 
-<?php include_once $layout.'/auth/footer.php'?>
+<?php include_once $layout.'/footer.php'?>
 <script>
     $(document).ready(function(){
         $("#formRegister").submit(function(){

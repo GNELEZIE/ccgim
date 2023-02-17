@@ -9,7 +9,7 @@ require_once $controller.'/user.connexion.php';
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
-include_once $layout.'/auth/header2.php'
+include_once $layout.'/header.php'
 ?>
 
 
@@ -61,7 +61,7 @@ include_once $layout.'/auth/header2.php'
     </div>
 
 
-<?php include_once $layout.'/auth/footer.php'?>
+<?php include_once $layout.'/footer.php'?>
 <script>
     $(document).ready(function(){
         $('#loginForm').submit(function(){
