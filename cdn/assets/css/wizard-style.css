@@ -1,6 +1,5 @@
-
-
 #msform {
+    padding-top: 25px;
     text-align: center;
     position: relative;
 }
@@ -58,7 +57,7 @@
 
 #msform .action-button {
     width: 100px;
-    background: #6b0107;
+    background: #18a3f4;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -118,7 +117,9 @@ select.list-dt {
     font-size: 12px;
     width: 25%;
     float: left;
-    position: relative
+    position: relative;
+    z-index: 9;
+
 }
 
 #progressbar #description:before {
@@ -167,7 +168,7 @@ select.list-dt {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #6b0107
+    background: #18a3f4
 }
 
 .radio-group {
@@ -180,7 +181,7 @@ select.list-dt {
     width: 204px;
     height: 104px;
     border-radius: 0;
-    background: #6b0107;
+    background: #18a3f4;
     box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     cursor: pointer;
@@ -198,4 +199,34 @@ select.list-dt {
 .fit-image {
     width: 100%;
     object-fit: cover
+}
+.icon-m2 {
+    position: absolute;
+    right: 26px;
+    top: 41px;
+    background: #fff;
+}
+.icon-m {
+    position: absolute;
+    right: 18px;
+    top: 41px;
+    background: #fff;
+}
+.mybtn-next {
+    width: 12%;
+    border: 0;
+    background: #18a3f4;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 9px;
+}
+.mybtn-prev {
+    width: 21%;
+    border: 0;
+    background: #18a3f41c;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 9px;
+    margin-right: 23px;
+    color: #18a3f4 !important;
 }

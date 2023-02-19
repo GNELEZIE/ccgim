@@ -5,6 +5,9 @@ if(isset($_GET['ville']) and isset($_GET['commune'])){
     header('location:'.$domaine.'/error');
     exit();
 }
+
+$vl =  $logement->getAllVille();
+$qt =  $logement->getAllQuartier();
 include_once $layout.'/header.php'
 ?>
 
@@ -16,36 +19,36 @@ include_once $layout.'/header.php'
     </div>
 </div>
 
-<div class="form-area eight">
+<div class="form-area eight search-page">
     <div class="container">
         <div class="row">
             <div class="col-md-12 form-bg form-top border-radius">
-                <form  method="get" action="<?=$domaine?>/recherche-logement" class="advance_search_query" id="searchForm">
+                <form  method="get" action="<?=$domaine?>/recherche-logement" class="advance_search_query wow slideInRight" id="searchForm">
                     <div class="form-content">
                         <div class="form-group w40">
                             <label for="ville" >Ville</label>
                             <select class="wide" name="ville" id="ville">
                                 <option  selected>Choisir une ville</option>
-                                <option value="Abidjan">Abidjan</option>
-                                <option value="Bouake">Bouake</option>
-                                <option value="Yamoussokro">Yamoussokro</option>
-                                <option value="Korhogo">Korhogo</option>
-                                <option value="Boundiali">Boundiali</option>
-                                <option value="Daloa">Daloa</option>
-                                <option value="Man">Man</option>
+                                <?php
+                                while($ville = $vl->fetch()){
+                                    ?>
+                                    <option value="<?=$ville['ville_lgt']?>"><?=html_entity_decode(stripslashes($ville['ville_lgt']))?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group w40">
                             <label for="commune" >Commune</label>
                             <select class="wide" name="commune" id="commune">
                                 <option selected>Choisir une commune</option>
-                                <option value="Abobo">Abobo</option>
-                                <option value="Adjame">Adjame</option>
-                                <option value="Cocody">Cocody</option>
-                                <option value="Koumassi">Koumassi</option>
-                                <option value="Marcory">Marcory</option>
-                                <option value="Yopougon">Yopougon</option>
-                                <option value="Bingerville">Bingerville</option>
+                                <?php
+                                while($quartier = $qt->fetch()){
+                                    ?>
+                                    <option value="<?=$quartier['quartier_lgt']?>"><?=html_entity_decode(stripslashes($quartier['quartier_lgt']))?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -174,9 +177,9 @@ include_once $layout.'/header.php'
     var commune = $('#commune');
     $(document).ready(function(){
         ville.val('<?=$_GET['ville']?>');
+        ville.niceSelect();
         commune.val('<?=$_GET['commune']?>');
         commune.niceSelect();
-        ville.niceSelect();
-        commune.niceSelect();
+
     });
 </script>

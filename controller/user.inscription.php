@@ -1,8 +1,9 @@
 <?php
-if(isset($_POST['email']) and isset($_POST['password']) and  isset($_POST['cpassword']) and isset($_SESSION['myformkey']) and isset($_POST['formkey']) and $_SESSION['myformkey'] == $_POST['formkey']){
+if(isset($_POST['email']) and isset($_POST['password']) and isset($_POST['typ_compte']) and  isset($_POST['cpassword']) and isset($_SESSION['myformkey']) and isset($_POST['formkey']) and $_SESSION['myformkey'] == $_POST['formkey']){
     extract($_POST);
 
     $email = htmlentities(trim(addslashes(strip_tags($email))));
+    $typ_compte = htmlentities(trim(addslashes(strip_tags($typ_compte))));
     $password = htmlentities(trim(addslashes($password)));
     $cpassword = htmlentities(trim(addslashes($cpassword)));
 
@@ -18,7 +19,7 @@ if(isset($_POST['email']) and isset($_POST['password']) and  isset($_POST['cpass
     } else {
         $options = ['cost' => 12];
         $mdpCript = password_hash($password, PASSWORD_BCRYPT, $options);
-        $idUser = $utilisateur->addUtilisateur($date, $email, $mdpCript);
+        $idUser = $utilisateur->addUtilisateur($dateGmt, $email, $mdpCript,$typ_compte);
         if ($idUser > 0) {
            /* $mailToken = str_replace('+', '-', my_encrypt($email));
             $subject = trim('Vérification de votre email.');

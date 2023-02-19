@@ -34,6 +34,32 @@ class Tresorerie
 
 //Read
 
+    public function getCinqPaiementByUserId($userId){
+        $query = "SELECT * FROM tresorerie
+        WHERE user_id  =:userId  ORDER BY id_tresorerie DESC LIMIT 5";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "userId" => $userId
+        ));
+
+        return $rs;
+    }
+
+    public function getPaiementByUserId($userId){
+        $query = "SELECT * FROM tresorerie
+        WHERE user_id  =:userId  ORDER BY id_tresorerie DESC";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "userId" => $userId
+        ));
+
+        return $rs;
+    }
+
+
+
+
+
     public function getCinqPaiement(){
         $query = "SELECT * FROM tresorerie
         INNER JOIN  locataire ON id_locataire  = user_id
@@ -41,6 +67,7 @@ class Tresorerie
         $rs = $this->bdd->query($query);
         return $rs;
     }
+
     public function getAllPaiement(){
         $query = "SELECT * FROM tresorerie
         INNER JOIN  locataire ON id_locataire  = user_id

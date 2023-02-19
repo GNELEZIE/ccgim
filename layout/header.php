@@ -23,13 +23,13 @@
 <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/nice-select/css/nice-select.css">
 <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/intltelinput/css/intlTelInput.min.css"/>
 <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/toast/jquery.toast.min.css"/>
-<script src="<?=$cdn_domaine?>/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/intltelinput/css/intlTelInput.min.css"/>
 <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/owlcarousel/css/owl.carousel.min.css">
 <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/datatable/datatables.min.css">
 <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/font-awesome/css/all.css">
 <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/libs/font-awesome/css/v4-shims.css">
-<!--    <link rel="stylesheet" href="--><?//=$cdn_domaine?><!--/assets/css/wizard-style.css">-->
+<link type="text/css" href="<?=$cdn_domaine?>/assets/libs/wow/animate.css" rel="stylesheet"/>
+<link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/wizard-style.css">
 <style>
 
 a , p ,h1,h2,h3,h4,h5{
@@ -59,7 +59,7 @@ a , p ,h1,h2,h3,h4,h5{
     color: #fff !important;
 }
 .btn-register{
-    background: #18a3f4;
+    background: #18a3f4 !important;
     color: #fff !important;
 }
 .btn-register:hover{
@@ -282,7 +282,7 @@ input, select, textarea {
     width: 100%;
 }
 .text-right{
-    text-align: right;
+    text-align: right !important;
 }
 .font-15{
     font-size: 15px !important;
@@ -750,241 +750,6 @@ li{
     border-bottom: 1px solid #eee;
 }
 
-/*Wizard*/
-#msform {
-    padding-top: 25px;
-    text-align: center;
-    position: relative;
-}
-
-#msform fieldset .form-card {
-    background: white;
-    border: 0 none;
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
-    padding: 20px 40px 30px 40px;
-    box-sizing: border-box;
-    width: 94%;
-    margin: 0 3% 20px 3%;
-    position: relative
-}
-
-#msform fieldset {
-    background: #ffffff;
-    border: 0 none;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0;
-    padding-bottom: 20px;
-    position: relative
-}
-
-#msform fieldset:not(:first-of-type) {
-    display: none
-}
-
-#msform fieldset .form-card {
-    text-align: left;
-    color: #9E9E9E
-}
-
-#msform input,
-#msform textarea,
-#msform select, select2{
-    border: 2px solid #ccc;
-    border-radius: 7px;
-    margin-bottom: 25px;
-    margin-top: 2px;
-    width: 100%;
-    box-sizing: border-box;
-    color: #2C3E50;
-    font-size: 16px;
-    letter-spacing: 1px
-}
-
-#msform input:focus,
-#msform textarea:focus {
-    border: 2px solid #999191;
-
-}
-
-#msform .action-button {
-    width: 100px;
-    background: #18a3f4;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px
-}
-
-
-#msform .action-button-previous {
-    width: 100px;
-    background: #000000;
-    color: white;
-    border: 0 none;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px
-}
-
-select.list-dt {
-    border: none;
-    outline: 0;
-    border-bottom: 1px solid #ccc;
-    padding: 2px 5px 3px 5px;
-    margin: 2px
-}
-
-
-
-.card {
-    z-index: 0;
-    border: none;
-    border-radius: 0.5rem;
-    position: relative
-}
-
-.fs-title {
-    font-size: 25px;
-    color: #2C3E50;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-align: left
-}
-
-#progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    color: lightgrey
-}
-
-#progressbar .active {
-    color: #000000
-}
-
-#progressbar li {
-    list-style-type: none;
-    font-size: 12px;
-    width: 25%;
-    float: left;
-    position: relative;
-    z-index: 9;
-
-}
-
-#progressbar #description:before {
-    font-family: FontAwesome;
-    content: "1"
-}
-
-#progressbar #localissation:before {
-    font-family: FontAwesome;
-    content: "2"
-}
-
-#progressbar #galerie:before {
-    font-family: FontAwesome;
-    content: "3"
-}
-
-#progressbar #tarifs:before {
-    font-family: FontAwesome;
-    content: "4"
-}
-
-#progressbar li:before {
-    width: 50px;
-    height: 50px;
-    line-height: 45px;
-    display: block;
-    font-size: 18px;
-    color: #ffffff;
-    background: #d3d3d3;
-    border-radius: 50%;
-    margin: 0 auto 10px auto;
-    padding: 2px
-}
-
-#progressbar li:after {
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: #d3d3d3;
-    position: absolute;
-    left: 0;
-    top: 25px;
-    z-index: -1
-}
-
-#progressbar li.active:before,
-#progressbar li.active:after {
-    background: #18a3f4
-}
-
-.radio-group {
-    position: relative;
-    margin-bottom: 25px
-}
-
-.radio {
-    display: inline-block;
-    width: 204px;
-    height: 104px;
-    border-radius: 0;
-    background: #18a3f4;
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
-    cursor: pointer;
-    margin: 8px 2px
-}
-
-.radio:hover {
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
-}
-
-.radio.selected {
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
-}
-
-.fit-image {
-    width: 100%;
-    object-fit: cover
-}
-.icon-m2 {
-    position: absolute;
-    right: 26px;
-    top: 41px;
-    background: #fff;
-}
-.icon-m {
-    position: absolute;
-    right: 18px;
-    top: 41px;
-    background: #fff;
-}
-.mybtn-next {
-    width: 12%;
-    border: 0;
-    background: #18a3f4;
-    border-radius: 6px;
-    font-size: 17px;
-    padding: 9px;
-}
-.mybtn-prev {
-    width: 21%;
-    border: 0;
-    background: #18a3f41c;
-    border-radius: 6px;
-    font-size: 17px;
-    padding: 9px;
-    margin-right: 23px;
-    color: #18a3f4 !important;
-}
-
-/*End wizard*/
 
 .upload-form{
     text-align: center;
@@ -1245,12 +1010,16 @@ label {
 .footer-area .bottom-content {
     border-top: 0 !important;
     margin-top: 51px !important;
+    text-align: inherit !important;
 }
 .bg-white{
     background: #ffffff;
 }
 .pb15{
     padding-bottom : 15px;
+}
+.pb7{
+    padding-bottom : 7px;
 }
 .pt10{
     padding-top : 15px;
@@ -1311,21 +1080,61 @@ label {
     width: 100%;
     height: 213px;
 }
+.bg-services{
+    background: #0000ff08;
+}
+.bg-appartm{
+    background: #f7f7f763;
+}
+.pdc{
+    padding: 6px 21px !important;
+}
 
+.apartments-area .button {
+    border-radius: 9px;
+    padding: 10px 19px;
+    background: #0000ff;
+}
+.apartments-area .button:hover{
+    background: #2f81ff;
+}
+.contact-area .contact {
+    margin-bottom: 0;
+}
+.contact-area .contact h4 i {
+    font-size: 17px;
+}
+.contact-area .contact p {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
 
+.search-page .nice-select {
+    line-height: 40px !important;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.footer p{
+    padding: 30px 0;
+    border-top: 1px solid #eee;
+}
+.show-service-img{
+    object-fit: cover;
+    height: 350px;
+    width: 100%;
+}
+.register-page .nice-select {
+    line-height: 42px !important;
+}
+.p-0{
+    padding: 0 !important;
+}
+.register-page .cd-form .has-border {
+    border: 2px solid #d2d8d8 !important;
+}
+.register-page .cd-form .hide-password {
+    top: 74% !important;
+}
 
 
 @media(max-width: 767px) {
@@ -1503,7 +1312,12 @@ label {
         display: inline-block !important;
         margin-top: 20px;
     }
-
+    .contact-area {
+        padding: 0;
+    }
+    .bg-services {
+        padding: 0;
+    }
 
 
 

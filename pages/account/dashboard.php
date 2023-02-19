@@ -34,10 +34,63 @@ include_once $layout.'/auth/header.php'?>
                     Tableau de bord
                 </div>
                 <div class="bg-white-color p30">
-                    <div class="pc-none">
-                        <div class="d-flex">
-                            <div class="mycol50 m5">
-                                <div class="ts-box-red mb10">
+
+                    <?php
+                    if($data['type_compte'] != 1){
+                        ?>
+                        <div class="pc-none">
+                            <div class="d-flex">
+                                <div class="mycol50 m5">
+                                    <div class="ts-box-red mb10">
+                                        <div class="icon">
+                                            <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
+                                        </div>
+                                        <div class="nbLgt">
+                                            <h2><?=number_format($creditMois['solde'],0,',',' ')?> <small>FCFA</small></h2>
+                                            <p>Depense du mois</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mycol50 m5">
+                                    <div class="ts-box-green mb10">
+                                        <div class="icon">
+                                            <i class="fa fa-arrow-trend-up myicon-trend my-icon-dashboard-green"></i>
+                                        </div>
+                                        <div class="nbLgt">
+                                            <h2><?=number_format($debitMois['solde'],0,',',' ')?> <small>FCFA</small></h2>
+                                            <p>Solde du mois</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="mycol50 m5">
+                                    <div class="ts-box-red mb10">
+                                        <div class="icon">
+                                            <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
+                                        </div>
+                                        <div class="nbLgt">
+                                            <h2><?=number_format($Allcredit['solde'],0,',',' ')?> <small>FCFA</small></h2>
+                                            <p>Depense total</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mycol50 m5">
+                                    <div class="ts-box-green mb10">
+                                        <div class="icon">
+                                            <i class="fa fa-wallet myicon-trend my-icon-dashboard-green"></i>
+                                        </div>
+                                        <div class="nbLgt">
+                                            <h2><?=$my_solde?></h2>
+                                            <p>Solde total</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mobile-none">
+                            <div class="col-md-3">
+                                <div class="ts-box-red">
                                     <div class="icon">
                                         <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
                                     </div>
@@ -47,8 +100,8 @@ include_once $layout.'/auth/header.php'?>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mycol50 m5">
-                                <div class="ts-box-green mb10">
+                            <div class="col-md-3">
+                                <div class="ts-box-green">
                                     <div class="icon">
                                         <i class="fa fa-arrow-trend-up myicon-trend my-icon-dashboard-green"></i>
                                     </div>
@@ -58,10 +111,9 @@ include_once $layout.'/auth/header.php'?>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex">
-                            <div class="mycol50 m5">
-                                <div class="ts-box-red mb10">
+
+                            <div class="col-md-3">
+                                <div class="ts-box-red">
                                     <div class="icon">
                                         <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
                                     </div>
@@ -71,8 +123,8 @@ include_once $layout.'/auth/header.php'?>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mycol50 m5">
-                                <div class="ts-box-green mb10">
+                            <div class="col-md-3">
+                                <div class="ts-box-green">
                                     <div class="icon">
                                         <i class="fa fa-wallet myicon-trend my-icon-dashboard-green"></i>
                                     </div>
@@ -83,119 +135,136 @@ include_once $layout.'/auth/header.php'?>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mobile-none">
-                        <div class="col-md-3">
-                            <div class="ts-box-red">
-                                <div class="icon">
-                                    <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
-                                </div>
-                                <div class="nbLgt">
-                                    <h2><?=number_format($creditMois['solde'],0,',',' ')?> <small>FCFA</small></h2>
-                                    <p>Depense du mois</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="ts-box-green">
-                                <div class="icon">
-                                    <i class="fa fa-arrow-trend-up myicon-trend my-icon-dashboard-green"></i>
-                                </div>
-                                <div class="nbLgt">
-                                    <h2><?=number_format($debitMois['solde'],0,',',' ')?> <small>FCFA</small></h2>
-                                    <p>Solde du mois</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="ts-box-red">
-                                <div class="icon">
-                                    <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
-                                </div>
-                                <div class="nbLgt">
-                                    <h2><?=number_format($Allcredit['solde'],0,',',' ')?> <small>FCFA</small></h2>
-                                    <p>Depense total</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="ts-box-green">
-                                <div class="icon">
-                                    <i class="fa fa-wallet myicon-trend my-icon-dashboard-green"></i>
-                                </div>
-                                <div class="nbLgt">
-                                    <h2><?=$my_solde?></h2>
-                                    <p>Solde total</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hist">
-                        <h3>Les derniers versements</h3>
-                        <table class="table-striped  pc-none">
-                            <thead class="d-none">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            $localist = $tresorerie->getCinqPaiement();
-                            while($localDat = $localist->fetch()){
-                                ?>
+                        <div class="hist">
+                            <h3>Les derniers versements</h3>
+                            <table class="table-striped  pc-none">
+                                <thead class="d-none">
                                 <tr>
-                                    <td class="w100">
-                                        <div class="d-flex">
-                                            <div class="w70">
-                                                <p class="m-0"> <i class="fa fa-dashboard"></i> <?=date_time_fr($localDat['date_tresorerie'])?></p>
-                                               <p class="m-0"><i class="fa fa-phone"></i>  <?=$localDat['phone']?></p>
-                                                <p class="m-0"> <i class="fa fa-user"></i> <?=html_entity_decode(stripslashes($localDat["nom"])).' '.html_entity_decode(stripslashes($localDat["prenom"]))?></p>
-                                            </div>
-                                            <div class="w30">
-                                                <?=number_format($localDat['debit_transac'],0,',',' ')?> FCFA
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td></td>
-
-
+                                    <th></th>
+                                    <th></th>
                                 </tr>
-                            <?php
-                            }
-                            ?>
-                            </tbody>
-                        </table>
-                        <table class="table-striped table1 mobile-none">
-                            <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Téléphone</th>
-                                <th>Locataire</th>
-                                <th class="text-right">Montant(CFA)</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            $localist = $tresorerie->getCinqPaiement();
-                            while($localDat = $localist->fetch()){
+                                </thead>
+                                <tbody>
+                                <?php
+                                $localist = $tresorerie->getCinqPaiement();
+                                while($localDat = $localist->fetch()){
+                                    ?>
+                                    <tr>
+                                        <td class="w100">
+                                            <div class="d-flex">
+                                                <div class="w70">
+                                                    <p class="m-0"> <i class="fa fa-dashboard"></i> <?=date_time_fr($localDat['date_tresorerie'])?></p>
+                                                    <p class="m-0"><i class="fa fa-phone"></i>  <?=$localDat['phone']?></p>
+                                                    <p class="m-0"> <i class="fa fa-user"></i> <?=html_entity_decode(stripslashes($localDat["nom"])).' '.html_entity_decode(stripslashes($localDat["prenom"]))?></p>
+                                                </div>
+                                                <div class="w30">
+                                                    <?=number_format($localDat['debit_transac'],0,',',' ')?> FCFA
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+
+
+                                    </tr>
+                                <?php
+                                }
                                 ?>
+                                </tbody>
+                            </table>
+                            <table class="table-striped table1 mobile-none">
+                                <thead>
                                 <tr>
-                                    <td><?=date_time_fr($localDat['date_tresorerie'])?></td>
-                                    <td><?=$localDat['phone']?></td>
-                                    <td>
-                                        <p class="m-0"><?=html_entity_decode(stripslashes($localDat["nom"])).' '.html_entity_decode(stripslashes($localDat["prenom"]))?></p>
-                                    </td>
-                                    <td class="text-right"><?=number_format($localDat['debit_transac'],0,',',' ')?></td>
+                                    <th>Date</th>
+                                    <th>Téléphone</th>
+                                    <th>Locataire</th>
+                                    <th class="text-right">Montant(CFA)</th>
                                 </tr>
-                            <?php
-                            }
-                            ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $localist = $tresorerie->getCinqPaiement();
+                                while($localDat = $localist->fetch()){
+                                    ?>
+                                    <tr>
+                                        <td><?=date_time_fr($localDat['date_tresorerie'])?></td>
+                                        <td><?=$localDat['phone']?></td>
+                                        <td>
+                                            <p class="m-0"><?=html_entity_decode(stripslashes($localDat["nom"])).' '.html_entity_decode(stripslashes($localDat["prenom"]))?></p>
+                                        </td>
+                                        <td class="text-right"><?=number_format($localDat['debit_transac'],0,',',' ')?></td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php
+                    }else{
+                        ?>
+                        <div class="hist">
+                            <h3>Mes derniers versements</h3>
+                            <table class="table-striped  pc-none">
+                                <thead class="d-none">
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $localist = $tresorerie->getCinqPaiementByUserId($data['id_utilisateur']);
+                                while($localDat = $localist->fetch()){
+                                    ?>
+                                    <tr>
+                                        <td class="w100">
+                                            <div class="d-flex">
+                                                <div class="w70">
+                                                    <p class="m-0"> <i class="fa fa-dashboard"></i> <?=date_time_fr($localDat['date_tresorerie'])?></p>
+                                                    <p class="m-0"><i class="fa fa-phone"></i>  <?=$localDat['phone']?></p>
+                                                    <p class="m-0"> <i class="fa fa-user"></i> <?=html_entity_decode(stripslashes($localDat["nom"])).' '.html_entity_decode(stripslashes($localDat["prenom"]))?></p>
+                                                </div>
+                                                <div class="w30">
+                                                    <?=number_format($localDat['debit_transac'],0,',',' ')?> FCFA
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+
+
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                            <table class="table-striped table1 mobile-none">
+                                <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Référence de paiement</th>
+                                    <th class="text-right">Montant(CFA)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $localist = $tresorerie->getCinqPaiementByUserId($data['id_utilisateur']);
+                                while($localDat = $localist->fetch()){
+                                    ?>
+                                    <tr>
+                                        <td><?=date_time_fr($localDat['date_tresorerie'])?></td>
+                                        <td><?=$localDat['ref_paiement']?></td>
+                                        <td class="text-right"><?=number_format($localDat['debit_transac'],0,',',' ')?></td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -204,7 +273,7 @@ include_once $layout.'/auth/header.php'?>
 
 
 
-<?php include_once $layout.'/auth/footer.php'?>
+<?php include_once $layout.'/footer.php'?>
 <script>
     chargeSolde();
     function chargeSolde(){

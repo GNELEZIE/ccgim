@@ -76,7 +76,8 @@ include_once $layout.'/header.php'
                     <div class="row">
                         <div class="col-md-12">
                             <div class="map-content">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.4431673262293!2d-4.098919285725766!3d5.3491296371842605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfb83a8e9beff779%3A0x56c916b7e211bb86!2sYOPOUGON%2C%20ANANERAIE!5e0!3m2!1sfr!2sci!4v1676626218126!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                            </div>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.4431673262293!2d-4.098919285725766!3d5.3491296371842605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfb83a8e9beff779%3A0x56c916b7e211bb86!2sYOPOUGON%2C%20ANANERAIE!5e0!3m2!1sfr!2sci!4v1676626218126!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
                     </div>
                 </div>
             </div>

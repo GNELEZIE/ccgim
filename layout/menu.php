@@ -17,36 +17,30 @@
                                     <a href="<?=$domaine?>" class="<?php if($lien == 'home' || $lien == ''){echo 'active';} ;?>">Accueil</a>
                                 </li>
                                 <li>
+                                    <a href="<?=$domaine?>/a-propos" class="<?= page_active('a-propos') ;?>">A propos</a>
+                                </li>
+                                <li>
                                     <a href="<?=$domaine?>/services" class="<?= page_active('services') ;?>">Services</a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="#">Vente de maison</a>
+                                            <a href="<?=$domaine?>/vente-logement">Vente de maison</a>
                                         </li>
                                         <li>
-                                            <a href="#">Louer une maison</a>
+                                            <a href="<?=$domaine?>/louer-logement">Louer une maison</a>
                                         </li>
                                         <li>
-                                            <a href="#">Louer un techniciens</a>
+                                            <a href="<?=$domaine?>/techniciens">Louer un techniciens</a>
                                         </li>
                                     </ul>
-                                </li>
-                                <li>
-                                    <a href="<?=$domaine?>/a-propos" class="<?= page_active('a-propos') ;?>">A propos</a>
                                 </li>
                                 <li>
                                     <a href="<?=$domaine?>/logements" class="<?= page_active('logements') ;?>">Logements</a>
                                 </li>
                                 <li>
-                                    <a href="<?=$domaine?>/contacts">Contacts</a>
+                                    <a href="<?=$domaine?>/contacts" class="<?= page_active('contacts') ;?>">Contacts</a>
                                 </li>
                                 <li>
-                                    <a href="#">Faq</a>
-                                </li>
-                                <li>
-                                    <a href="#">Propriétaire</a>
-                                </li>
-                                <li>
-                                    <a href="<?=$domaine?>/connexion">Connexion</a>
+                                    <a href="<?=$domaine?>/connexion" class="<?= page_active('connexion') ;?>">Espace client</a>
                                 </li>
                                 <?php
                                 if(isset($_SESSION['_ccgim_201'])){

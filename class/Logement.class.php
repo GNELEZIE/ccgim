@@ -87,6 +87,18 @@ class Logement{
         $rs = $this->bdd->query($query);
         return $rs;
     }
+    public function getAllVille(){
+        $query = "SELECT DISTINCT ville_lgt FROM logement
+         ORDER BY id_logement DESC ";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
+    public function getAllQuartier(){
+        $query = "SELECT DISTINCT quartier_lgt FROM logement
+         ORDER BY id_logement DESC ";
+        $rs = $this->bdd->query($query);
+        return $rs;
+    }
 
     public function getLgtsSlug($slg){
         $query = "SELECT * FROM logement

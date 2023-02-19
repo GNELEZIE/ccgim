@@ -29,6 +29,7 @@ include_once $class.'/Logement.class.php';
 include_once $class.'/Galerie.class.php';
 include_once $class.'/Locataire.class.php';
 include_once $class.'/Tresorerie.class.php';
+include_once $class.'/Location.class.php';
 
 
 

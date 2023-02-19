@@ -1,5 +1,7 @@
 <?php
 $list =  $logement->getAllLgts();
+$vl =  $logement->getAllVille();
+$qt =  $logement->getAllQuartier();
 include_once $layout.'/header.php'
 ?>
 
@@ -26,32 +28,32 @@ include_once $layout.'/header.php'
     <div class="container">
         <div class="row">
             <div class="col-md-12 form-bg form-top border-radius">
-                <form  method="get" action="<?=$domaine?>/recherche-logement" class="advance_search_query" id="searchForm">
+                <form  method="get" action="<?=$domaine?>/recherche-logement" class="advance_search_query wow slideInRight" id="searchForm">
                     <div class="form-content">
                         <div class="form-group w40">
                             <label for="ville" >Ville</label>
                             <select class="wide" name="ville" id="ville">
                                 <option  selected>Choisir une ville</option>
-                                <option value="Abidjan">Abidjan</option>
-                                <option value="Bouake">Bouake</option>
-                                <option value="Yamoussokro">Yamoussokro</option>
-                                <option value="Korhogo">Korhogo</option>
-                                <option value="Boundiali">Boundiali</option>
-                                <option value="Daloa">Daloa</option>
-                                <option value="Man">Man</option>
+                                <?php
+                                while($ville = $vl->fetch()){
+                                    ?>
+                                    <option value="<?=$ville['ville_lgt']?>"><?=html_entity_decode(stripslashes($ville['ville_lgt']))?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group w40">
                             <label for="commune" >Commune</label>
                             <select class="wide" name="commune" id="commune">
                                 <option selected>Choisir une commune</option>
-                                <option value="Abobo">Abobo</option>
-                                <option value="Adjame">Adjame</option>
-                                <option value="Cocody">Cocody</option>
-                                <option value="Koumassi">Koumassi</option>
-                                <option value="Marcory">Marcory</option>
-                                <option value="Yopougon">Yopougon</option>
-                                <option value="Bingerville">Bingerville</option>
+                                <?php
+                                while($quartier = $qt->fetch()){
+                                    ?>
+                                    <option value="<?=$quartier['quartier_lgt']?>"><?=html_entity_decode(stripslashes($quartier['quartier_lgt']))?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -64,15 +66,72 @@ include_once $layout.'/header.php'
     </div>
 </div>
 <div class="container-fluid">
+    <div class="aboutus-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading-content-one border">
+                        <h2 class="title font-30 wow slideInLeft">Présentation</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-content">
+                        <p class="wow slideInLeft">
+                            Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl.
+                            Cras etitikis mauris egeth lorem ultricies ferme is ntum a inti diam. Morbi mollis pellden tesque offs aiug ueia nec rhoncus.
+                            Nam ute ultricies. Cras etitikis mauris eget lorem ultricies ferme ntum a inti diam. Morbi mollis pellen tesque offs aiug
+                            ueia nec rhoncus. Nam ute ultricies.  Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl.
+                            Cras etitikis mauris egeth lorem ultricies ferme is ntum a inti diam. Morbi mollis pellden tesque offs aiug ueia nec rhoncus.
+                            Nam ute ultricies. Cras etitikis mauris eget lorem ultricies ferme ntum a inti diam. Morbi mollis pellen tesque offs aiug
+                            ueia nec rhoncus. Nam ute ultricies.
+                        </p>
+                        <div class="py-3  wow slideInLeft">
+                            <a href="<?=$domaine?>/a-propos" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="image-content wow slideInRight">
+                        <img src="<?=$cdn_domaine?>/assets/images/about-image.png" alt="about" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="call-to-action overlay-bg" style="background-image:url(<?=$cdn_domaine?>/media/contact-bg-image.png)">
+    <div class="container">
+        <div class="row tb">
+            <div class="col-md-6 col-sm-6 tb-cell">
+                <div class="contact-left-content wow slideInLeft">
+                    <h3>Voulez-vous louer une maison ?</h3>
+                    <h4 class="color-blue">Appelez-nous et listez votre propriété ici</h4>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 tb-cell">
+                <div class="contact-right-content  wow slideInRight">
+                    <h4><a href="#">00225 00 00 00 00 00<span>support@ccigim.com</span></a></h4>
+                    <a href="<?=$domaine?>/contacts" class="button btn-register pdc">Contactez-nous</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-services">
     <div class="container">
         <div class="row row-service">
             <div class="col-md-12">
                 <div class="heading-content-one border">
-                    <h2 class="title font-30" data-in="slideDown" data-out="slideUp" data-duration="500" data-delay="200">Nos services</h2>
+                    <h2 class="title font-30 wow slideInLeft">Nos services</h2>
                 </div>
             </div>
-            <div class="col-md-4" data-in="slideDown" data-out="slideUp" data-duration="500" data-delay="200">
-                <div class="apartments-content">
+            <div class="col-md-4">
+                <div class="apartments-content wow slideInLeft">
                     <div class="image-content">
                         <img src="<?=$cdn_domaine?>/media/vm.jpg" alt="63d8fd2600d30.jpg">
                     </div>
@@ -80,14 +139,14 @@ include_once $layout.'/header.php'
                         <div class="top-content text-center">
                             <h3>Vente de maison</h3>
                            <div class="text-center py-3">
-                               <a href="#" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
+                               <a href="<?=$domaine?>/vente-logement" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="apartments-content">
+                <div class="apartments-content wow slideInLeft">
                     <div class="image-content">
                         <img src="<?=$cdn_domaine?>/media/am.jpg" alt="63d8fd2600d30.jpg">
                     </div>
@@ -95,14 +154,14 @@ include_once $layout.'/header.php'
                         <div class="top-content text-center">
                             <h3>Louer une maison</h3>
                            <div class="text-center py-3">
-                               <a href="#" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
+                               <a href="<?=$domaine?>/louer-logement" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="apartments-content">
+                <div class="apartments-content wow slideInRight">
                     <div class="image-content">
                         <img src="<?=$cdn_domaine?>/media/tch.jpg" alt="63d8fd2600d30.jpg">
                     </div>
@@ -110,7 +169,7 @@ include_once $layout.'/header.php'
                         <div class="top-content text-center">
                             <h3>Louer un techniciens </h3>
                            <div class="text-center py-3">
-                               <a href="#" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
+                               <a href="<?=$domaine?>/techniciens" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
                            </div>
                         </div>
                     </div>
@@ -121,12 +180,12 @@ include_once $layout.'/header.php'
         </div>
     </div>
 </div>
-<div class="apartments-area bg-gray-color">
+<div class="apartments-area bg-appartm">
     <div class="container">
         <div class="col-md-12">
             <div class="heading-content-one border">
-                <h2 class="title font-30"> &amp; Appartements</h2>
-                <h5 class="sub-title">Trouvez un appartements, pour votre capacité</h5>
+                <h2 class="title font-30 wow slideInLeft"> &amp; Appartements</h2>
+                <h5 class="sub-title wow slideInLeft">Trouvez un appartements, pour votre capacité</h5>
             </div>
         </div>
         <div class="row">
@@ -135,7 +194,7 @@ include_once $layout.'/header.php'
                 $gals = $galerie->getGalerieByLgtId($listData['id_logement']);
                 ?>
                 <div class="col-md-3">
-                    <div class="apartments-content">
+                    <div class="apartments-content wow slideInRight">
                         <div class="image-content">
                             <div class="caroussel-item">
                                 <div class="owl-carousel position-relative">
@@ -203,106 +262,22 @@ include_once $layout.'/header.php'
             ?>
 
         </div>
-        <a href="<?=$domaine?>/logements" class="button nevy-button">Tous les appartements</a>
+        <a href="<?=$domaine?>/logements" class="button nevy-button wow slideInLeft">Tous les appartements</a>
     </div>
 </div>
-<div class="fun-fects-area" style="background-image:url(<?=$cdn_domaine?>/assets/images/count-down-image.png)">
-    <div class="container">
-        <div class="stat">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="milestone-counter">
-                    <h3 class="stat-count highlight" data-form="1" data-to="2500" data-speed="3000">2500</h3>
-                    <div class="milestone-details">Clients</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="milestone-counter">
-                    <h3 class="stat-count highlight" data-form="1" data-to="3055" data-speed="3000">3055</h3>
-                    <div class="milestone-details">Appartement</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="milestone-counter">
-                    <h3 class="stat-count highlight" data-form="1" data-to="50" data-speed="3000">50</h3>
-                    <div class="milestone-details">Commune</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="milestone-counter">
-                    <h3 class="stat-count highlight" data-form="1" data-to="1530" data-speed="3000">1530</h3>
-                    <div class="milestone-details">Quartier</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="gallery-area bg-gray-color">
-    <div class="container-fluid">
-        <div class="container-large-device">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="gallery-left-content">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4 col-xs-6">
-                                <a class="image-pop-up" href="<?=$cdn_domaine?>/assets/images/gallery/gallery-one.png">
-                                    <img src="<?=$cdn_domaine?>/assets/images/gallery/gallery-one.png" alt="gallery" />
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 col-xs-6">
-                                <a class="image-pop-up" href="<?=$cdn_domaine?>/assets/images/gallery/gallery-two.png">
-                                    <img src="<?=$cdn_domaine?>/assets/images/gallery/gallery-two.png" alt="gallery" />
-                                </a>
-                            </div>
-                            <div class="clearfix visible-xs-block"></div>
-                            <div class="col-md-4 col-sm-4 col-xs-6">
-                                <a class="image-pop-up" href="<?=$cdn_domaine?>/assets/images/gallery/gallery-three.png">
-                                    <img src="<?=$cdn_domaine?>/assets/images/gallery/gallery-three.png" alt="gallery" />
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 col-xs-6">
-                                <a class="image-pop-up" href="<?=$cdn_domaine?>/assets/images/gallery/gallery-four.png">
-                                    <img src="<?=$cdn_domaine?>/assets/images/gallery/gallery-four.png" alt="gallery" />
-                                </a>
-                            </div>
-                            <div class="clearfix visible-xs-block"></div>
-                            <div class="col-md-4 col-sm-4 col-xs-6">
-                                <a class="image-pop-up" href="<?=$cdn_domaine?>/assets/images/gallery/gallery-five.png">
-                                    <img src="<?=$cdn_domaine?>/assets/images/gallery/gallery-five.png" alt="gallery" />
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-4 col-xs-6">
-                                <a class="image-pop-up" href="<?=$cdn_domaine?>/assets/images/gallery/gallery-six.png">
-                                    <img src="<?=$cdn_domaine?>/assets/images/gallery/gallery-six.png" alt="gallery" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="gallery-right-content">
-                        <h2 class="font-30">Notre galerie </h2>
-                        <h3>Best of our <br/>Event portfolio Photos</h3>
-                        <p>Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras etitikis mauris eget lorem ultricies ferme ntum a inti diam. Morbi mollis pellen tesque offs aiug ueia nec rhoncus. Nam ute ultricies.</p>
-                        <a href="gallery.html" class="button nevy-button">Voir plus</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="call-to-action overlay-bg" style="background-image:url(<?=$cdn_domaine?>/assets/images/contact-bg-image.png)">
+<div class="call-to-action overlay-bg" style="background-image:url(<?=$cdn_domaine?>/media/contact-bg-image.png)">
     <div class="container">
         <div class="row tb">
             <div class="col-md-6 col-sm-6 tb-cell">
-                <div class="contact-left-content">
-                    <h3>Voulez-vous louer votre maison</h3>
-                    <h4>Appelez-nous et listez votre propriété ici</h4>
+                <div class="contact-left-content  wow slideInLeft">
+                    <h3>Mettre en location une maison ?</h3>
+                    <h4 class="color-blue">Appelez-nous et listez votre propriété ici</h4>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 tb-cell">
-                <div class="contact-right-content">
+                <div class="contact-right-content  wow slideInRight">
                     <h4><a href="#">00225 00 00 00 00 00<span>support@ccigim.com</span></a></h4>
-                    <a href="#" class="button">Contactez-nous</a>
+                    <a href="<?=$domaine?>/contacts" class="button btn-register pdc">Contactez-nous</a>
                 </div>
             </div>
         </div>
@@ -313,7 +288,7 @@ include_once $layout.'/header.php'
         <div class="row">
             <div class="col-md-12">
                 <div class="testimonial-heading-content">
-                    <h2 class="title">Témoignages</h2>
+                    <h2 class="title  wow slideInLeft">Témoignages</h2>
                     <i class="fa fa-quote-right"></i>
                     <h2 class="sub-title">Quelques avis</h2>
                 </div>
@@ -321,7 +296,7 @@ include_once $layout.'/header.php'
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="testimonial-slider owl-carousel owl-theme">
+                <div class="testimonial-slider owl-carousel owl-theme  wow slideInRight">
                     <div class="item">
                         <div class="client-image">
                             <img src="<?=$cdn_domaine?>/assets/images/testimonial-image.png" alt="testimonial" />
@@ -468,55 +443,47 @@ include_once $layout.'/header.php'
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="heading-content-two available">
+                    <div class="heading-content-two available  wow slideInLeft">
                         <h2 class="title font-30">Nous sommes disponibles pour vous 7j/7</h2>
                         <h5 class="sub-title">Notre service d'assistance en ligne est toujours 24 heures</h5>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-7">
-                    <div class="map-left-content">
-                        <iframe width="600" height="350" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC871wKM6aoCLSV_pT3xBVsYzNGXaDh7Pw&amp;q=121King+St,Melbourne+VIC+3000,Australia" allowfullscreen="allowfullscreen"></iframe>
-                    </div>
-                </div>
                 <div class="col-md-5">
-                    <div class="map-right-content">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="contact">
-                                    <h4 class="font-15"><i class="fa fa-address-book"></i>Adresse</h4>
-                                    <p>Abidjan, Yopougon BAE</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="contact">
-                                    <h4 class="font-15"><i class="fa fa-envelope"></i>Mail</h4>
-                                    <p>contact@ccgim.com support@ccgim.com</p>
-                                </div>
+                    <div class="map-right-content  wow slideInLeft">
+
+                        <div class="contact">
+                            <h4 class="font-15"><i class="fa fa-map-marker"></i>Adresse</h4>
+                            <p>Abidjan, Yopougon BAE</p>
+                        </div>
+                        <div class="contact">
+                            <h4 class="font-15"><i class="fa fa-envelope"></i>Mail</h4>
+                            <p>contact@ccgim.com support@ccgim.com</p>
+                        </div>
+                        <div class="contact">
+                            <h4 class="font-15"><i class="fa fa-phone-square"></i>Téléphone</h4>
+                            <p>00225 00 00 00 00  <br/>00225 00 00 00 00 00</p>
+                        </div>
+                        <div class="contact">
+                            <h4 class="font-15"><i class="fa fa-user-circle"></i>Réseaux sociaux</h4>
+                            <div class="social-icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="contact">
-                                    <h4 class="font-15"><i class="fa fa-phone-square"></i>Téléphone</h4>
-                                    <p>00225 00 00 00 00  <br/>00225 00 00 00 00 00</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="contact">
-                                    <h4 class="font-15"><i class="fa fa-user-circle"></i>Réseaux sociaux</h4>
-                                    <div class="social-icon">
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+
                     </div>
                 </div>
+                <div class="col-md-7">
+                    <div class="map-left-content  wow slideInRight">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.4431673262293!2d-4.098919285725766!3d5.3491296371842605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfb83a8e9beff779%3A0x56c916b7e211bb86!2sYOPOUGON%2C%20ANANERAIE!5e0!3m2!1sfr!2sci!4v1676626218126!5m2!1sfr!2sci" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

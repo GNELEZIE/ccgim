@@ -8,18 +8,17 @@ class Utilisateur
     }
 
     //Create
-    public function addUtilisateur($userDate,$email,$mot_de_passe){
-        $query = "INSERT INTO utilisateur(date_utilisateur,email,mot_de_passe)
-            VALUES (:userDate,:email,:mot_de_passe)";
+    public function addUtilisateur($userDate,$email,$mot_de_passe,$typeCompte){
+        $query = "INSERT INTO utilisateur(date_utilisateur,email,mot_de_passe,type_compte)
+            VALUES (:userDate,:email,:mot_de_passe,:typeCompte)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "userDate" => $userDate,
             "email" => $email,
-            "mot_de_passe" => $mot_de_passe
+            "mot_de_passe" => $mot_de_passe,
+            "typeCompte" => $typeCompte
         ));
-
         $nb = $rs->rowCount();
-
         if($nb > 0){
             $r = $this->bdd->lastInsertId();
             return $r;
