@@ -14,7 +14,7 @@ if(isset($_SESSION['_ccgim_201'])  and isset($_SESSION['myformkey']) and isset($
         if($payUserData = $payUser->fetch()){
             if(date_fr2($payUserData['date_tresorerie']) == $toDay){
                 $stat = '<span class="badge-green">Déjà payé</span>';
-                $action = '';
+                $action = '<a href="'.$domaine.'/facture/'.$payUserData['ref_paiement'].'" class="btn-voir"> <i class="fa fa-print"></i></a>';
             }else{
                 $stat = '<span class="badge-jaune">En attente</span>';
                 $action = '<a href="#" class="btn-payer" data-toggle="modal"  data-id="'.$dats["user_id"].'" data-name="'.html_entity_decode(stripslashes($datUser["nom"])).'" data-logt="'.html_entity_decode(stripslashes($dats["lgt_id"])).'" data-target="#payerModalCenter"> <i class="fa fa-money"></i> Payer</a>

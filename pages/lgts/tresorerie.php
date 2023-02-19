@@ -111,8 +111,9 @@ include_once $layout.'/auth/header.php'?>
                         <input type="text" class="form-control input-style input-height" name="libelle" id="libelle" placeholder="Libellé" required>
                     </div>
                     <div class="my_prix"></div>
-                    <div class="form-group ">
-
+                    <div class="form-group">
+                        <label for="montant" >Montant <i class="required"></i></label>
+                        <input type="text" class="form-control input-style input-height" name="montant" id="montant" placeholder="Montant" required disabled/>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -151,17 +152,18 @@ include_once $layout.'/auth/header.php'?>
 
 </script>
 <script>
-    chargePrix();
-    function chargePrix(){
+
+    function chargePrix(lgid){
         $.ajax({
             type: 'post',
             data: {
-                token: "<?=$token?>"
+                token: "<?=$token?>",
+                lgt: lgid
             },
             url: '<?=$domaine?>/controle/prix',
             dataType: 'json',
             success: function(data){
-                $('.my_prix').html(data.my_prix);
+                $('#montant').val(data.my_prix);
             }
         });
     }
@@ -170,7 +172,7 @@ include_once $layout.'/auth/header.php'?>
 
     $("select.select-maison").change(function() {
         var maison = $(this).children("option:selected").val();
-        chargePrix();
+        chargePrix(maison);
     });
 
     $("select.select-transac").change(function() {
@@ -290,7 +292,7 @@ include_once $layout.'/auth/header.php'?>
             e.preventDefault();
             $value = $(this);
             $(".loaderBtnPay").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
-            $.post('<?=$domaine?>/controle/tresorerie.save', $value.serialize(), function (data) {
+            $.post('<?=$domaine?>/controle/location.tresorerie.save', $value.serialize(), function (data) {
 //                alert(data);
                 if(data == 'ok'){
 

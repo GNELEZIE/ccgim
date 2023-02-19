@@ -9,13 +9,14 @@ class Tresorerie
 
     //Create
 
-    public function addOperation($dateOperation,$idUser,$typeOp,$libelle,$debit,$credit){
-        $query = "INSERT INTO tresorerie(date_tresorerie,user_id ,type_transac,libelle_transac,debit_transac,credit_transac,ref_paiement)
-            VALUES (:dateOperation,:idUser,:typeOp,:libelle,:debit,:credit,:refPaiement)";
+    public function addOperation($dateOperation,$idUser,$lgtsId,$typeOp,$libelle,$debit,$credit){
+        $query = "INSERT INTO tresorerie(date_tresorerie,user_id ,lgts_id,type_transac,libelle_transac,debit_transac,credit_transac,ref_paiement)
+            VALUES (:dateOperation,:idUser,:lgtsId,:typeOp,:libelle,:debit,:credit,:refPaiement)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "dateOperation" => $dateOperation,
             "idUser" => $idUser,
+            "lgtsId" => $lgtsId,
             "typeOp" => $typeOp,
             "libelle" => $libelle,
             "debit" => $debit,

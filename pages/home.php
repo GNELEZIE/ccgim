@@ -203,7 +203,7 @@ include_once $layout.'/header.php'
                                         ?>
                                         <div class="item  position-relative">
                                             <a href="<?=$domaine?>/logements/<?=$listData['slug_lgt']?>">
-                                                <img src="<?=$cdn_domaine?>/media/lgts/<?=$galDatas['photo']?>" alt="<?=$galDatas['photo']?>" />
+                                                <img src="<?=$cdn_domaine?>/media/lgts/<?=$galDatas['photo']?>" class="cover-img-200" alt="<?=$galDatas['photo']?>" />
                                             </a>
                                         </div>
                                     <?php

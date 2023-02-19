@@ -1135,7 +1135,11 @@ label {
 .register-page .cd-form .hide-password {
     top: 74% !important;
 }
-
+.cover-img-200{
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+}
 
 @media(max-width: 767px) {
     .cd-form input.has-padding {
