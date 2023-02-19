@@ -45,6 +45,17 @@ class Tresorerie
         return $rs;
     }
 
+    public function getPaiementByUserIdJoin($userId){
+        $query = "SELECT * FROM tresorerie
+         INNER JOIN location ON location.user_id = tresorerie.user_id
+        WHERE tresorerie.user_id  =:userId  ORDER BY id_tresorerie DESC";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "userId" => $userId
+        ));
+
+        return $rs;
+    }
     public function getPaiementByUserId($userId){
         $query = "SELECT * FROM tresorerie
         WHERE user_id  =:userId  ORDER BY id_tresorerie DESC";

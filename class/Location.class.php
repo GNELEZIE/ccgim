@@ -38,6 +38,16 @@ class Location
         $rs = $this->bdd->query($query);
         return $rs;
     }
+    public function getLocationByLgts($userId){
+        $query = "SELECT * FROM location
+        INNER JOIN logement ON id_logement = lgt_id
+          WHERE user_id =:userId";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "userId" => $userId
+        ));
+        return $rs;
+    }
     public function getLocationById($userId){
         $query = "SELECT * FROM location
           WHERE user_id =:userId";

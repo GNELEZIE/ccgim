@@ -33,6 +33,17 @@ include_once $layout.'/auth/header.php'?>
                                 <a class="btn-add-payer" href="#" data-toggle="modal"  data-target="#payerModalCenter"> <i class="fa fa-plus"></i> Ajouter un paiment</a>
                             </div>
                             <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <div class="ts-box-green mt30">
+                                    <div class="icon">
+                                        <i class="fa fa-wallet myicon-trend my-icon-dashboard-green"></i>
+                                    </div>
+                                    <div class="nbLgt">
+                                        <h2 class="my_solde"></h2>
+                                        <p>Solde total</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="pc-none position-relative">
                             <h3 class="titre-mobile">Liste des paiements</h3>
@@ -56,7 +67,8 @@ include_once $layout.'/auth/header.php'?>
                                 <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Maison</th>
+                                    <th>Téléphone</th>
+                                    <th>Nom</th>
                                     <th>Libellé</th>
                                     <th>Montant</th>
                                     <th>Action</th>
@@ -93,14 +105,14 @@ include_once $layout.'/auth/header.php'?>
                         </select>
                     </div>
                     <div class="form-group locataire-input remove-none">
-                        <label for="maison" class="pt13">Maison <i class="required"></i></label>
-                        <select class="wide form-control input-style input-height select-maison" name="maison" id="maison" required>
-                            <option value="" selected>Choisir une maison</option>
+                        <label for="locataire" class="pt13">Locataire <i class="required"></i></label>
+                        <select class="wide form-control input-style input-height select-locataire" name="locataire" id="locataire" required>
+                            <option value="" selected>Choisir locataire</option>
                             <?php
-                            $listLoc = $location->getLocationByLgts($_SESSION['_ccgim_201']['id_utilisateur']);
+                            $listLoc = $locataire->getAllLocataire();
                             while($dataLocataire = $listLoc->fetch()){
                             ?>
-                            <option value="<?=$dataLocataire['id_logement']?>"><?=html_entity_decode(stripslashes($dataLocataire['nom_lgt'])).'('.$dataLocataire['quartier_lgt'].')'?></option>
+                            <option value="<?=$dataLocataire['id_locataire']?>"><?=html_entity_decode(stripslashes($dataLocataire['nom'])).' '.html_entity_decode(stripslashes($dataLocataire['prenom'])).'('.$dataLocataire['phone'].')'?></option>
                             <?php
                             }
                             ?>
@@ -110,9 +122,13 @@ include_once $layout.'/auth/header.php'?>
                         <label for="libelle" class="pd15">Libellé</label>
                         <input type="text" class="form-control input-style input-height" name="libelle" id="libelle" placeholder="Libellé" required>
                     </div>
-                    <div class="my_prix"></div>
-                    <div class="form-group ">
-
+                    <div class="form-group">
+                        <label for="montant" >Montant <i class="required"></i></label>
+                        <input type="text" class="form-control input-style input-height" name="montant" id="montant" placeholder="Montant" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="dts" >Date de paiement <i class="required"></i></label>
+                        <input type="date" class="form-control input-style input-height" name="dts" id="dts" placeholder="Date" required/>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -126,7 +142,7 @@ include_once $layout.'/auth/header.php'?>
 </div>
 
 
-<?php include_once $layout.'/footer.php'?>
+<?php include_once $layout.'/auth/footer.php'?>
 <script>
 
     var searchBtn = $('.searchBtn');
@@ -151,27 +167,8 @@ include_once $layout.'/auth/header.php'?>
 
 </script>
 <script>
-    chargePrix();
-    function chargePrix(){
-        $.ajax({
-            type: 'post',
-            data: {
-                token: "<?=$token?>"
-            },
-            url: '<?=$domaine?>/controle/prix',
-            dataType: 'json',
-            success: function(data){
-                $('.my_prix').html(data.my_prix);
-            }
-        });
-    }
     var table_tresorerie;
     var table_tresorerie_mobile;
-
-    $("select.select-maison").change(function() {
-        var maison = $(this).children("option:selected").val();
-        chargePrix();
-    });
 
     $("select.select-transac").change(function() {
         var locataire = $(this).children("option:selected").val();
@@ -189,7 +186,7 @@ include_once $layout.'/auth/header.php'?>
 
     $(document).ready(function() {
         $('#type_transac').niceSelect();
-        $('#maison').niceSelect();
+        $('#locataire').niceSelect();
         $('#payerModalCenter').on('show.bs.modal', function (e) {
             var userId = $(e.relatedTarget).data('id');
             var userName = $(e.relatedTarget).data('name');
@@ -284,8 +281,6 @@ include_once $layout.'/auth/header.php'?>
                 }
             });
         }
-
-
         $('#formPayer').submit(function(e){
             e.preventDefault();
             $value = $(this);

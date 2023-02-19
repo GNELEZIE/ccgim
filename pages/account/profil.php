@@ -97,7 +97,7 @@ include_once $layout.'/auth/header.php'?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="postale">Boîte postale</label>
-                                        <input class="full-width has-padding has-border" name="postale" id="postale" type="text" value="<?=html_entity_decode(stripslashes($data['postale']))?>" placeholder="Boîte postale" required>
+                                        <input class="full-width has-padding has-border" name="postale" id="postale" type="text" value="<?=html_entity_decode(stripslashes($data['postale']))?>" placeholder="Boîte postale">
                                     </div>
                                 </div>
                             </div>
@@ -105,13 +105,13 @@ include_once $layout.'/auth/header.php'?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="banque">Banque et N° de compte</label>
-                                        <input class="full-width has-padding has-border" name="banque" id="banque" type="text" value="<?=html_entity_decode(stripslashes($data['banque']))?>" placeholder="Banque et N° de compte" required>
+                                        <input class="full-width has-padding has-border" name="banque" id="banque" type="text" value="<?=html_entity_decode(stripslashes($data['banque']))?>" placeholder="Banque et N° de compte">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="" for="contribuable">N° compte contribuable</label>
-                                        <input class="full-width has-padding has-border" name="contribuable" id="contribuable" type="text" value="<?=html_entity_decode(stripslashes($data['contribuable']))?>" placeholder="N° compte contribuable" required>
+                                        <input class="full-width has-padding has-border" name="contribuable" id="contribuable" type="text" value="<?=html_entity_decode(stripslashes($data['contribuable']))?>" placeholder="N° compte contribuable">
                                     </div>
                                 </div>
                             </div>
