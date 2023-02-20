@@ -37,6 +37,9 @@
                                     <a href="<?=$domaine?>/logements" class="<?= page_active('logements') ;?>">Logements</a>
                                 </li>
                                 <li>
+                                    <a href="#" class="<?= page_active('techniciens') ;?>">Techniciens</a>
+                                </li>
+                                <li>
                                     <a href="<?=$domaine?>/contacts" class="<?= page_active('contacts') ;?>">Contacts</a>
                                 </li>
                                 <li>

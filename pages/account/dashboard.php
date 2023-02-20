@@ -36,8 +36,33 @@ include_once $layout.'/auth/header.php'?>
                 <div class="bg-white-color p30">
 
                     <?php
-                    if($data['type_compte'] != 1){
+                    if($data['type_compte'] == 2){
                         ?>
+                        <div class="row">
+                            <div class="col-md-3 m5">
+                                <div class="ts-box-red mb10">
+                                    <div class="icon">
+                                        <i class="fa fa-arrow-trend-down myicon-trend my-icon-dashboard-red"></i>
+                                    </div>
+                                    <div class="nbLgt">
+                                        <h2><?=number_format($Allcredit['solde'],0,',',' ')?> <small>FCFA</small></h2>
+                                        <p>Depense total</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 m5">
+                                <div class="ts-box-green mb10">
+                                    <div class="icon">
+                                        <i class="fa fa-wallet myicon-trend my-icon-dashboard-green"></i>
+                                    </div>
+                                    <div class="nbLgt">
+                                        <h2><?=$my_solde?></h2>
+                                        <p>Solde total</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="hist">
                             <h3>Les derniers versements</h3>
                             <table class="table-striped  pc-none">
@@ -103,7 +128,7 @@ include_once $layout.'/auth/header.php'?>
                             </table>
                         </div>
                     <?php
-                    }else{
+                    }elseif($data['type_compte'] == 1){
                         ?>
                         <div class="hist">
                             <h3>Mes derniers versements</h3>
@@ -131,6 +156,11 @@ include_once $layout.'/auth/header.php'?>
                                 </tbody>
                             </table>
                         </div>
+                    <?php
+                    }else{
+                        ?>
+
+
                     <?php
                     }
                     ?>
