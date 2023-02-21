@@ -32,6 +32,29 @@ class Location
     }
 
 //Read
+
+
+    public function getLocationByAuthId($userId){
+        $query = "SELECT * FROM location
+                  INNER JOIN logement ON id_logement = lgt_id
+                  WHERE utilisateur_id =:userId ORDER BY id_location DESC";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "userId" => $userId
+        ));
+
+        return $rs;
+    }
+
+
+
+
+
+
+
+
+
+
     public function getAllLocataire(){
         $query = "SELECT * FROM locataire
           WHERE statut = 0 ORDER BY id_locataire DESC ";

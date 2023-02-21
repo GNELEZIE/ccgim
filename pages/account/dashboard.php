@@ -4,13 +4,11 @@ if(!isset($_SESSION['_ccgim_201'])){
     exit();
 
 }
-$annee = date('Y');
-$mois = date('m');
-$debitMois = $tresorerie->getPaiementMontByMonth($annee,$mois)->fetch();
-$creditMois = $tresorerie->getRetraitMontByMonth($annee,$mois)->fetch();
-$Allcredit = $tresorerie->getAllCredit()->fetch();
-$montant = $tresorerie->getSoldeTotal()->fetch();
+
+$Allcredit = $tresorerie->getAllCreditByProprietaire($_SESSION['_ccgim_201']['id_utilisateur'])->fetch();
+$montant = $tresorerie->getSoldeTotalByProprietaire($_SESSION['_ccgim_201']['id_utilisateur'])->fetch();
 $my_solde = number_format($montant['solde'],0 ,' ',' ').' <small>FCFA</small>';
+
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
@@ -74,16 +72,17 @@ include_once $layout.'/auth/header.php'?>
                                 </thead>
                                 <tbody>
                                 <?php
-                                $localist = $tresorerie->getCinqPaiement();
+                                $localist = $tresorerie->getCinqPayByUserId($_SESSION['_ccgim_201']['id_utilisateur']);
                                 while($localDat = $localist->fetch()){
+                                    $lsiteUsers = $utilisateur->getUtilisateurById($localDat['user_id'])->fetch();
                                     ?>
                                     <tr>
                                         <td class="w100">
                                             <div class="d-flex">
                                                 <div class="w70">
                                                     <p class="m-0"> <i class="fa fa-dashboard"></i> <?=date_time_fr($localDat['date_tresorerie'])?></p>
-                                                    <p class="m-0"><i class="fa fa-phone"></i>  <?=$localDat['phone']?></p>
-                                                    <p class="m-0"> <i class="fa fa-user"></i> <?=html_entity_decode(stripslashes($localDat["nom"])).' '.html_entity_decode(stripslashes($localDat["prenom"]))?></p>
+                                                    <p class="m-0"> <i class="fa fa-phone"></i>  <?=$lsiteUsers['phone']?></p>
+                                                    <p class="m-0"> <i class="fa fa-user"></i> <?=html_entity_decode(stripslashes($lsiteUsers["nom"])).' '.html_entity_decode(stripslashes($lsiteUsers["prenom"]))?></p>
                                                 </div>
                                                 <div class="w30">
                                                     <?=number_format($localDat['debit_transac'],0,',',' ')?> FCFA
@@ -110,14 +109,15 @@ include_once $layout.'/auth/header.php'?>
                                 </thead>
                                 <tbody>
                                 <?php
-                                $localist = $tresorerie->getCinqPaiement();
+                                $localist = $tresorerie->getCinqPayByUserId($_SESSION['_ccgim_201']['id_utilisateur']);
                                 while($localDat = $localist->fetch()){
+                                    $lsiteUsers = $utilisateur->getUtilisateurById($localDat['user_id'])->fetch();
                                     ?>
                                     <tr>
                                         <td><?=date_time_fr($localDat['date_tresorerie'])?></td>
-                                        <td><?=$localDat['phone']?></td>
+                                        <td><?=$lsiteUsers['phone']?></td>
                                         <td>
-                                            <p class="m-0"><?=html_entity_decode(stripslashes($localDat["nom"])).' '.html_entity_decode(stripslashes($localDat["prenom"]))?></p>
+                                            <p class="m-0"><?=html_entity_decode(stripslashes($lsiteUsers["nom"])).' '.html_entity_decode(stripslashes($lsiteUsers["prenom"]))?></p>
                                         </td>
                                         <td class="text-right"><?=number_format($localDat['debit_transac'],0,',',' ')?></td>
                                     </tr>

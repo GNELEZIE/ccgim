@@ -48,7 +48,15 @@ class Utilisateur
 //Read
 
 
-
+    public function getLocataireBySlug($slg){
+        $query = "SELECT * FROM utilisateur
+          WHERE  slug =:slg";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "slg" => $slg
+        ));
+        return $rs;
+    }
     public function getUtilisateurByEmail($email){
 
         $query = "SELECT * FROM utilisateur

@@ -34,6 +34,30 @@ class Tresorerie
 
 
 //Read
+    public function getPaiementHistoByUser($userId){
+        $query = "SELECT * FROM tresorerie
+        WHERE user_id =:userId
+        ORDER BY id_tresorerie DESC";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "userId" => $userId
+        ));
+
+        return $rs;
+    }
+
+    public function getCinqPayByUserId($userId){
+        $query = "SELECT * FROM tresorerie
+                  INNER JOIN logement ON id_logement = lgts_id
+                  WHERE  utilisateur_id =:userId ORDER BY id_tresorerie DESC LIMIT 5";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "userId" => $userId
+        ));
+
+        return $rs;
+    }
+
 
     public function getCinqPaiementByUserId($userId){
         $query = "SELECT * FROM tresorerie
@@ -114,12 +138,40 @@ class Tresorerie
 
 
 //Count
+    public function getSoldeTotalByProprietaire($propId){
+        $query = "SELECT SUM(debit_transac) - SUM(credit_transac) as solde FROM tresorerie
+                   INNER JOIN logement ON id_logement = lgts_id
+                  WHERE utilisateur_id =:propId";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "propId" => $propId
+        ));
+
+        return $rs;
+    }
+
+
+    public function getAllCreditByProprietaire($propId){
+        $query = "SELECT SUM(credit_transac) as solde FROM tresorerie
+                  INNER JOIN logement ON id_logement = lgts_id
+                  WHERE utilisateur_id =:propId";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "propId" => $propId
+        ));
+
+        return $rs;
+    }
+
+
+
+
+
     public function getSoldeTotal(){
         $query = "SELECT SUM(debit_transac) - SUM(credit_transac) as solde FROM tresorerie";
         $rs = $this->bdd->query($query);
         return $rs;
     }
-
     // Autre
 
     public function getPaiementMontByMonth($annee,$mois){
@@ -144,6 +196,9 @@ class Tresorerie
 
         return $rs;
     }
+
+
+
     public function getAllCredit(){
         $query = "SELECT SUM(credit_transac) as solde FROM tresorerie";
         $rs = $this->bdd->query($query);

@@ -5,7 +5,7 @@ if(!isset($_SESSION['_ccgim_201'])){
 
 }
 if(isset($doc[2]) and !isset($doc[3])){
-$datLo = $utilisateur->getLocataireBySlug($doc[2]);
+$datLo = $locataire->getLocataireBySlug($doc[2]);
     if($dataLocat = $datLo->fetch()){
 
     }else{
@@ -115,7 +115,7 @@ include_once $layout.'/auth/header.php'?>
                                         </thead>
                                         <tbody>
                                         <?php
-                                        $listePay = $tresorerie->getPaiementByUser($dataLocat['id_utilisateur']);
+                                        $listePay = $tresorerie->getPaiementByUser($dataLocat['id_locataire']);
                                         while($listePayData = $listePay->fetch()){
                                             ?>
                                             <tr>
@@ -153,7 +153,7 @@ include_once $layout.'/auth/header.php'?>
                                         </thead>
                                         <tbody>
                                         <?php
-                                        $listePay = $tresorerie->getPaiementHistoByUser($dataLocat['id_utilisateur']);
+                                        $listePay = $tresorerie->getPaiementByUser($dataLocat['id_locataire']);
                                         while($listePayData = $listePay->fetch()){
                                             ?>
 
@@ -256,7 +256,7 @@ include_once $layout.'/auth/header.php'?>
                                 <select class="wide form-control input-style input-height40" name="lgt" id="lgt">
                                     <option  selected>Choisir un logement</option>
                                     <?php
-                                    $list =  $logement->getLogementByUserId($_SESSION['_ccgim_201']['id_utilisateur']);
+                                    $list =  $logement->getAllLgts();
                                     while($datLgts = $list->fetch()){
                                         ?>
                                         <option value="<?=$datLgts['id_logement']?>"><?=html_entity_decode(stripslashes($datLgts['nom_lgt']))?></option>
@@ -318,7 +318,7 @@ include_once $layout.'/auth/header.php'?>
 </div>
 
 
-<?php include_once $layout.'/footer.php'?>
+<?php include_once $layout.'/auth/footer.php'?>
 <script>
        var mySearch = $('.mySearch');
        var searchBtn = $('.searchBtn');

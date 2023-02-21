@@ -38,6 +38,20 @@ class Logement{
 
     //Read
 
+    public function getLogementByUserId($idUsr){
+        $query = "SELECT * FROM logement
+        WHERE utilisateur_id = :idUsr";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "idUsr" => $idUsr
+        ));
+        return $rs;
+    }
+
+
+
+
+
     public function getLogementById($idLogt){
         $query = "SELECT * FROM logement
         WHERE id_logement = :idLogt";
