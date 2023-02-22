@@ -8,6 +8,31 @@ class Utilisateur
     }
 
     //Create
+    public function addLocataire($userDate,$email,$slug,$lgt,$nom,$prenom,$isophone,$dialPhone,$phone,$mot_de_passe,$typeCompte){
+        $query = "INSERT INTO utilisateur(date_utilisateur,email,slug,nom,prenom,iso_phone,dial_phone,phone,mot_de_passe,type_compte)
+            VALUES (:userDate,:email,:slug,:lgt,:nom,:prenom,:isophone,:dialPhone,:phone,:mot_de_passe,:typeCompte)";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "userDate" => $userDate,
+            "email" => $email,
+            "slug" => $slug,
+            "lgt" => $lgt,
+            "nom" => $nom,
+            "prenom" => $prenom,
+            "isophone" => $isophone,
+            "dialPhone" => $dialPhone,
+            "phone" => $phone,
+            "mot_de_passe" => $mot_de_passe,
+            "typeCompte" => $typeCompte
+        ));
+        $nb = $rs->rowCount();
+        if($nb > 0){
+            $r = $this->bdd->lastInsertId();
+            return $r;
+        }
+    }
+
+
     public function addUtilisateur($userDate,$email,$mot_de_passe,$typeCompte){
         $query = "INSERT INTO utilisateur(date_utilisateur,email,mot_de_passe,type_compte)
             VALUES (:userDate,:email,:mot_de_passe,:typeCompte)";

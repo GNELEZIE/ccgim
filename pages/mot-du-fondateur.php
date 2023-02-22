@@ -6,7 +6,7 @@ include_once $layout.'/header.php'
     <div class="container-fuild bg-lgts">
         <div class="container">
             <h2 class="title-search" data-in="slideDown" data-out="slideUp" data-duration="500" data-delay="200">
-               Qui sommes nous ?
+                Mot du fondateur et gérant
             </h2>
         </div>
     </div>
@@ -16,7 +16,7 @@ include_once $layout.'/header.php'
                 <div class="row">
                     <div class="col-md-12">
                         <div class="heading-content-one border">
-                            <h2 class="title font-30 wow slideInLeft">Présentation</h2>
+                            <h2 class="title font-30 wow slideInLeft"> BAGAYOGO Amadou </h2>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ include_once $layout.'/header.php'
                                 Nous sommes à votre service pour vous aider à trouver la meilleure solution pour votre projet immobilier. N'hésitez pas à nous contacter pour toute question ou demande de renseignement.
                                 Notre expertise pour tout projet de l'immobilier sur le marché en Côte d’ivoire (Étude du marché, choix du site, type de logement, type de clientèle et évaluation des loyers...) justifie notre notoriété au-delà de nos frontières. Nos activités principales s’articulent autour de de :
                             </p>
-                                <ul class="wow slideInLeft">
+                            <ul class="wow slideInLeft">
                                 <li>Construction</li>
                                 <li>Achat et vente de terrains et de maisons</li>
                                 <li> Location (bail administratif ou bail civil)</li>
@@ -39,7 +39,7 @@ include_once $layout.'/header.php'
                                 <li>Répertoire de location des matériels et engins de BTP</li>
 
 
-                                </ul>
+                            </ul>
 
                             <p class="wow slideInLeft">Mais aussi des activités bureautiques susmentionnées :</p>
                             <ul class="wow slideInLeft">
@@ -57,7 +57,7 @@ include_once $layout.'/header.php'
                     </div>
                     <div class="col-md-4">
                         <div class="image-content wow slideInRight">
-                            <img src="<?=$cdn_domaine?>/assets/images/about-image.png" alt="about" />
+                            <img src="<?=$cdn_domaine?>/media/dg.jpeg" alt="about" />
                         </div>
                     </div>
 

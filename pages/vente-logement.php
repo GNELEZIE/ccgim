@@ -24,8 +24,14 @@ include_once $layout.'/header.php'
                                 <img src="<?=$cdn_domaine?>/media/vm.jpg" class="show-service-img" alt="blog" />
                             </figure>
                             <div class="entry-content">
-                                <p>Adipiscing elit commodo ligula eget dolor Morlem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commod ligula eget dolor Cum sociis natoque penatibus et magnis dis parturient montes. Morlem ipsum dolor sit amet nec penatib et magnis dis parturient montes. Morlem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commodo ligulaits eget dolor. Aenean massa. Cum sociis nato que pena tibus et magnis dis partu rient montes. Morlem ipsum dolor set amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
-                                <p>.Nommodo ligula eget dolor Morlem ipsum dolor sit amet nec, conse ctetuer adipi-scing elit. Aenean commod ligula eget dolor Cum sociis natoque penatibus et magnis dis parturient montes. Morlem ipsum dolor sit amet nec penatib et magnis dis parturient montes. Morlem ipstium dolor sit amet nec, conse ctetuer adipiscing elit. Aenean commodo ligulaits eget is dolor. Aenean massa. Cum sociis nato que pena tibus et magnis dis partu rient montes. Morlem ipsum dolor set amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                <p>
+                                    Bienvenue sur notre site de vente de maisons ! Nous sommes une entreprise spécialisée dans la vente de maisons et nous proposons  une large gamme de maisons à vendre. Que vous recherchiez une maison à la campagne, une maison de ville ou une maison de luxe, nous avons ce qu'il vous faut.
+                                    Nous proposons des maisons à des prix abordables et nous offrons des services personnalisés pour vous aider à trouver la maison de vos rêves. Nous travaillons avec des agents immobiliers qualifiés qui peuvent vous aider à trouver la maison qui correspond à vos besoins et à votre budget.
+                                    Nous offrons également des services de financement pour vous aider à acheter votre maison grâce à nos partenaires financiers. Nous travaillons avec des institutions bancaires et micro-finances qui peuvent vous aider à obtenir le financement dont vous avez besoin pour acheter votre maison.
+                                    Nous sommes à votre disposition pour répondre à toutes vos questions et vous aider à trouver la maison de vos rêves. N'hésitez pas à nous contacter si vous avez des questions ou si vous souhaitez en savoir plus sur nos services. Nous sommes là pour vous aider à trouver la maison parfaite.
+
+                                </p>
+
                             </div>
                         </article>
                     </div>

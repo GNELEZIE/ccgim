@@ -8,8 +8,8 @@
                         </h3>
                     </div>
                     <div class="widget-about-content">
-                        <p>We Provide Premium Word Press, Ghost and HTML template. Our Perm tritium Templates is, develop gaped in a way so that the clients find  Support. Themes are developed in a way so that the clients find.</p>
-                        <a href="#" class="button">Voir plus</a>
+                        <p>Le Cabinet CCGIM est un cabinet de conseil en immobilier qui totalise plus de 10 ans d'expertise... <a href="<?=$domaine?>/a-propos" class="">Voir plus</a> </p>
+
                     </div>
             </div>
             <div class="col-md-4">

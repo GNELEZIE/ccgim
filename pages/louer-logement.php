@@ -24,8 +24,13 @@ include_once $layout.'/header.php'
                                 <img src="<?=$cdn_domaine?>/media/am.jpg" class="show-service-img" alt="blog" />
                             </figure>
                             <div class="entry-content">
-                                <p>Adipiscing elit commodo ligula eget dolor Morlem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commod ligula eget dolor Cum sociis natoque penatibus et magnis dis parturient montes. Morlem ipsum dolor sit amet nec penatib et magnis dis parturient montes. Morlem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commodo ligulaits eget dolor. Aenean massa. Cum sociis nato que pena tibus et magnis dis partu rient montes. Morlem ipsum dolor set amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
-                                <p>.Nommodo ligula eget dolor Morlem ipsum dolor sit amet nec, conse ctetuer adipi-scing elit. Aenean commod ligula eget dolor Cum sociis natoque penatibus et magnis dis parturient montes. Morlem ipsum dolor sit amet nec penatib et magnis dis parturient montes. Morlem ipstium dolor sit amet nec, conse ctetuer adipiscing elit. Aenean commodo ligulaits eget is dolor. Aenean massa. Cum sociis nato que pena tibus et magnis dis partu rient montes. Morlem ipsum dolor set amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                <p>
+                                    Vous cherchez une maison ou un appartement à Abidjan ou l’intérieur du pays pour une  location de longue ou courte durée ?  Soyez les bienvenus sur notre site. Nous mettons à votre disposition notre expertise avec du personnel qualifié pour satisfaire à toutes vos demandes.
+                                    Le cabinet CCGIM est reconnu pour son expertise dans la location de maisons en Côte d'Ivoire. Avec plus de 10 ans d'expérience, le cabinet CCGIM offre un service de qualité et des solutions personnalisées pour répondre aux besoins des clients. Le cabinet propose des maisons à louer dans les principales villes de Côte d'ivoire (Abidjan, Yamoussoukro, Bouaké, Daloa, Bassam, Bingerville,…), ainsi que des services de gestion locative et de conseil en immobilier. Le cabinet CCGIM s’engage à offrir un service de qualité et à trouver  la maison idéale pour chaque client en fonction de son budget.
+                                    Nous sommes fiers de vous offrir des services de qualité et des conseils professionnels pour vous aider à trouver la location de vos rêves. Notre équipe de professionnels expérimentés est prête à vous accompagner à chaque étape de votre projet. Nous sommes à votre disposition pour vous aider à trouver une réponse adéquate à vos besoins et à vos attentes. Nous sommes impatients de vous aider à réaliser votre rêve de propriété.
+
+                                </p>
+
                             </div>
                         </article>
                     </div>

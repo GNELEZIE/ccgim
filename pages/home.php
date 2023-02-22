@@ -80,13 +80,11 @@ include_once $layout.'/header.php'
                 <div class="col-md-6">
                     <div class="text-content">
                         <p class="wow slideInLeft">
-                            Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl.
-                            Cras etitikis mauris egeth lorem ultricies ferme is ntum a inti diam. Morbi mollis pellden tesque offs aiug ueia nec rhoncus.
-                            Nam ute ultricies. Cras etitikis mauris eget lorem ultricies ferme ntum a inti diam. Morbi mollis pellen tesque offs aiug
-                            ueia nec rhoncus. Nam ute ultricies.  Amorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl.
-                            Cras etitikis mauris egeth lorem ultricies ferme is ntum a inti diam. Morbi mollis pellden tesque offs aiug ueia nec rhoncus.
-                            Nam ute ultricies. Cras etitikis mauris eget lorem ultricies ferme ntum a inti diam. Morbi mollis pellen tesque offs aiug
-                            ueia nec rhoncus. Nam ute ultricies.
+                            Le Cabinet CCGIM est un cabinet de conseil en immobilier qui totalise plus de 10 ans d'expertise. Nous sommes spécialisés dans l’accompagnement des locataires en quête de logement de leur rêve et des propriétaires dans leurs projets immobiliers.
+                            Nous proposons des services complets et personnalisés pour répondre aux besoins de nos clients. Nous sommes à l’écoute de leurs attentes  et nous nous engageons à leur fournir  des solutions adaptées à leurs objectifs.
+                            Nous sommes fiers de notre expertise et de notre savoir-faire. Notre équipe composée de professionnels qualifiés et expérimentés qui sont à votre disposition pour vous accompagner dans tous vos projets immobiliers.
+                            Nous sommes à votre service pour vous aider à trouver la meilleure solution pour votre projet immobilier. N'hésitez pas à nous contacter pour toute question ou demande de renseignement.
+
                         </p>
                         <div class="py-3  wow slideInLeft">
                             <a href="<?=$domaine?>/a-propos" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
@@ -121,7 +119,48 @@ include_once $layout.'/header.php'
         </div>
     </div>
 </div>
+<div class="container-fluid">
+    <div class="aboutus-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading-content-one border">
+                        <h2 class="title font-30 wow slideInLeft">Mot du fondateur et gérant   </h2>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-content">
+                        <p class="wow slideInLeft">
+                            Je suis particulièrement heureux, en ma qualité de gérant du Cabinet …….de vous souhaiter à tous la bienvenue sur notre site web www.cabinet-ccgim.com . Je voudrais saisir par la même occasion, l’opportunité que nous offrent les moyens multimédias de communication dont l’internet de toucher le public cible (propriétaires, locataires, investisseurs,…) en mettant en exergue notre expertise et transparence dans la gestion immobilière.
+                        </p>
+                        <p class="wow slideInLeft">
+                            En effet, le CCGIM est le fruit de 12 ans de gestion des baux administratifs de la Marine Nationale. Nous faisons la promotion des baux administratifs. Notre particularité ? C’est la transparence, la fiabilité et la sincérité dans la gestion immobilière.
+                        </p>
+                        <p class="wow slideInLeft">
+                            Nous innovons en mettant à la disposition du propriétaire à la fin de chaque mois les relevés des paiements de ses baux administratifs et les fiches des encaissements par quartier de ses locataires. De sorte qu’il suive ‘’mois par mois’’ le rendement de son investissement.
+                        </p>
+                        <p class="wow slideInLeft">
+                            Le recouvrement des loyers avec les locataires se fait dans le strict respect de la dignité des locataires. Le CCGIM n’encaisse pas les locataires à domicile, librement et en toute discrétion, le locataire paie son loyer par versement sur les comptes bancaires du CCGIM ou par dépôt mobile money sur nos comptes.
+                        </p>
+                        <div class="text-center py-3">
+                            <a href="<?=$domaine?>/mot-du-fondateur" class="a-service">En savoir plus <i class="fa fa-arrow-right"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="image-content wow slideInRight">
+                        <img src="<?=$cdn_domaine?>/media/dg.jpeg" alt="about" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid bg-services">
     <div class="container">
         <div class="row row-service">

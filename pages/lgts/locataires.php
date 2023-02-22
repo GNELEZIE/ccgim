@@ -290,12 +290,8 @@ include_once $layout.'/auth/header.php'?>
                   </div>
                   <div class="col-md-6">
                       <div class="form-group">
-                          <label for="bail" >N° Bail</label>
-                          <select class="wide form-control input-style input-height40" name="bail" id="bail">
-                              <option  selected>Choisir une N° Bail</option>
-                              <option value="Complement bail">Complement bail</option>
-                              <option value="Bouake">Policier</option>
-                          </select>
+                          <label for="email" >Email</label>
+                          <input class="form-control input-style input-height40" name="email" id="email" type="email"  placeholder="Email" required>
                       </div>
                   </div>
                   <!--<div class="col-md-12">
@@ -353,6 +349,7 @@ include_once $layout.'/auth/header.php'?>
     var table_historique_mobile;
     $(document).ready(function() {
 
+
         $('#formAddLocataire').submit(function(e){
             e.preventDefault();
             $(".loaderAddBtn").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
@@ -369,13 +366,15 @@ include_once $layout.'/auth/header.php'?>
                 success: function(data){
                     if(data == 'ok'){
                         $(".loaderAddBtn").html('');
-                        $('#bail').val('');
-                        $('#phone').val('');
+                        $('#email').val('');
                         $('#noms').val('');
                         $('#prenom').val('');
                         table_locataire.ajax.reload(null,false);
                         swal("Le locataire a été ajouté avec succès!","", "success");
-                    }else{
+                    }else if(data == '1'){
+                        swal("Email existe déjà !", "Vous ne pouvez plus utiliser cet email !", "error");
+                    }
+                    else{
                         swal("Action Impossible !", "Une erreur s\'est produite.", "error");
                     }
                 },
@@ -384,6 +383,10 @@ include_once $layout.'/auth/header.php'?>
                 }
             });
         });
+
+
+
+
         $('#formPayer').submit(function(e){
             e.preventDefault();
             $(".loadPay").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
