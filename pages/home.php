@@ -112,7 +112,7 @@ include_once $layout.'/header.php'
             </div>
             <div class="col-md-6 col-sm-6 tb-cell">
                 <div class="contact-right-content  wow slideInRight">
-                    <h4><a href="#">00225 00 00 00 00 00<span>support@ccigim.com</span></a></h4>
+                    <h4><a href="tel:002250707856528">+225 07 07 85 65 28<span>support@ccigim.com</span></a></h4>
                     <a href="<?=$domaine?>/contacts" class="button btn-register pdc">Contactez-nous</a>
                 </div>
             </div>
@@ -315,7 +315,7 @@ include_once $layout.'/header.php'
             </div>
             <div class="col-md-6 col-sm-6 tb-cell">
                 <div class="contact-right-content  wow slideInRight">
-                    <h4><a href="#">00225 00 00 00 00 00<span>support@ccigim.com</span></a></h4>
+                    <h4><a href="tel:002250703325924">+225 07 03 32 59 24<span>support@ccigim.com</span></a></h4>
                     <a href="<?=$domaine?>/contacts" class="button btn-register pdc">Contactez-nous</a>
                 </div>
             </div>
@@ -498,11 +498,11 @@ include_once $layout.'/header.php'
                         </div>
                         <div class="contact">
                             <h4 class="font-15"><i class="fa fa-envelope"></i>Mail</h4>
-                            <p>contact@ccgim.com support@ccgim.com</p>
+                            <p>support@ccgim.com</p>
                         </div>
                         <div class="contact">
                             <h4 class="font-15"><i class="fa fa-phone-square"></i>Téléphone</h4>
-                            <p>00225 00 00 00 00  <br/>00225 00 00 00 00 00</p>
+                            <p>+225 07 03 32 59 24 <br/>+225 07 07 85 65 28</p>
                         </div>
                         <div class="contact">
                             <h4 class="font-15"><i class="fa fa-user-circle"></i>Réseaux sociaux</h4>

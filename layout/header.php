@@ -1355,31 +1355,7 @@ include_once $layout.'/menu.php';
 <div class="header-overlay-content">
     <div class="overlay overlay-hugeinc gradient-transparent overlay-menu-item">
         <button type="button" class="overlay-close">Close</button>
-        <nav>
-            <ul class="overlay-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a>
-                    <ul class="sub-menu">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Work</a></li>
-                        <li><a href="#">Clients</a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Work</a></li>
-                                <li><a href="#">Clients</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Work</a></li>
-                <li><a href="#">Clients</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+
     </div>
 
 </div>

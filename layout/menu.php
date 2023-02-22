@@ -36,14 +36,15 @@
                                 <li>
                                     <a href="<?=$domaine?>/logements" class="<?= page_active('logements') ;?>">Logements</a>
                                 </li>
+
                                 <li>
-                                    <a href="#" class="<?= page_active('techniciens') ;?>">Techniciens</a>
+                                    <a href="<?=$domaine?>/connexion" class="<?= page_active('connexion') ;?>">Locataires</a>
+                                </li>
+                                <li>
+                                    <a href="<?=$domaine?>/connexion" class="<?= page_active('connexion') ;?>">Propriétaires </a>
                                 </li>
                                 <li>
                                     <a href="<?=$domaine?>/contacts" class="<?= page_active('contacts') ;?>">Contacts</a>
-                                </li>
-                                <li>
-                                    <a href="<?=$domaine?>/connexion" class="<?= page_active('connexion') ;?>">Espace client</a>
                                 </li>
                                 <?php
                                 if(isset($_SESSION['_ccgim_201'])){

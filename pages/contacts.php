@@ -23,12 +23,16 @@ include_once $layout.'/header.php'
                                 </div>
 
                                 <div class="contact">
-                                    <h4><i class="fa fa-envelope"></i>Email</h4>
-                                    <p>yourmail@gmail.com <br> houserentmail@gmail.com</p>
+                                    <h4 class="font-15"><i class="fa fa-map-marker"></i>Adresse</h4>
+                                    <p>Abidjan, Yopougon BAE</p>
                                 </div>
                                 <div class="contact">
-                                    <h4><i class="fa fa-volume-control-phone"></i>Téléphone</h4>
-                                    <p>225 0000000000 <br> 00000000</p>
+                                    <h4 class="font-15"><i class="fa fa-envelope"></i>Mail</h4>
+                                    <p>support@ccgim.com</p>
+                                </div>
+                                <div class="contact">
+                                    <h4 class="font-15"><i class="fa fa-phone-square"></i>Téléphone</h4>
+                                    <p>+225 07 03 32 59 24 <br/>+225 07 07 85 65 28</p>
                                 </div>
                                 <div class="contact">
                                     <h4><i class="fa fa-user"></i>Réseaux sociaux</h4>
