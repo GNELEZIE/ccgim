@@ -9,7 +9,7 @@
     <meta name="keywords" content="" />
     <meta name="author" content="">
     <title>CCGIM - <?=ucfirst($page)?></title>
-    <link rel="icon" type="image/png" href="<?=$cdn_domaine?>/media/house-logo.png">
+    <link rel="icon" type="image/png" href="<?=$cdn_domaine?>/media/log01.png">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/fonts/fonts.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/plugins.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/colors.css">

@@ -9,7 +9,7 @@
     <meta name="keywords" content="" />
     <meta name="author" content="">
     <title>CCGIM - <?=ucfirst($page)?></title>
-    <link rel="icon" type="image/png" href="<?=$cdn_domaine?>/media/house-logo.png">
+    <link rel="icon" type="image/png" href="<?=$cdn_domaine?>/media/log01.png">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/fonts/fonts.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/plugins.css">
     <link rel="stylesheet" href="<?=$cdn_domaine?>/assets/css/colors.css">
@@ -186,10 +186,16 @@
         .user-inscription{
             width: 100%;
             border: 0;
-            background: #18a3f4;
+            background: #278211;
             border-radius: 6px;
             font-size: 17px;
             padding: 9px;
+        }
+        .user-inscription:hover{
+            background: #2cdd11;
+        }
+        .text-gr{
+         color: #2cdd11 !important;
         }
 
         .loader-btn {
@@ -1036,7 +1042,7 @@
         .icon-check{
             width: 100px;
         }
-      .pagination>li>span {
+       .pagination>li>span {
             padding: 9px 12px !important;
         }
         .pagination-link ul li.active a {
@@ -1150,6 +1156,9 @@
         .myLogo{
             width: 81px;
         }
+        .myLogoAuth{
+            width: 100px;
+        }
         .p30{
             padding: 30px;
         }
@@ -1253,8 +1262,18 @@
         .site-logo a{
             padding: 0 !important;
         }
-
-
+        #formRegister, .form-group{
+           padding: 0 !important;
+        }
+        #formRegister{
+           padding: 20px !important;
+        }
+        #formRegister .nice-select {
+            line-height: 41px !important;
+        }
+        #formRegister.cd-form .hide-password {
+            top: 75% !important;
+        }
 
 
 
@@ -1298,6 +1317,10 @@
             #formRegister, .formForgot {
                 margin: 0 !important;
             }
+            #formRegister .form-content .form-group{
+                padding: 0 !important;
+            }
+
             .pc-none{
                 display: block;
             }

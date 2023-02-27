@@ -11,7 +11,7 @@ $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
 
 
-require_once $layout.'/auth/header.php';
+require_once $layout.'/auth/header2.php';
 ?>
 <div class="container-fluid py-5 bg-gray-color pd-section">
     <div class="container py-5">
