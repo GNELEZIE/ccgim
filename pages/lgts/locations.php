@@ -83,7 +83,7 @@ include_once $layout.'/auth/header.php'?>
 </div>
 
 
-<?php include_once $layout.'/footer.php'?>
+<?php include_once $layout.'/auth/footer.php'?>
 
 <script>
     var table_location;
@@ -157,8 +157,9 @@ include_once $layout.'/auth/header.php'?>
         $('#payerModalCenter').on('show.bs.modal', function (e) {
             var userId = $(e.relatedTarget).data('id');
             var userName = $(e.relatedTarget).data('name');
-            $('#userId').val(userId);
             $('#nom').html(userName);
+            $('#userId').val(userId);
+
 
         });
 

@@ -65,7 +65,7 @@ include_once $layout.'/auth/header.php'?>
                                 <tr>
                                     <th>Date</th>
                                     <th>Nom</th>
-                                    <th>Téléphone</th>
+                                    <th>Maison</th>
                                     <th>Paiement</th>
                                     <th>Action</th>
                                 </tr>
@@ -221,8 +221,9 @@ include_once $layout.'/auth/header.php'?>
                     </div>
                     <div class="form-group">
                         <label for="montant">Montant <i class="required"></i></label>
-                        <input type="text" class="form-control input-style input-height" name="montant" id="montant" placeholder="Montant" required/>
+                        <input type="text" class="form-control input-style input-height" name="montant" id="montant" placeholder="Montant" required disabled readonly/>
                         <input type="hidden" name="userId" id="userId"/>
+                        <input type="hidden" name="lgt_id" id="lgt_id"/>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -304,6 +305,7 @@ include_once $layout.'/auth/header.php'?>
               </div>
                 </div>
                 <div class="modal-footer">
+
                     <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">
                     <a href="javascript:void(0);" class="btn btn-red-transparent btn-closed" data-dismiss="modal">Annuler</a>
                     <button  class="btn btn-add-locataire"> <i class="loaderAddBtn"></i> <i class="fa fa-plus"></i> Ajouter</button>
@@ -449,17 +451,17 @@ include_once $layout.'/auth/header.php'?>
             $('#dialPhone').val(countryData["dialCode"]);
         });
 
-
         $('#payerModalCenter').on('show.bs.modal', function (e) {
             var userId = $(e.relatedTarget).data('id');
+            var lgt_id = $(e.relatedTarget).data('logt');
             var userName = $(e.relatedTarget).data('name');
-            $('#userId').val(userId);
+            var montant = $(e.relatedTarget).data('montant');
             $('#nom').html(userName);
+            $('#userId').val(userId);
+            $('#lgt_id').val(lgt_id);
+            $('#montant').val(montant);
 
         });
-
-
-
 
         table_locataire_mobile = $('#table_locataire_mobile').DataTable({
             "ajax": {

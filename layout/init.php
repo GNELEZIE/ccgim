@@ -23,6 +23,7 @@ include_once $function."/detectdevice/detect.php";
 include_once $function."/domaine.php";
 include_once $function."/mailing.php";
 include_once $function."/function.php";
+require_once $function."/cinetpay/src/new-guichet.php";
 // appelle des class
 include_once $class.'/Utilisateur.class.php';
 include_once $class.'/Logement.class.php';
